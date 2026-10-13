@@ -21,10 +21,18 @@ function eola_hills_prepare_template() {
             $id = wp_insert_attachment( array( 'post_title' => $item['title'], 'post_mime_type' => $mime, 'post_content' => $item['description'], 'post_status' => 'inherit' ), $upload['file'], 0, true );
             if ( is_wp_error( $id ) ) { return $id; }
             if ( strpos( $mime, 'image/' ) === 0 ) {
-                // Keep supplied plans intact; only derivative thumbnails are generated.
-                add_filter( 'big_image_size_threshold', '__return_false' );
-                $metadata = wp_generate_attachment_metadata( $id, $upload['file'] );
-                remove_filter( 'big_image_size_threshold', '__return_false' );
+                // Responsive files are prepared during the build, avoiding slow hosting resizes.
+                $dimensions = wp_getimagesize( $upload['file'] );
+                if ( ! $dimensions ) { return new WP_Error( 'media_dimensions', 'A supplied image could not be read.' ); }
+                $metadata = array( 'width' => $dimensions[0], 'height' => $dimensions[1], 'file' => _wp_relative_upload_path( $upload['file'] ), 'filesize' => filesize( $upload['file'] ), 'sizes' => array(), 'image_meta' => array() );
+                foreach ( $item['sizes'] ?? array() as $size_name => $size ) {
+                    $derivative = EOLA_HILLS_DIR . 'assets/media/responsive/' . basename( $size['file'] );
+                    if ( ! is_file( $derivative ) || ! hash_equals( $size['sha256'], hash_file( 'sha256', $derivative ) ) ) { return new WP_Error( 'media_integrity', 'A responsive photo failed its integrity check.' ); }
+                    $filename = pathinfo( $upload['file'], PATHINFO_FILENAME ) . '-' . $size['width'] . '.webp';
+                    $destination = dirname( $upload['file'] ) . '/' . $filename;
+                    if ( ! copy( $derivative, $destination ) ) { return new WP_Error( 'media_copy', 'A responsive photo could not be copied to the Media Library.' ); }
+                    $metadata['sizes'][$size_name] = array( 'file' => $filename, 'width' => $size['width'], 'height' => $size['height'], 'mime-type' => $size['mime-type'], 'filesize' => filesize( $destination ) );
+                }
                 wp_update_attachment_metadata( $id, $metadata );
             }
             update_post_meta( $id, '_wp_attachment_image_alt', $item['alt'] );
@@ -118,9 +126,9 @@ function eola_hills_admin() {
         <p>Open Elementor's Structure panel to find named sections. Header, footer, text, images, buttons, colours, typography and responsive spacing are native editable elements. Duplicate a page or save sections as Elementor templates for future pages.</p>
         <p>The bundled media, logos, amenities and floor plans are supplied by the client. The listed living area is 3,018 sq ft; the original floor plans show different totals. The professional video has not yet been supplied. Every media item is editable through the Media Library and Elementor.</p>
         <p>Tour buttons currently open Linda's email composer. Edit their links to use a booking destination if supplied. No emails are sent automatically.</p>
-        <p>The draft does not change your site's theme or homepage. After review, publish it and optionally select it in Settings &rarr; Reading as the homepage.</p>
+        <p>Existing pages retain their URL, status and homepage setting during migration. On a fresh site without a configured static homepage, the updater publishes this page and sets it as the homepage.</p>
         <h2>Code updates</h2>
-        <p>Install Eola Hills Updates to check and install GitHub releases from WordPress. Saved Elementor content stays in the database; a code update never recreates this page. Keep database and media backups separately.</p>
+        <p>Use Tools &rarr; Eola Hills Updates &rarr; Sync from GitHub. The updater installs the theme and automatically syncs changed client layouts and media, with a page backup first. Code-only changes preserve saved Elementor edits. Keep database and media backups separately.</p>
         <p>Analytics is not connected yet. Add the client-owned measurement setup when access and tracking preferences are available.</p>
     </div>
     <?php

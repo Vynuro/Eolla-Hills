@@ -35,5 +35,5 @@ jobs:
           if ! gh release view client-preview >/dev/null 2>&1; then
             gh release create client-preview --prerelease --target "$GITHUB_SHA" --title "Eola Hills WordPress preview" --notes "Editable Elementor property page and GitHub updater. Professional media and live account setup are pending."
           fi
-          gh release upload client-preview artifacts/*.zip artifacts/eola-hills-update.json --clobber
-          gh release edit client-preview --title "Eola Hills WordPress packages" --notes "Editable Elementor property page and GitHub updater, including supplied client photos, branding, amenities and original floor plans. Existing sites: install the code release, then use Eola Hills > Apply client content and keep a page backup. See docs/installation.md for update and restore instructions. Professional video and analytics setup remain pending."
+          gh release upload client-preview artifacts/*.zip artifacts/eola-hills-theme-update.json --clobber
+          gh release edit client-preview --title "Eola Hills theme + single GitHub updater" --notes "Install or replace Eola Hills Updates using its 2.x ZIP once. Then use Tools > Eola Hills Updates > Sync from GitHub. The updater installs the theme, migrates and retires the old property plugin with a backup, and automatically syncs changed Elementor content. No separate content-apply step. Real client photos, branding, amenities and original floor plans are included. See docs/installation.md."

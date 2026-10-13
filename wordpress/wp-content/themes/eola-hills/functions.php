@@ -1,21 +1,11 @@
 <?php
-/**
- * Plugin Name: Eola Hills Property
- * Description: An editable Elementor property landing page for Eola Hills.
- * Version: 1.3.1
- * Requires at least: 6.8
- * Requires PHP: 8.0
- * Requires Plugins: elementor
- * Author: Eola Hills
- * License: GPL-2.0-or-later
- * Update URI: https://github.com/malikazhar545/5eolahills
- * Text Domain: eola-hills
- */
+/** Eola Hills theme: native Elementor design and versioned client delivery. */
 defined( 'ABSPATH' ) || exit;
-define( 'EOLA_HILLS_VERSION', '1.3.1' );
-define( 'EOLA_HILLS_CONTENT_VERSION', 'client-2026-10-13-1' );
-define( 'EOLA_HILLS_DIR', plugin_dir_path( __FILE__ ) );
-define( 'EOLA_HILLS_URL', plugin_dir_url( __FILE__ ) );
+if ( function_exists( 'eola_hills_create_page' ) ) { return; } // Legacy migration completes on the next request.
+define( 'EOLA_HILLS_VERSION', '2.0.0' );
+define( 'EOLA_HILLS_CONTENT_VERSION', hash( 'sha256', file_get_contents( __DIR__ . '/templates/property.json' ) . file_get_contents( __DIR__ . '/assets/media/manifest.json' ) ) );
+define( 'EOLA_HILLS_DIR', trailingslashit( get_template_directory() ) );
+define( 'EOLA_HILLS_URL', trailingslashit( get_template_directory_uri() ) );
 require_once EOLA_HILLS_DIR . 'inc/setup.php';
 require_once EOLA_HILLS_DIR . 'inc/content-update.php';
 
@@ -85,3 +75,5 @@ add_action( 'admin_init', function () {
         update_option( 'eola_hills_code_version', EOLA_HILLS_VERSION );
     }
 } );
+
+add_action( 'after_setup_theme', function () { add_theme_support( 'title-tag' ); add_theme_support( 'post-thumbnails' ); add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) ); } );

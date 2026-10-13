@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib,json
 ROOT=Path(__file__).resolve().parents[1]
-PLUGIN=ROOT/'wordpress/wp-content/plugins/eola-hills'
+PLUGIN=ROOT/'wordpress/wp-content/themes/eola-hills'
 INK='#25232B'; PAPER='#FFFFFF'; SAND='#F5F5F8'; BLUE='#4B5598'; GREEN='#55A044'; MUTED='#64636D'; WHITE='#FFFFFF'; ICE='#ECEEF8'
 CLIENT_MEDIA=json.loads((PLUGIN/'assets/media/manifest.json').read_text(encoding='utf-8'))
 counter=0

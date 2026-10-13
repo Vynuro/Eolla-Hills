@@ -1,6 +1,6 @@
 <?php
 /** Directly reused from TAABEER Deployment Manager 1.0.1, GPL-2.0-or-later.
- * Package target adapted from a theme to the Eola Hills plugin. */
+ * Theme deployment retained for the Eola Hills theme. */
 defined( 'ABSPATH' ) || exit;
 trait Eola_Hills_Taabeer_Deployment {
 	private function encrypt_token( $token ) {
@@ -40,9 +40,9 @@ trait Eola_Hills_Taabeer_Deployment {
 		return '';
 	}
 
-	private function record_plugin_baseline( $version ) {
-		$directory = WP_PLUGIN_DIR . '/' . self::PACKAGE_SLUG;
-		$files     = $this->plugin_file_manifest( $directory );
+	private function record_theme_baseline( $version ) {
+		$directory = get_theme_root( self::THEME_SLUG ) . '/' . self::THEME_SLUG;
+		$files     = $this->theme_file_manifest( $directory );
 		if ( is_wp_error( $files ) ) {
 			return $files;
 		}
@@ -58,14 +58,14 @@ trait Eola_Hills_Taabeer_Deployment {
 		return true;
 	}
 
-	private function plugin_file_manifest( $directory ) {
+	private function theme_file_manifest( $directory ) {
 		if ( ! is_dir( $directory ) ) {
-			return new WP_Error( 'eola_hills_manifest_directory', __( 'The installed Eola Hills plugin directory could not be read.', 'eola-hills-updates' ) );
+			return new WP_Error( 'eola_hills_manifest_directory', __( 'The installed Eola Hills theme directory could not be read.', 'eola-hills-updates' ) );
 		}
 		$files    = array();
 		$iterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $directory, FilesystemIterator::SKIP_DOTS ) );
 		foreach ( $iterator as $file ) {
-			if ( $file->isLink() ) { return new WP_Error( 'symlink', 'Plugin directory contains a symlink.' ); }
+			if ( $file->isLink() ) { return new WP_Error( 'symlink', 'Theme directory contains a symlink.' ); }
 			if ( ! $file->isFile() ) {
 				continue;
 			}
@@ -76,7 +76,7 @@ trait Eola_Hills_Taabeer_Deployment {
 			}
 			$hash = hash_file( 'sha256', $path );
 			if ( false === $hash ) {
-				return new WP_Error( 'eola_hills_manifest_file', sprintf( __( 'The plugin file %s could not be read.', 'eola-hills-updates' ), $relative ) );
+				return new WP_Error( 'eola_hills_manifest_file', sprintf( __( 'The theme file %s could not be read.', 'eola-hills-updates' ), $relative ) );
 			}
 			$files[ $relative ] = $hash;
 		}
@@ -84,19 +84,19 @@ trait Eola_Hills_Taabeer_Deployment {
 		return $files;
 	}
 
-	private function find_local_plugin_conflicts( $package ) {
-		$theme = $this->installed_plugin();
+	private function find_local_theme_conflicts( $package ) {
+		$theme = wp_get_theme( self::THEME_SLUG );
 		if ( ! $theme->exists() ) {
 			return array();
 		}
 
 		$baseline = get_option( self::OPTION_BASELINE, array() );
 		if ( empty( $baseline['files'] ) || ! is_array( $baseline['files'] ) ) {
-			$recorded = $this->record_plugin_baseline( $theme->get( 'Version' ) );
+			$recorded = $this->record_theme_baseline( $theme->get( 'Version' ) );
 			return is_wp_error( $recorded ) ? $recorded : array();
 		}
 
-		$current = $this->plugin_file_manifest( $theme->get_stylesheet_directory() );
+		$current = $this->theme_file_manifest( $theme->get_stylesheet_directory() );
 		if ( is_wp_error( $current ) ) {
 			return $current;
 		}
@@ -115,7 +115,7 @@ trait Eola_Hills_Taabeer_Deployment {
 				continue;
 			}
 
-			$incoming = $zip->getFromName( self::PACKAGE_SLUG . '/' . $relative );
+			$incoming = $zip->getFromName( self::THEME_SLUG . '/' . $relative );
 			if ( null === $now ) {
 				if ( false !== $incoming ) {
 					$conflicts[] = $relative;
@@ -141,7 +141,7 @@ trait Eola_Hills_Taabeer_Deployment {
 		$iterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $source, FilesystemIterator::SKIP_DOTS ) );
 		foreach ( $iterator as $file ) {
 			$path = $file->getRealPath();
-			$zip->addFile( $path, self::PACKAGE_SLUG . '/' . substr( $path, strlen( $source ) + 1 ) );
+			$zip->addFile( $path, self::THEME_SLUG . '/' . substr( $path, strlen( $source ) + 1 ) );
 		}
 		$zip->close();
 		return $destination;

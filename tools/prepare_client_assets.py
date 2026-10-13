@@ -8,7 +8,7 @@ SOURCE=ROOT/'From client'
 DELIVERY=SOURCE/'9055-SE-Eola-Hills-Rd[3600]'
 PHOTOS=DELIVERY/'9055-SE-Eola-Hills-Rd'
 BRAND=DELIVERY/'Wine Country Properties Group'
-OUT=ROOT/'wordpress/wp-content/plugins/eola-hills/assets/media'
+OUT=ROOT/'wordpress/wp-content/themes/eola-hills/assets/media'
 OUT.mkdir(exist_ok=True)
 manifest={}
 

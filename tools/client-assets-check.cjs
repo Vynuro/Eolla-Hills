@@ -20,7 +20,7 @@ const fs=require('node:fs');
  const tab=page.locator('.eola-amenities .elementor-tab-title').nth(1);await tab.click();assert.equal(await tab.getAttribute('aria-expanded'),'true');
  const pdf=await page.locator('#amenities a[href$=".pdf"]').getAttribute('href');
  const res=await page.request.get(pdf);assert.equal(res.status(),200);
- const manifest=JSON.parse(fs.readFileSync('wordpress/wp-content/plugins/eola-hills/assets/media/manifest.json','utf8'));
+ const manifest=JSON.parse(fs.readFileSync('wordpress/wp-content/themes/eola-hills/assets/media/manifest.json','utf8'));
  assert.equal(crypto.createHash('sha256').update(await res.body()).digest('hex'),manifest.amenities.sha256);
  const plan=page.locator('#floor-plans .elementor-widget-image a').first();await plan.click();
  await page.locator('.elementor-lightbox').waitFor({state:'visible'});await page.keyboard.press('Escape');

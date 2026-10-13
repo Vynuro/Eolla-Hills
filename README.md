@@ -1,23 +1,16 @@
-# Eola Hills property landing page
+# Eola Hills WordPress website
 
-Landing-page and website-management project for 9055 SE Eola Hills Rd, Amity, Oregon.
+Website for 9055 SE Eola Hills Rd, Amity, Oregon. Local preview: http://localhost:8085/.
 
-- [Project requirements and management scope](docs/project-brief.md)
-- [Taabeer updater source reference](reference/taabeer/README.md)
-- Original client content: `landing-page template structure.docx` (kept locally)
+Version 2.0.0 uses the requested Taabeer architecture: **one Eola Hills theme and one custom GitHub updater plugin**, plus Elementor Free for editing. Install the updater once, then click **Tools → Eola Hills Updates → Sync from GitHub**. It installs the theme and automatically syncs changed client layouts/media with backups. No separate content-apply action.
 
-Website: https://www.9055eolahills.com/
+The theme contains 374 native Elementor elements, client photos and brokerage logos, Montserrat and supplied branding, 3,018 sq ft listing details, RMLS #644545554, both agent license numbers, original floor plans and the amenities PDF. Header, footer, sections, text, photos, colors and responsive settings remain editable.
 
-Local preview: http://localhost:8085/ (Docker Desktop must be running).
+Existing 1.x sites migrate automatically: the updater backs up actual old property-plugin files, activates the theme, backs up/replaces the old Elementor delivery, preserves the page URL/status/homepage, then removes the retired property plugin. Existing GitHub authentication is retained.
 
-Built with 374 native Elementor elements: editable navigation, hero, property sections, 15-photo gallery, carousel, amenities accordion, original floor plans, listing team and footer. Version 1.3.1 uses the client's Wine Country Properties Group branding: Montserrat, purple #4B5598, green #55A044, supplied combined eXp logos and actual property photography. The hero uses the exterior photograph preferred by the client. RMLS #644545554, the latest 3,018 sq ft living-area figure and both agent license numbers are included. Client assets are imported into the normal Media Library; saved page content remains editable.
-
-- [Install, edit and update the website](docs/installation.md)
+- [Installation, migration and recovery](docs/installation.md)
 - [Local development and verification](docs/development.md)
-- [Design decisions](design-system/eola-hills/pages/landing.md)
+- [Full client-folder review](docs/client-assets-review.md)
+- [Project and management scope](docs/project-brief.md)
 
-Two packages: `eola-hills-updates` is the small installer/GitHub updater; `eola-hills` supplies the editable page, assets and interactions. The installer reuses Taabeer's encryption, file comparison, backup and dependency-installation routines. Its repository and release channel are preset. Upload only the installer ZIP on a new WordPress site, then use its install action to fetch the website and Elementor.
-
-The user has installed the earlier site at https://9055eolahills.com/. This update is prepared and verified locally for the user to install. After the GitHub code update, use Eola Hills → Apply client content and keep a page backup to update an existing Elementor page. Professional video and analytics access are still pending; tracking is not connected. See [client delivery review](docs/client-assets-review.md) for source decisions and the floor-plan area discrepancy.
-
-Code belongs in Git. Elementor content, media and settings require separate WordPress backups. Keep credentials outside tracked files.
+Professional video and analytics access remain pending. This work is local; the user installs the release on the live website.

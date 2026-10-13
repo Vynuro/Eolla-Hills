@@ -1,70 +1,41 @@
 # Local development
 
-Preview: http://localhost:8085/ — editor: http://localhost:8085/wp-admin/post.php?post=5&action=elementor (current local database).
+Preview: http://localhost:8085/. Credentials are in untracked `.env`. Docker Desktop must be running.
 
-Local admin credentials are in the untracked `.env`; they are not client credentials. Docker Desktop must be running. `docker compose up -d wordpress` restarts the existing local site. Source plugins are bind-mounted; their edits apply locally. Do not install releases over these bind mounts: use the isolated update-test project on port 8086 instead.
+The source theme and the single updater are bind-mounted into the main local site. Never install ZIPs over those mounts. Use the isolated `eola-updatecheck` project on port 8086 for migration/update tests and `eola-fresh` on 8087 for clean installation.
 
-The current local database already has WordPress, Elementor and the property page. For a clean environment, install WordPress with WP-CLI, create the `eola_admin` user, install/activate Elementor and both project plugins, then run `docker compose run --rm cli eval-file /work/tools/setup-local.php`. That development script publishes the local page, sets it as homepage and disables search indexing. Neither distributed plugin does this automatically.
-
-## Build
+## Build and release
 
 ```
 python tools/build_template.py
 python tools/package_plugins.py
 ```
 
-The first command generates native Elementor JSON; the second creates deterministic ZIPs and a checksum manifest in ignored `artifacts/`. Bundled WebP photos and font files are committed, so packaging needs no third-party asset downloads. `prepare_client_assets.py` rebuilds reviewed client media from the ignored local delivery; `fetch_fonts.py` records the approved Google Fonts source. CI uses the committed prepared assets and does not need client originals.
+The build validates 374 native Elementor elements and all 27 client-media hashes. Outputs are `eola-hills-theme-<version>.zip`, `eola-hills-updates-<version>.zip` and `eola-hills-theme-update.json`. The 2.x updater accepts only the theme manifest/package. Legacy 1.x assets can remain on GitHub for recovery; they are not used by 2.x.
 
-After deliberately changing the seed template during development only:
+Increment the theme version in `style.css` and `functions.php` when shipping theme changes. The delivery fingerprint is computed from the template and media manifest. It changes automatically when packaged page content/assets change. Such releases back up and replace the managed Elementor document; code-only releases preserve later native edits. The updater finishes delivery automatically on the redirect after WordPress loads the new theme.
+
+GitHub Actions lints PHP, checks template generation is deterministic, packages assets and publishes the release. The live site changes only when the user clicks Sync from GitHub.
+
+## Local refresh
 
 ```
-docker compose run --rm cli eval-file /work/tools/refresh-local.php
+docker compose up -d wordpress
+docker compose run --rm cli eval-file /work/tools/sync-local-theme.php
 ```
 
-This **replaces the local preview's Elementor document**, so do not run it after making local client edits you want to retain. Both CLI setup/refresh scripts reject other site URLs and are excluded from plugin ZIPs.
+This intentionally applies a changed delivery to the local page. `refresh-local.php` is a developer-only unconditional reseed; it is never packaged or used on production.
 
 ## Verification
 
-```
-npm ci
-npm run test:browser
-npm run test:interactions
-npm run test:editor
-```
+Browser tests: `node tools/browser-check.cjs`, `node tools/interaction-check.cjs`, `node tools/client-assets-check.cjs`, `node tools/editor-check.cjs`. They cover five viewports, real media, gallery/hero/carousel behavior, original plans/PDF, client details and an actual native heading edit/publish/frontend verification/restore. The editor allows four minutes for initial rendering on the memory-constrained local machine. Run screenshots after editor saves finish because Elementor regenerates CSS.
 
-Browser checks use installed Chrome (or `CHROME_PATH`) and the running port-8085 site. They cover five viewport sizes, image loading, overflow, links, noindex, gallery filtering/lightbox, carousel, reduced motion and a real Elementor edit/save/frontend verification/restore. Screenshots go in `artifacts/screenshots/`.
+Isolated migration: install the new updater ZIP into the port-8086 instance, then run `verify-theme-migration.php` and, on the next CLI request, `verify-theme-delivery.php`. They exercise changed legacy files, backup failure, permissions, checksums/path traversal, theme installation, automatic content replacement, exact backups, native edit preservation, restoration and retirement of the second custom plugin.
 
-The isolated WordPress instance uses `docker compose -p eola-updatecheck -f compose.yaml -f compose.update-test.yaml` and port 8086, without source-plugin mounts. `verify-bootstrap.php` exercises the one-installer dependency/package install. `make_update_fixture.py` creates a local next-version ZIP; `verify-wordpress.php` exercises an actual Plugin_Upgrader replacement while verifying that edited Elementor data survives byte-for-byte. Its GitHub package HTTP response is replaced with local fixture bytes; this test alone does not verify GitHub authentication or availability. Also tests package checksum, project/version mismatch, path traversal, permissions, file conflicts, backup integrity and lock release.
+Future update: `make_update_fixture.py` generates a private next-version theme fixture with changed content. Run `verify-theme-upgrade.php` and then `verify-theme-upgrade-delivery.php` on the isolated instance. These verify that direct theme-file changes are backed up and replaced and new Git content is applied automatically.
 
-`verify-github.php` separately fetches the real published GitHub manifest and package and installs it on the isolated instance. On 2026-10-13 this passed for release 1.0.0, without a token (the repository is public). GitHub Actions built and published the release successfully. Browser checks at five viewport sizes, interactions, and the real Elementor edit/save/restore also passed. The update fixture preserved saved text, colours and responsive spacing. WordPress.org background update checks showed intermittent TLS warnings in one local run; the property-package update completed, and the real GitHub install subsequently passed. Hosting connectivity still needs checking when client access arrives.
+`verify-github.php` fetches and installs the real published theme release on the isolated instance; `verify-fresh-delivery.php` verifies a new site after the next request. No fixture or test credential is published.
 
-## Taabeer reuse
+The full client-folder audit is in `client-assets-review.md`. Floor-plan PNGs/PDF are original bytes. Property photographs retain 2200px maximum dimensions and WebP quality 85; logos are lossless. `prepare_responsive_assets.py` prebuilds responsive photo sizes and records their checksums. The importer copies those sizes and writes native Media Library metadata, so hosting does not spend minutes resizing the delivery. Run that script after `prepare_client_assets.py` when rebuilding original assets. Raw deliveries remain ignored. Theme photos and fonts are committed so CI needs no client folders or external asset downloads.
 
-`tools/reuse_taabeer.py` extracts six deployment methods and the dependency/kit setup routines from the original `D:\Taabeer` source. Runtime copies live in `eola-hills-updates/inc/trait-taabeer-deployment.php` and `inc/taabeer-foundation.php`. Package targeting is adapted from theme to plugin; dependency list narrowed to Elementor. The original updater reference is preserved under `reference/taabeer/`.
-
-## Deployment boundary
-
-GitHub releases distribute code; publishing a release does not deploy or publish the client's website. No hosting login has been used and no live page has been changed. Client photos and branding are included in 1.3.1; professional video and measurement configuration remain pending. The user will install the release on the live site.
-
-The 1.1.0 redesign uses 275 native Elementor elements, Cormorant Garamond and DM Sans, an immersive hero with photo switching, varied image compositions and an inset agent panel. The original local Elementor document was backed up before the authorized redesign reseed. Routine GitHub updates still preserve existing saved documents; the redesigned seed is used on a fresh installation.
-
-
-The 1.2.2 refinement uses 310 native Elementor elements and the user's blue palette across the website. It adds the connected statistics panel, centered address/radar pill, redesigned hero, interactive feature panels, a highlighted barn/workshop note, and aligned interior imagery. The carousel now requests full-resolution media with Elementor's thumbnail_size setting; browser verification rejects upscaled small thumbnails. Native Elementor edit/publish/restore passed, and the pill icon/text centers and card hover lift/zoom were measured in the rendered page. Run visual checks after editor checks finish: editing regenerates Elementor CSS and can invalidate screenshots taken concurrently.
-
-
-Final content review against the client's local DOCX removed authored promotional additions, including the residence tagline, new statistics descriptions, the architectural-character headline, the outdoor pace headline and the gallery introduction. Visible marketing copy now comes from the supplied document, with case, line breaks and punctuation adapted for layout. Navigation, gallery filters, accessibility labels, email actions and the requested Fair Housing label are functional labels; names, price, dimensions and contact information retain the supplied values. Final headings use Manrope SemiBold (600), body text uses regular Manrope, and native header columns center the navigation between brand and CTA.
-
-
-## Client asset package (1.3.1)
-
-The complete delivery audit is in `client-assets-review.md`. This package contains 374 native Elementor elements and 27 reviewed client assets. The importer checks SHA-256 hashes, stores assets by content hash and reuses valid Media Library entries. Original floor-plan PNGs and the amenities PDF retain exact source bytes. Old stock attachments are retained for restoring earlier page content, while the new plugin ZIP contains no stock photos.
-
-`verify-client-content.php` runs only on localhost:8085/8086 and exercises permission rejection, explicit apply, old-data backup, URL/status/homepage preservation, stale dimensions removal, no unresolved media tokens, all 27 imports, source-byte integrity, repeat-apply protection, exact restore and duplicate-free reapply. It leaves the new content applied. It passed on the local preview. `client-assets-check.cjs` checks listing/license details, typography, centered navigation, actual media, amenities interaction, original PDF download and floor-plan lightbox.
-
-After installing the code release on an existing WordPress site, use the separate Eola Hills admin content action. Do not use the developer-only reseed script on production. Plugin upgrades still preserve the existing Elementor document until that explicit content action is chosen.
-
-Local 1.3.1 verification passed: PHP syntax, deterministic template/package validation, five responsive viewports, gallery/hero/carousel interactions, client facts and assets, original PDF/floor-plan integrity, content backup/apply/restore and an actual Elementor heading edit/publish/frontend check/restore. The larger native document took longer to render in the memory-constrained local editor, so the editor test allows four minutes for initial rendering. Frontend browser checks remain unchanged.
-
-The first client-asset package exceeded the existing updater's 12 MiB download cap. Version 1.3.1 retains the same photo dimensions with WebP quality 85, unchanged lossless logos and original floor-plan/PDF bytes. Packaging now rejects any ZIP exceeding that cap before publication, so the existing updater can install the client release without a separate installer upgrade.
-
-On October 14, the published GitHub 1.3.1 package was downloaded through the existing 1.0.0 updater, checksum-verified, installed and activated on the isolated WordPress instance. Its existing Elementor content was preserved byte-for-byte. The release workflow passed; the live client site was not modified.
+Taabeer reuse retains its encryption, theme manifest, baseline and ZIP-backup routines in the updater trait, and its Elementor dependency/kit setup routines. Names, repository and options are scoped to Eola Hills. The requested 2.x sync intentionally treats Git as authoritative for theme files, with verified backups instead of blocking on legacy file differences.

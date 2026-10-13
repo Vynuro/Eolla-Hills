@@ -1,0 +1,5 @@
+# Fresh-install verification only; separate named volumes via project eola-fresh.
+services:
+  wordpress:
+    ports: !override
+      - '127.0.0.1:8087:80'

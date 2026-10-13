@@ -6,14 +6,12 @@ original=(root/'reference/taabeer/taabeer-deployment-manager/inc/class-taabeer-d
 methods=[]
 for name in ['encrypt_token','decrypt_token','record_theme_baseline','theme_file_manifest','find_local_theme_conflicts','zip_directory']:
     source=re.search(r'\t(?:private|public) function '+name+r'\b[\s\S]*?\n\t}',original).group(0)
-    source=source.replace('theme_file_manifest','plugin_file_manifest').replace('record_theme_baseline','record_plugin_baseline').replace('find_local_theme_conflicts','find_local_plugin_conflicts')
-    source=source.replace('get_theme_root( self::THEME_SLUG )','WP_PLUGIN_DIR').replace('wp_get_theme( self::THEME_SLUG )','$this->installed_plugin()').replace('self::THEME_SLUG','self::PACKAGE_SLUG')
-    source=source.replace('taabeer-deployment','eola-hills-updates').replace('taabeer_','eola_hills_').replace('TAABEER','Eola Hills').replace('theme file','plugin file').replace('theme directory','plugin directory')
+    source=source.replace('taabeer-deployment','eola-hills-updates').replace('taabeer_','eola_hills_').replace('TAABEER','Eola Hills')
     # Retain original conflict reconciliation; reject symlinks before reading packages.
-    source=source.replace("\t\t\tif ( ! $file->isFile() ) {", "\t\t\tif ( $file->isLink() ) { return new WP_Error( 'symlink', 'Plugin directory contains a symlink.' ); }\n\t\t\tif ( ! $file->isFile() ) {")
+    source=source.replace("\t\t\tif ( ! $file->isFile() ) {", "\t\t\tif ( $file->isLink() ) { return new WP_Error( 'symlink', 'Theme directory contains a symlink.' ); }\n\t\t\tif ( ! $file->isFile() ) {")
     methods.append(source)
 target=root/'wordpress/wp-content/plugins/eola-hills-updates/inc/trait-taabeer-deployment.php'
-target.write_text("<?php\n/** Directly reused from TAABEER Deployment Manager 1.0.1, GPL-2.0-or-later.\n * Package target adapted from a theme to the Eola Hills plugin. */\ndefined( 'ABSPATH' ) || exit;\ntrait Eola_Hills_Taabeer_Deployment {\n"+'\n\n'.join(methods)+'\n}\n',encoding='utf-8')
+target.write_text("<?php\n/** Directly reused from TAABEER Deployment Manager 1.0.1, GPL-2.0-or-later.\n * Theme deployment retained for the Eola Hills theme. */\ndefined( 'ABSPATH' ) || exit;\ntrait Eola_Hills_Taabeer_Deployment {\n"+'\n\n'.join(methods)+'\n}\n',encoding='utf-8')
 
 foundation=Path('D:/Taabeer/wordpress/wp-content/themes/taabeer/inc/site-foundation.php').read_text(encoding='utf-8')
 functions=[]

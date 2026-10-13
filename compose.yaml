@@ -28,7 +28,7 @@ services:
       WORDPRESS_DEBUG: '1'
     volumes: &wp-volumes
       - wordpress:/var/www/html
-      - ./wordpress/wp-content/plugins/eola-hills:/var/www/html/wp-content/plugins/eola-hills
+      - ./wordpress/wp-content/themes/eola-hills:/var/www/html/wp-content/themes/eola-hills
       - ./wordpress/wp-content/plugins/eola-hills-updates:/var/www/html/wp-content/plugins/eola-hills-updates
       - ./tools:/work/tools:ro
       - ./artifacts:/work/artifacts:ro
