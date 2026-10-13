@@ -1,9 +1,11 @@
 # Eola Hills design system
 
-Current direction combines the user's LeonHome composition reference with their blue statistics-panel reference (2026-10-13). Use a cinematic property hero, clean separate header, pill actions, connected statistics panel, inset rounded photography and asymmetric layouts.
+Use the established cinematic hero, centered navigation, address/radar pill, connected statistics panel, rounded photography and asymmetric layouts. The client's supplied branding now takes precedence over the temporary blue preview.
 
-User-selected preview palette: deep blue #06265A, royal blue #0044A8, ice blue #DCE9FF, pale blue #F3F7FD, white #FCFDFF and muted blue-grey #627795. Apply across the whole website. Client-approved branding is still pending.
+Brand guide: purple #4B5598, green #55A044, web text grey #8C8C8C. Use purple for primary actions and major panels, green for restrained accents, white/light purple for supporting surfaces, charcoal #25232B for headings and darker grey #64636D for readable small text. Preserve supplied logos without recolouring.
 
-Manrope SemiBold headings and regular Manrope body text are hosted locally, registered in Elementor as Eola Display and Eola Sans. Native Elementor controls own content, images, colours, typography, layout and responsive spacing.
+Use locally hosted Montserrat, with headings 600 and body 400. The guide's Lakeside script is not needed in the website UI. Typography remains registered as Eola Display/Eola Sans for compatibility with existing pages. Native Elementor controls own layout, content, typography, colours and spacing.
 
-See [landing decisions](pages/landing.md). References guide composition only; no reference artwork, brand claims, testimonials or team identities are copied.
+Keep the user's hover effects, photo switching, gallery filters, native lightboxes/carousel and reduced-motion support. Actual property photos replace every stock image. Native widgets handle logos, portraits, the amenities accordion, PDF link and original floor-plan images.
+
+See [client review](../../docs/client-assets-review.md) and [landing decisions](pages/landing.md).

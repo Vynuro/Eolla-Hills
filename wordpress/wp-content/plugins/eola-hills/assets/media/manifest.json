@@ -1,0 +1,218 @@
+{
+  "hero": {
+    "file": "hero.webp",
+    "title": "Front exterior and circular drive",
+    "alt": "Front exterior and circular drive",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/03-9055 SE Eola Hills Rd 3.jpg",
+    "sha256": "62df0a18a4f02b7860c22c1ecb0374db273ee42a2030708467ef1bd810a593c1"
+  },
+  "living": {
+    "file": "living.webp",
+    "title": "Two-story living room with stone fireplace and upper catwalk",
+    "alt": "Two-story living room with stone fireplace and upper catwalk",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/12-9055 SE Eola Hills Rd 10.jpg",
+    "sha256": "657214bb61cdb5924f3749b1913789659a1ff3d841104c32a9d32090505902d2"
+  },
+  "kitchen": {
+    "file": "kitchen.webp",
+    "title": "Kitchen island, cabinetry and window wall",
+    "alt": "Kitchen island, cabinetry and window wall",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/26-9055 SE Eola Hills Rd 22.jpg",
+    "sha256": "ad9357fed00a5d1a991c0bae5b9ccde58658e02e611c114e0079521f47152087"
+  },
+  "bedroom": {
+    "file": "bedroom.webp",
+    "title": "Primary bedroom with views and en suite bath",
+    "alt": "Primary bedroom with views and en suite bath",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/51-9055 SE Eola Hills Rd 40.jpg",
+    "sha256": "b5495f476dd9608a82f849b5b5dfafff87e6ed7fb76b75d310852783e5123e05"
+  },
+  "detail": {
+    "file": "detail.webp",
+    "title": "Upper catwalk and architectural interior detail",
+    "alt": "Upper catwalk and architectural interior detail",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/38-9055 SE Eola Hills Rd 30.jpg",
+    "sha256": "9e5b4be8281058f206cf579d0d33f71cda1e117d77d458ef984db8a927b3bf14"
+  },
+  "terrace": {
+    "file": "terrace.webp",
+    "title": "Covered rear deck and pergola",
+    "alt": "Covered rear deck and pergola",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/68-9055 SE Eola Hills Rd 54.jpg",
+    "sha256": "5247ff6ba45a232bec92155f8eafa50aa6f91591724ee99e68912d8dc595b22c"
+  },
+  "landscape": {
+    "file": "landscape.webp",
+    "title": "Aerial view of the home and 4.89-acre setting",
+    "alt": "Aerial view of the home and 4.89-acre setting",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/80-9055 SE Eola Hills Rd Drone -1.jpg",
+    "sha256": "166ed3178f85827257ef8be03c23c1e2c436a0d2fc8ecc8095fa4962d63c718d"
+  },
+  "barn": {
+    "file": "barn.webp",
+    "title": "Monitor-style barn exterior",
+    "alt": "Monitor-style barn exterior",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/65-9055 SE Eola Hills Rd 52.jpg",
+    "sha256": "968c2c6c0886b6a0b7d2598ce96369441544ebfde2668bd3e7bacdbb5439187b"
+  },
+  "workshop": {
+    "file": "workshop.webp",
+    "title": "Detached heated workshop with custom counters and cabinetry",
+    "alt": "Detached heated workshop with custom counters and cabinetry",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/78-9055 SE Eola Hills Rd 65.jpg",
+    "sha256": "3229e81dc93a06a6a7edbcabcad0a95c098060561cb758b55628fd4baebbaa28"
+  },
+  "grounds": {
+    "file": "grounds.webp",
+    "title": "Landscaped grounds and natural rock features",
+    "alt": "Landscaped grounds and natural rock features",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/70-9055 SE Eola Hills Rd 56.jpg",
+    "sha256": "89f0e1b397d9112d3b89c32f24618af8cadb9c675857bc4caf6d45075c61f8a0"
+  },
+  "acreage": {
+    "file": "acreage.webp",
+    "title": "Pasture and usable acreage",
+    "alt": "Pasture and usable acreage",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/66-9055 SE Eola Hills Rd 53.jpg",
+    "sha256": "f8f2cf8a01df7f1d55c16434a82023bdfd765270fe36ee2243260fbc1f781263"
+  },
+  "aerial": {
+    "file": "aerial.webp",
+    "title": "Overhead property aerial",
+    "alt": "Overhead property aerial",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/79-9055 SE Eola Hills Rd Drone -8.jpg",
+    "sha256": "8781dffd65c139e742ec7242e2431bb67a4dd784ab2fd1cab852ba351e08c46d"
+  },
+  "garage": {
+    "file": "garage.webp",
+    "title": "Detached garage and two-story RV bay",
+    "alt": "Detached garage and two-story RV bay",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/76-9055 SE Eola Hills Rd 63.jpg",
+    "sha256": "797382db70287a980b18a0e1e77c6987ace0e2a7b198d9fccd7ac249a0cf7209"
+  },
+  "garage-interior": {
+    "file": "garage-interior.webp",
+    "title": "Oversized detached garage interior",
+    "alt": "Oversized detached garage interior",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/75-9055 SE Eola Hills Rd 62.jpg",
+    "sha256": "b28fa9173c8fd282a33070cbb38a4042f60dc5af1105f6abfb9a0992c613f651"
+  },
+  "primary-bath": {
+    "file": "primary-bath.webp",
+    "title": "Primary en suite bath with Jacuzzi tub",
+    "alt": "Primary en suite bath with Jacuzzi tub",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/52-9055 SE Eola Hills Rd 41.jpg",
+    "sha256": "82efc4aeec462feff501af6931c8a2f7c6e4961f4605322cb5c51672ee14aa42"
+  },
+  "family-room": {
+    "file": "family-room.webp",
+    "title": "Family room and den with fireplace and custom millwork",
+    "alt": "Family room and den with fireplace and custom millwork",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/35-9055 SE Eola Hills Rd 27.jpg",
+    "sha256": "6b188bba83a613db9cccb326739a8be43999e7443d4dda6f79c06354a776e6f9"
+  },
+  "office": {
+    "file": "office.webp",
+    "title": "Dedicated office with built-in desk and cabinetry",
+    "alt": "Dedicated office with built-in desk and cabinetry",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/43-9055 SE Eola Hills Rd 33.jpg",
+    "sha256": "ffe8a6bf0e6de9ab13de7d00597fdd620c7dca755a06eaedd673381e93317fc5"
+  },
+  "barn-interior": {
+    "file": "barn-interior.webp",
+    "title": "Barn interior, stalls and covered aisles",
+    "alt": "Barn interior, stalls and covered aisles",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/62-9055 SE Eola Hills Rd 50.jpg",
+    "sha256": "a14230c4a8d8651b2b867ad8045c9818ebf7e5c24f30a89bff17deec0d3ed827"
+  },
+  "logo": {
+    "file": "logo.webp",
+    "title": "Wine Country Properties Group | eXp Realty",
+    "alt": "Wine Country Properties Group | eXp Realty",
+    "description": "Client-supplied combined brokerage logo.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/Wine Country Properties Group/wcpg-exp-logos/web/wcpg-logo-exp-horizontal-transparent-960-web.png",
+    "sha256": "f229c5fb049a3af0ab01684b8e9d5ba60fe8b59faf056981c3ad1e32d048794e"
+  },
+  "logo-reverse": {
+    "file": "logo-reverse.webp",
+    "title": "Wine Country Properties Group | eXp Realty",
+    "alt": "Wine Country Properties Group | eXp Realty",
+    "description": "Client-supplied reversed brokerage logo.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/Wine Country Properties Group/wcpg-exp-logos/web/wcpg-logo-exp-horizontal-reverse-transparent-960-web.png",
+    "sha256": "0a9d102dffcac5650c125b697bbdede7c3d22b4cb685c90b2b68d12121b77309"
+  },
+  "linda": {
+    "file": "linda.webp",
+    "title": "Linda Lindsay, Broker & Realtor",
+    "alt": "Linda Lindsay, Broker & Realtor",
+    "description": "Client-supplied Linda Lindsay headshot; identity confirmed by the user.",
+    "source": "WhatsApp Image 2026-10-13 at 11.08.50 PM.jpeg",
+    "sha256": "a3a383b64b5b58f4d6189d4fce1783cdb6ca0d7f0c529057facbffa0dfb3bf0d"
+  },
+  "anita-contact": {
+    "file": "anita-contact.webp",
+    "title": "Anita Borgaes, Principal Broker & Realtor",
+    "alt": "Anita Borgaes, Principal Broker & Realtor",
+    "description": "Client-supplied Anita Borgaes contact card.",
+    "source": "Anita-Borgaes-Wine-Country-Properties (2).png",
+    "sha256": "96715b65b427f1e0af8f8ba9013c4f2abfd5f5363cb56525d4e9ca7f13ada305"
+  },
+  "floorplan-1": {
+    "file": "floorplan-1.png",
+    "title": "Supplied floor plan 01",
+    "alt": "Original supplied floor plan 01 with dimensions",
+    "description": "Original client-supplied floor plan. Listing living area is 3,018 sq ft; printed plan totals differ.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/_floorplan/01-1st_floor_9055_southeast_eola_hills_road_amity_with_dim.png",
+    "sha256": "30eff145f64ac1f4efb61cc7e5fbe37a4719fdf7f54f752f9625e58e872e5622"
+  },
+  "floorplan-2": {
+    "file": "floorplan-2.png",
+    "title": "Supplied floor plan 02",
+    "alt": "Original supplied floor plan 02 with dimensions",
+    "description": "Original client-supplied floor plan. Listing living area is 3,018 sq ft; printed plan totals differ.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/_floorplan/02-2nd_floor_9055_southeast_eola_hills_road_amity_with_dim.png",
+    "sha256": "2fade94681cde689c47802a73ef3a67771b566d0d11bcf15e58ce749d607ef8c"
+  },
+  "floorplan-3": {
+    "file": "floorplan-3.png",
+    "title": "Supplied floor plan 03",
+    "alt": "Original supplied floor plan 03 with dimensions",
+    "description": "Original client-supplied floor plan. Listing living area is 3,018 sq ft; printed plan totals differ.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/_floorplan/03-3rd_floor_9055_southeast_eola_hills_road_amity_with_dim.png",
+    "sha256": "fe1e9798ac7b9a0c93e21eb75e0b6b8739088d1db78521dd38080a991c6f3b44"
+  },
+  "floorplan-4": {
+    "file": "floorplan-4.png",
+    "title": "Supplied floor plan 04",
+    "alt": "Original supplied floor plan 04 with dimensions",
+    "description": "Original client-supplied floor plan. Listing living area is 3,018 sq ft; printed plan totals differ.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/_floorplan/04-all_floors_9055_southeast_eola_hills_road_amity_with_dim.png",
+    "sha256": "e495c2faa20dd6a98167ebe9836fdbc2d6dec4b34fd8430e3c4e79c90f59e403"
+  },
+  "amenities": {
+    "file": "property-amenities.pdf",
+    "title": "9055 SE Eola Hills Rd - Amenities",
+    "alt": "",
+    "description": "Client-supplied amenities sheet dated October 8, 2026.",
+    "source": "Eola Hills_Unbranded Amenities_Edit 10-8-26.pdf",
+    "sha256": "10abca41344dba8e6649ec467372f0dc36d7a329065947a82bf64a03f5443833"
+  }
+}

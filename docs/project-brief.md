@@ -15,22 +15,23 @@ PHP/CSS/JavaScript remain editable through Git. Elementor page content, media an
 | Address | 9055 SE Eola Hills Rd, Amity, Oregon |
 | Price | $1,499,000 |
 | Bedrooms / bathrooms | 3 / 3 |
-| Approximate living area | 3,112 sq ft |
+| Approximate living area | 3,018 sq ft (latest RMLS/amenities delivery) |
+| RMLS | #644545554 |
 | Land | 4.89 acres |
 | Branding | Wine Country Properties + eXp |
-| Listing team | Linda Lindsay and Anita Borgeas |
-| Linda | Broker & Realtor; (503) 720-1805; linda.lindsay@exprealty.com |
-| Anita | Principal Broker; other contact details pending |
+| Listing team | Linda Lindsay and Anita Borgaes |
+| Linda | Broker & Realtor; (503) 720-1805; linda.lindsay@exprealty.com; license #931000172 |
+| Anita | Principal Broker & Realtor; (503) 550-8050; anita@wcpcompanies.com; license #200211111 |
 | Suggested URL path | `/9055-se-eola-hills-rd` |
 
-These are draft listing details, not independently verified facts. Final amenities and current price/availability need client confirmation.
+These are client-supplied listing details, not independently verified measurements. The latest RMLS/amenities documents supersede the original 3,112 sq ft value. The floor-plan overview has different printed totals; the user requested the original plans remain visible with an explanatory note. Price remains from the original brief.
 
 ## Landing-page structure
 
 1. Hero: address, "Unmistakably Special", facts, professional exterior/aerial photo and tour/highlights buttons.
 2. Property highlights: acreage, custom home, barn/workshop and outdoor living.
 3. Home: living room, kitchen, primary suite and architectural detail photographs.
-4. Land: landscape/aerial image and supplied amenity highlights; confirm RV capability wording.
+4. Land: landscape/aerial image and supplied amenity highlights; RV bay and hookups confirmed in supplied amenities.
 5. Barn and workshop/studio: two strong images with supporting copy.
 6. Outdoor lifestyle: deck, pergola, mature trees and setting.
 7. Property video: clearly marked placeholder until professional video arrives.

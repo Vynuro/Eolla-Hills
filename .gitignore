@@ -13,6 +13,8 @@ wp-config.php
 
 # Client originals remain local; reviewed requirements go in docs/
 *.docx
+From client/
+wordpress/wp-content/plugins/*.zip
 
 # Generated/local runtime files
 tmp/

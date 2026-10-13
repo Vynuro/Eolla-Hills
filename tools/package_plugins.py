@@ -20,7 +20,7 @@ for slug in ('eola-hills', 'eola-hills-updates'):
         for file in sorted(source.rglob('*')):
             if file.is_file():
                 relative = file.relative_to(source)
-                assert file.suffix in {'.php','.css','.js','.json','.svg','.txt','.md','.ttf','.webp'}, file
+                assert file.suffix in {'.php','.css','.js','.json','.svg','.txt','.md','.ttf','.webp','.png','.pdf'}, file
                 info = zipfile.ZipInfo(f'{slug}/{relative.as_posix()}',date_time=(2026,1,1,0,0,0))
                 info.compress_type=zipfile.ZIP_DEFLATED
                 info.external_attr=0o100644 << 16
@@ -43,7 +43,7 @@ def verify(elements):
         ids.add(el['id'])
         assert el['elType'] in {'container','widget'}
         if el['elType']=='widget':
-            assert el['widgetType'] in {'heading','text-editor','button','image','image-carousel','icon'}, el['widgetType']
+            assert el['widgetType'] in {'heading','text-editor','button','image','image-carousel','icon','accordion'}, el['widgetType']
         verify(el['elements'])
 verify(template['content'])
 print(f'Checked {len(ids)} native Elementor elements; manifest SHA-256 generated.')

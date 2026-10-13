@@ -13,7 +13,7 @@ python tools/build_template.py
 python tools/package_plugins.py
 ```
 
-The first command generates native Elementor JSON; the second creates deterministic ZIPs and a checksum manifest in ignored `artifacts/`. Bundled WebP photos and font files are committed, so packaging needs no third-party asset downloads. Optional `fetch_demo_photos.py` and `fetch_fonts.py` record their public sources.
+The first command generates native Elementor JSON; the second creates deterministic ZIPs and a checksum manifest in ignored `artifacts/`. Bundled WebP photos and font files are committed, so packaging needs no third-party asset downloads. `prepare_client_assets.py` rebuilds reviewed client media from the ignored local delivery; `fetch_fonts.py` records the approved Google Fonts source. CI uses the committed prepared assets and does not need client originals.
 
 After deliberately changing the seed template during development only:
 
@@ -44,7 +44,7 @@ The isolated WordPress instance uses `docker compose -p eola-updatecheck -f comp
 
 ## Deployment boundary
 
-GitHub releases distribute code; publishing a release does not deploy or publish the client's website. No hosting login has been used and no live page has been changed. Real listing media/video, final branding and measurement configuration are pending.
+GitHub releases distribute code; publishing a release does not deploy or publish the client's website. No hosting login has been used and no live page has been changed. Client photos and branding are included in 1.3.0; professional video and measurement configuration remain pending. The user will install the release on the live site.
 
 The 1.1.0 redesign uses 275 native Elementor elements, Cormorant Garamond and DM Sans, an immersive hero with photo switching, varied image compositions and an inset agent panel. The original local Elementor document was backed up before the authorized redesign reseed. Routine GitHub updates still preserve existing saved documents; the redesigned seed is used on a fresh installation.
 
@@ -53,3 +53,14 @@ The 1.2.2 refinement uses 310 native Elementor elements and the user's blue pale
 
 
 Final content review against the client's local DOCX removed authored promotional additions, including the residence tagline, new statistics descriptions, the architectural-character headline, the outdoor pace headline and the gallery introduction. Visible marketing copy now comes from the supplied document, with case, line breaks and punctuation adapted for layout. Navigation, gallery filters, accessibility labels, email actions and the requested Fair Housing label are functional labels; names, price, dimensions and contact information retain the supplied values. Final headings use Manrope SemiBold (600), body text uses regular Manrope, and native header columns center the navigation between brand and CTA.
+
+
+## Client asset package (1.3.0)
+
+The complete delivery audit is in `client-assets-review.md`. This package contains 374 native Elementor elements and 27 reviewed client assets. The importer checks SHA-256 hashes, stores assets by content hash and reuses valid Media Library entries. Original floor-plan PNGs and the amenities PDF retain exact source bytes. Old stock attachments are retained for restoring earlier page content, while the new plugin ZIP contains no stock photos.
+
+`verify-client-content.php` runs only on localhost:8085/8086 and exercises permission rejection, explicit apply, old-data backup, URL/status/homepage preservation, stale dimensions removal, no unresolved media tokens, all 27 imports, source-byte integrity, repeat-apply protection, exact restore and duplicate-free reapply. It leaves the new content applied. It passed on the local preview. `client-assets-check.cjs` checks listing/license details, typography, centered navigation, actual media, amenities interaction, original PDF download and floor-plan lightbox.
+
+After installing the code release on an existing WordPress site, use the separate Eola Hills admin content action. Do not use the developer-only reseed script on production. Plugin upgrades still preserve the existing Elementor document until that explicit content action is chosen.
+
+Local 1.3.0 verification passed: PHP syntax, deterministic template/package validation, five responsive viewports, gallery/hero/carousel interactions, client facts and assets, original PDF/floor-plan integrity, content backup/apply/restore and an actual Elementor heading edit/publish/frontend check/restore. The larger native document took longer to render in the memory-constrained local editor, so the editor test allows four minutes for initial rendering. Frontend browser checks remain unchanged.

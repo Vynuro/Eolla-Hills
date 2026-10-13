@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Eola Hills Property
  * Description: An editable Elementor property landing page for Eola Hills.
- * Version: 1.2.2
+ * Version: 1.3.0
  * Requires at least: 6.8
  * Requires PHP: 8.0
  * Requires Plugins: elementor
@@ -12,10 +12,12 @@
  * Text Domain: eola-hills
  */
 defined( 'ABSPATH' ) || exit;
-define( 'EOLA_HILLS_VERSION', '1.2.2' );
+define( 'EOLA_HILLS_VERSION', '1.3.0' );
+define( 'EOLA_HILLS_CONTENT_VERSION', 'client-2026-10-13-1' );
 define( 'EOLA_HILLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EOLA_HILLS_URL', plugin_dir_url( __FILE__ ) );
 require_once EOLA_HILLS_DIR . 'inc/setup.php';
+require_once EOLA_HILLS_DIR . 'inc/content-update.php';
 
 // Keep the enhanced carousel dimensions editable in Elementor, including mobile.
 add_action( 'elementor/element/image-carousel/section_style_image/before_section_end', function ( $element ) {

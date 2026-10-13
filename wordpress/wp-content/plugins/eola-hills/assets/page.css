@@ -1,10 +1,13 @@
 /* Layout, colours and spacing are stored as native Elementor settings. */
-@font-face { font-family: 'Eola Display'; src: url('fonts/corporate.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
-@font-face { font-family: 'Eola Sans'; src: url('fonts/corporate.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
+@font-face { font-family: 'Eola Display'; src: url('fonts/montserrat.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
+@font-face { font-family: 'Eola Sans'; src: url('fonts/montserrat.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
 .eola-hills-page { margin: 0; }
 .eola-hills-page .eola-glass-card { backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
 .eola-hills-page .eola-immersive-hero { isolation:isolate; transition:background-image .65s ease; }
 .eola-hills-page .eola-hero-word { pointer-events:none; }
+.eola-hills-page .eola-linda-portrait { width:100px; flex-shrink:0; }
+.eola-hills-page .eola-anita-portrait { width:100px; height:110px; flex-shrink:0; overflow:hidden; border-radius:100px; }
+.eola-hills-page .eola-anita-portrait img { width:320px; max-width:none; height:160px; object-fit:contain; object-position:left top; transform:translate(-4px,-9px); border-radius:0; }
 .eola-hills-page .eola-address-pill .elementor-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; }
 .eola-hills-page .eola-address-pill .elementor-button-content-wrapper { align-items:center; justify-content:center; }
 .eola-hills-page .eola-address-pill .elementor-button-text { flex-grow:0; line-height:17px; position:relative; top:1px; text-align:center; }
@@ -23,21 +26,24 @@
 .eola-hills-page .eola-feature-card:hover img { scale:1.08; }
 .eola-hills-page .eola-feature-card .elementor-button-icon { transition:transform .35s; }
 .eola-hills-page .eola-feature-card:hover .elementor-button-icon { transform:translateX(4px) rotate(-35deg); }
-.eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#06265A; border-color:#FFFFFF; }
+.eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#25232B; border-color:#FFFFFF; }
 .eola-hills-page .eola-property-carousel .swiper { border-radius:22px; }
-.eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#06265A60; backdrop-filter:blur(8px); transition:background .2s; }
-.eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#06265ADD; }
+.eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#25232B60; backdrop-filter:blur(8px); transition:background .2s; }
+.eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#25232BDD; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-prev { left:24px; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-next { right:24px; }
-.eola-hills-page :where(a, button, input):focus-visible { outline: 3px solid #3479DE; outline-offset: 5px; }
+.eola-hills-page :where(a, button, input):focus-visible { outline: 3px solid #4B5598; outline-offset: 5px; }
 .eola-hills-page :where([id]) { scroll-margin-top: 130px; }
 .eola-hills-page .elementor-widget-text-editor p:last-child { margin-bottom: 0; }
 .eola-hills-page .elementor-widget-text-editor p { margin-top:0; }
 .eola-hills-page .elementor-heading-title { margin:0; }
+.eola-hills-page .eola-amenities .elementor-accordion-item { margin-bottom:12px; border-radius:16px; overflow:hidden; }
+.eola-hills-page .eola-amenities .elementor-accordion-item + .elementor-accordion-item { border-top-style:solid; }
+.eola-hills-page .eola-amenities li + li { margin-top:7px; }
 .eola-hills-page .elementor-widget-heading :where(h1,h2,h3) { text-wrap: balance; }
 .eola-hills-page .elementor-button { transition: background-color .25s, color .25s, box-shadow .25s, translate .25s; }
 .eola-hills-page .elementor-button:hover { translate: 0 -2px; }
-.eola-hills-page .eola-filter a[aria-pressed="true"] { background: #0044A8; color: #FFFFFF; }
+.eola-hills-page .eola-filter a[aria-pressed="true"] { background: #4B5598; color: #FFFFFF; }
 .eola-hills-page .eola-gallery-tile[hidden] { display:none !important; }
 .eola-hills-page .eola-gallery-tile figure { overflow:hidden; }
 .eola-hills-page .elementor-widget-image a { display:block; }
@@ -45,7 +51,7 @@
 .eola-hills-page .eola-gallery-tile a:hover img { scale:1.035; }
 .eola-hills-page .eola-nav-link a[aria-current="location"] { text-decoration:underline; text-underline-offset:7px; }
 .eola-hills-page .eola-hero-media img { translate:0 var(--eola-photo-shift,0px); }
-.eola-hills-page .eola-read-progress { position:fixed; inset:0 auto auto 0; height:3px; width:100%; z-index:9999; background:#0044A8; transform-origin:left; transform:scaleX(var(--eola-progress,0)); pointer-events:none; }
+.eola-hills-page .eola-read-progress { position:fixed; inset:0 auto auto 0; height:3px; width:100%; z-index:9999; background:#4B5598; transform-origin:left; transform:scaleX(var(--eola-progress,0)); pointer-events:none; }
 .eola-hills-page .eola-skip { position: absolute; top: -150px; left: 20px; z-index: 1000; }
 .eola-hills-page .eola-skip:focus-within { top: 12px; }
 @media (prefers-reduced-motion: reduce) {

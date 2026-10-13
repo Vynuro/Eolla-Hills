@@ -4,8 +4,8 @@ from urllib.request import urlopen
 root=Path(__file__).resolve().parents[1]/'wordpress/wp-content/plugins/eola-hills/assets/fonts'
 root.mkdir(parents=True,exist_ok=True)
 files={
- 'corporate.ttf':'https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf',
- 'corporate-OFL.txt':'https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt',
+ 'montserrat.ttf':'https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf',
+ 'montserrat-OFL.txt':'https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/OFL.txt',
 }
 for name,url in files.items():
     target=root/name

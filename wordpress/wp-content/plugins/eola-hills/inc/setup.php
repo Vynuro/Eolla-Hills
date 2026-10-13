@@ -1,29 +1,45 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-/** Import bundled demo media once so every image uses the normal Media Library. */
+/** Import reviewed client media without replacing attachments used by saved pages. */
 function eola_hills_prepare_template() {
     require_once ABSPATH . 'wp-admin/includes/image.php';
     $template = json_decode( str_replace( '{{EOLA_ASSETS}}', untrailingslashit( EOLA_HILLS_URL ) . '/assets', file_get_contents( EOLA_HILLS_DIR . 'templates/property.json' ) ), true );
-    if ( empty( $template['content'] ) ) { return new WP_Error( 'template_missing', 'The property template could not be read.' ); }
-    $media = (array) get_option( 'eola_hills_demo_media', array() );
-    foreach ( glob( EOLA_HILLS_DIR . 'assets/photos/*.webp' ) as $source ) {
-        $name = basename( $source, '.webp' );
-        if ( ! empty( $media[$name] ) && get_post( $media[$name] ) ) { continue; }
-        $upload = wp_upload_bits( 'eola-demo-' . $name . '.webp', null, file_get_contents( $source ) );
-        if ( $upload['error'] ) { return new WP_Error( 'media_upload', $upload['error'] ); }
-        $id = wp_insert_attachment( array( 'post_title' => ucwords( $name ), 'post_mime_type' => 'image/webp', 'post_content' => 'Temporary stock photo for local design review. Not a photograph of the listed property; replace with approved client media before launch.', 'post_status' => 'inherit' ), $upload['file'], 0, true );
-        if ( is_wp_error( $id ) ) { return $id; }
-        wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $upload['file'] ) );
-        update_post_meta( $id, '_wp_attachment_image_alt', ucwords( $name ) );
-        update_post_meta( $id, '_eola_hills_demo', 1 );
-        $media[$name] = $id;
-        update_option( 'eola_hills_demo_media', $media, false );
+    $manifest = json_decode( file_get_contents( EOLA_HILLS_DIR . 'assets/media/manifest.json' ), true );
+    if ( empty( $template['content'] ) || ! is_array( $manifest ) ) { return new WP_Error( 'template_missing', 'The property template or media manifest could not be read.' ); }
+    $media = (array) get_option( 'eola_hills_client_media', array() );
+    $urls = array();
+    foreach ( $manifest as $key => $item ) {
+        $file = basename( $item['file'] );
+        $source = EOLA_HILLS_DIR . 'assets/media/' . $file;
+        if ( ! is_file( $source ) || ! hash_equals( $item['sha256'], hash_file( 'sha256', $source ) ) ) { return new WP_Error( 'media_integrity', 'A bundled client asset did not pass its integrity check.' ); }
+        $id = ! empty( $media[$key]['id'] ) ? (int) $media[$key]['id'] : 0;
+        if ( ! $id || ! get_post( $id ) || ! is_file( (string) get_attached_file( $id ) ) || ( $media[$key]['sha256'] ?? '' ) !== $item['sha256'] ) {
+            $upload = wp_upload_bits( 'eola-' . substr( $item['sha256'], 0, 10 ) . '-' . $file, null, file_get_contents( $source ) );
+            if ( $upload['error'] ) { return new WP_Error( 'media_upload', $upload['error'] ); }
+            $mime = wp_check_filetype( $file )['type'];
+            $id = wp_insert_attachment( array( 'post_title' => $item['title'], 'post_mime_type' => $mime, 'post_content' => $item['description'], 'post_status' => 'inherit' ), $upload['file'], 0, true );
+            if ( is_wp_error( $id ) ) { return $id; }
+            if ( strpos( $mime, 'image/' ) === 0 ) {
+                // Keep supplied plans intact; only derivative thumbnails are generated.
+                add_filter( 'big_image_size_threshold', '__return_false' );
+                $metadata = wp_generate_attachment_metadata( $id, $upload['file'] );
+                remove_filter( 'big_image_size_threshold', '__return_false' );
+                wp_update_attachment_metadata( $id, $metadata );
+            }
+            update_post_meta( $id, '_wp_attachment_image_alt', $item['alt'] );
+            update_post_meta( $id, '_eola_hills_client_asset', $key );
+            $media[$key] = array( 'id' => $id, 'sha256' => $item['sha256'] );
+            update_option( 'eola_hills_client_media', $media, false );
+        }
+        $urls[ EOLA_HILLS_URL . 'assets/media/' . $file ] = array( 'id' => $id, 'url' => wp_get_attachment_url( $id ) );
     }
-    $replace = function ( &$value ) use ( &$replace, $media ) {
+    $replace = function ( &$value ) use ( &$replace, $urls ) {
         if ( ! is_array( $value ) ) { return; }
-        if ( isset( $value['url'] ) && preg_match( '~/assets/photos/([a-z-]+)\.webp$~', $value['url'], $match ) && isset( $media[$match[1]] ) ) {
-            $value['id'] = $media[$match[1]]; $value['url'] = wp_get_attachment_url( $value['id'] );
+        if ( isset( $value['url'], $urls[$value['url']] ) ) {
+            $asset = $urls[$value['url']];
+            $value['url'] = $asset['url'];
+            if ( array_key_exists( 'id', $value ) ) { $value['id'] = $asset['id']; }
         }
         foreach ( $value as &$child ) { if ( is_array( $child ) ) { $replace( $child ); } }
     };
@@ -61,6 +77,7 @@ function eola_hills_create_page() {
     }
     update_post_meta( $id, '_eola_hills_page', 1 );
     update_post_meta( $id, '_eola_hills_seed_version', EOLA_HILLS_VERSION );
+    update_post_meta( $id, '_eola_hills_content_version', EOLA_HILLS_CONTENT_VERSION );
     update_post_meta( $id, '_eola_hills_seo_title', '9055 SE Eola Hills Rd, Amity OR | Eola Hills Luxury Property' );
     update_post_meta( $id, '_eola_hills_seo_description', 'Explore 9055 SE Eola Hills Rd in Amity, Oregon. A distinctive 4.89-acre property with a custom home, barn, workshop, outdoor living and scenic surroundings.' );
     update_option( 'eola_hills_page_id', $id );
@@ -96,9 +113,10 @@ function eola_hills_admin() {
                 <?php submit_button( 'Create draft landing page', 'primary', 'submit', false ); ?>
             </form>
         <?php endif; ?>
+        <?php eola_hills_content_update_panel( $id ); ?>
         <h2>Editing and publishing</h2>
         <p>Open Elementor's Structure panel to find named sections. Header, footer, text, images, buttons, colours, typography and responsive spacing are native editable elements. Duplicate a page or save sections as Elementor templates for future pages.</p>
-        <p>The bundled stock photographs are for design review and are not photos of this listing. Replace them through the Media Library before launch. Replace the native image carousel with Elementor's Video widget when the professional video is available. Confirm listing details, agent contacts and branding before publishing.</p>
+        <p>The bundled media, logos, amenities and floor plans are supplied by the client. The listed living area is 3,018 sq ft; the original floor plans show different totals. The professional video has not yet been supplied. Every media item is editable through the Media Library and Elementor.</p>
         <p>Tour buttons currently open Linda's email composer. Edit their links to use a booking destination if supplied. No emails are sent automatically.</p>
         <p>The draft does not change your site's theme or homepage. After review, publish it and optionally select it in Settings &rarr; Reading as the homepage.</p>
         <h2>Code updates</h2>
