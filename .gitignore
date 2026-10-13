@@ -1,0 +1,23 @@
+# Credentials, client account files and backups
+.env
+.env.*
+!.env.example
+private/
+credentials/
+client-access/
+wp-config.php
+*.pem
+*.key
+*.sql
+*.sql.gz
+
+# Client originals remain local; reviewed requirements go in docs/
+*.docx
+
+# Generated/local runtime files
+tmp/
+artifacts/
+node_modules/
+vendor/
+.DS_Store
+Thumbs.db
