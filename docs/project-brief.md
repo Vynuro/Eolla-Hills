@@ -77,7 +77,7 @@ The client mentions hosting.com; their actual provider and plan remain unconfirm
 
 ## Missing inputs
 
-- Current website URL and intended landing-page domain/path.
+- Confirm whether the supplied property domain should show the landing page at `/` or the document's suggested path.
 - WordPress admin access if applicable, hosting login URL/provider and plan, and staging availability.
 - Existing theme, Elementor edition/license and installed plugins.
 - Professional photographs/video, agent headshots and approved branding.
@@ -87,4 +87,8 @@ The client mentions hosting.com; their actual provider and plan remain unconfirm
 
 ## Work completed
 
-Read the Word document for content and copied the Taabeer updater plus related notes into `reference/taabeer/`. No client login, platform verification, analytics installation, live change, new deployable plugin or landing-page build has occurred.
+Read the Word document for content and copied the Taabeer updater plus related notes into `reference/taabeer/`. Verified all five copied plugin files against their local source using SHA-256 hashes.
+
+The user supplied `https://www.9055eolahills.com/`. Public requests on 2026-10-13 returned HTTP 404 from the HTTPS www/non-www homepages, HTTP www homepage and `https://www.9055eolahills.com/wp-login.php`. Responses identify LiteSpeed. This does not establish the hosting provider or prove WordPress is absent; hosting/document-root and installation details require account access.
+
+No client login, confirmed platform identification, analytics installation, live change, new deployable plugin or landing-page build has occurred.
