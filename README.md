@@ -10,7 +10,7 @@ Website: https://www.9055eolahills.com/
 
 Local preview: http://localhost:8085/ (Docker Desktop must be running).
 
-Built with 202 native Elementor elements: editable navigation, hero, property sections, gallery, carousel, listing team and footer. Proposed midnight navy, champagne and warm ivory styling; locally hosted DM Serif Display and Manrope. Includes scroll reveals, gentle image movement, gallery filters/lightbox, counters, and reduced-motion support. Temporary stock photography is stored in the WordPress Media Library for replacement.
+Built with 275 native Elementor elements: editable navigation, hero, property sections, gallery, carousel, listing team and footer. Proposed midnight navy, champagne and warm ivory styling; locally hosted Cormorant Garamond and DM Sans. An immersive image hero, oversized editorial type, glass fact cards, native photo-switch buttons, asymmetric image layouts and an inset listing-team panel replace the earlier horizontal bands. Includes scroll reveals, gentle title movement, card hovers, gallery filters/lightbox, counters, and reduced-motion support. Temporary stock photography is stored in the WordPress Media Library for replacement.
 
 - [Install, edit and update the website](docs/installation.md)
 - [Local development and verification](docs/development.md)

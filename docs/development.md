@@ -32,11 +32,11 @@ npm run test:interactions
 npm run test:editor
 ```
 
-Browser checks use installed Chrome (or `CHROME_PATH`) and the running port-8085 site. They cover four viewport sizes, image loading, overflow, links, noindex, gallery filtering/lightbox, carousel, reduced motion and a real Elementor edit/save/frontend verification/restore. Screenshots go in `artifacts/screenshots/`.
+Browser checks use installed Chrome (or `CHROME_PATH`) and the running port-8085 site. They cover five viewport sizes, image loading, overflow, links, noindex, gallery filtering/lightbox, carousel, reduced motion and a real Elementor edit/save/frontend verification/restore. Screenshots go in `artifacts/screenshots/`.
 
 The isolated WordPress instance uses `docker compose -p eola-updatecheck -f compose.yaml -f compose.update-test.yaml` and port 8086, without source-plugin mounts. `verify-bootstrap.php` exercises the one-installer dependency/package install. `make_update_fixture.py` creates a local next-version ZIP; `verify-wordpress.php` exercises an actual Plugin_Upgrader replacement while verifying that edited Elementor data survives byte-for-byte. Its GitHub package HTTP response is replaced with local fixture bytes; this test alone does not verify GitHub authentication or availability. Also tests package checksum, project/version mismatch, path traversal, permissions, file conflicts, backup integrity and lock release.
 
-`verify-github.php` separately fetches the real published GitHub manifest and package and installs it on the isolated instance. On 2026-10-13 this passed for release 1.0.0, without a token (the repository is public). GitHub Actions built and published the release successfully. Browser checks at four viewport sizes, interactions, and the real Elementor edit/save/restore also passed. The update fixture preserved saved text, colours and responsive spacing. WordPress.org background update checks showed intermittent TLS warnings in one local run; the property-package update completed, and the real GitHub install subsequently passed. Hosting connectivity still needs checking when client access arrives.
+`verify-github.php` separately fetches the real published GitHub manifest and package and installs it on the isolated instance. On 2026-10-13 this passed for release 1.0.0, without a token (the repository is public). GitHub Actions built and published the release successfully. Browser checks at five viewport sizes, interactions, and the real Elementor edit/save/restore also passed. The update fixture preserved saved text, colours and responsive spacing. WordPress.org background update checks showed intermittent TLS warnings in one local run; the property-package update completed, and the real GitHub install subsequently passed. Hosting connectivity still needs checking when client access arrives.
 
 ## Taabeer reuse
 
@@ -45,3 +45,5 @@ The isolated WordPress instance uses `docker compose -p eola-updatecheck -f comp
 ## Deployment boundary
 
 GitHub releases distribute code; publishing a release does not deploy or publish the client's website. No hosting login has been used and no live page has been changed. Real listing media/video, final branding and measurement configuration are pending.
+
+The 1.1.0 redesign uses 275 native Elementor elements, Cormorant Garamond and DM Sans, an immersive hero with photo switching, varied image compositions and an inset agent panel. The original local Elementor document was backed up before the authorized redesign reseed. Routine GitHub updates still preserve existing saved documents; the redesigned seed is used on a fresh installation.

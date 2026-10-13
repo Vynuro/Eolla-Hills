@@ -8,7 +8,7 @@ const path = require('node:path');
   const errors=[];
   const page=await browser.newPage();
   page.on('pageerror', e=>errors.push(e.message));
-  for (const [name,width,height] of [['desktop',1440,1000],['tablet',768,1024],['mobile',375,812],['landscape',812,375]]) {
+  for (const [name,width,height] of [['desktop',1440,1000],['tablet',768,1024],['mobile',375,812],['small-mobile',320,740],['landscape',812,375]]) {
     await page.setViewportSize({width,height});
     await page.goto('http://localhost:8085/',{waitUntil:'networkidle'});
     await page.locator('h1').waitFor();
@@ -19,6 +19,7 @@ const path = require('node:path');
     assert.ok(await page.locator('.elementor-widget-image').count() >= 19);
     await page.locator('.elementor-widget-image img').evaluateAll(images=>images.forEach(img=>{img.loading='eager';}));
     await page.waitForFunction(()=>[...document.querySelectorAll('.elementor-widget-image img')].every(img=>img.complete&&img.naturalWidth>0));
+    await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
     assert.ok(await page.locator('a[href^="mailto:"]').count() >= 4);
     const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
     assert.ok(layout.scroll<=layout.width+1, `${name} horizontal overflow: ${JSON.stringify(layout)}`);

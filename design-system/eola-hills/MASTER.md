@@ -1,7 +1,9 @@
 # Eola Hills design system
 
-The user requested a premium property presentation and rejected the initial green palette. The current proposed direction uses midnight navy (#192333), warm ivory (#F8F5EF), champagne (#D1B694), sand (#EEE8DE), bronze (#997044) and muted grey (#656570). Client branding is pending.
+Current direction follows the user's LeonHome reference (2026-10-13): immersive full-photo hero, oversized editorial typography, floating glass fact cards, pill navigation/actions, inset rounded photo panels and varied asymmetric layouts. No repeated full-width colour bands or divider-led sections.
 
-Locally hosted DM Serif Display (Elementor: Eola Display) and Manrope (Elementor: Eola Sans), generous spacing, square corners and large editorial typography. Native Elementor controls own colours, type, images, layout and responsive spacing.
+Proposed palette: midnight navy #17212D, off-white #FFFEFC, champagne #E6C8A6, sand #F1ECE5, readable bronze #93683F and muted grey #656A72. Green branding was rejected; client branding is still pending.
 
-See [landing-page decisions](pages/landing.md) for interactions, accessibility and temporary photography rules. Avoid glass effects or green brand colours. Motion is subtle, progressive and respects reduced-motion preferences.
+Cormorant Garamond headings and DM Sans body text are hosted locally, registered in Elementor as Eola Display and Eola Sans. Native Elementor controls own content, images, colours, typography, layout and responsive spacing.
+
+See [landing decisions](pages/landing.md). References guide composition only; no reference artwork, brand claims, testimonials or team identities are copied.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Eola Hills Property
  * Description: An editable Elementor property landing page for Eola Hills.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Requires at least: 6.8
  * Requires PHP: 8.0
  * Requires Plugins: elementor
@@ -12,7 +12,7 @@
  * Text Domain: eola-hills
  */
 defined( 'ABSPATH' ) || exit;
-define( 'EOLA_HILLS_VERSION', '1.0.0' );
+define( 'EOLA_HILLS_VERSION', '1.1.0' );
 define( 'EOLA_HILLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EOLA_HILLS_URL', plugin_dir_url( __FILE__ ) );
 require_once EOLA_HILLS_DIR . 'inc/setup.php';

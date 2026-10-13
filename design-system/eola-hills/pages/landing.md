@@ -1,9 +1,13 @@
-# Eola Hills landing-page design decisions
+# Landing-page design decisions
 
-The user rejected green and requested a more premium, attractive interactive design. Override the generated master with midnight navy #192333, champagne #D1B694, warm ivory #F8F5EF, sand #EEE8DE, muted #656570 and accessible bronze #997044. These are proposed colours, not client-supplied branding.
+The user rejected the initial static, divider-heavy layout and bulky type. The second pass uses the supplied LeonHome screenshot as the primary visual direction, with the rounded composition of their earlier travel reference. Preserve the client's property document content.
 
-Use locally hosted DM Serif Display and Manrope registered as Eola Display and Eola Sans in Elementor. Large typographic contrast, square corners, thin rules and generous space. Scroll reveals, gentle photo motion, animated figures, active navigation, gallery filtering and native lightbox/carousel interactions create movement. Respect reduced motion; no forced scrolling or autoplay.
+Hero: full property photograph, transparent navigation, large EOLA HILLS lettering, headline, glass price/acreage cards and three native buttons that switch exterior/interior/land photographs. On phones, remove the duplicate header tour button, reduce display type proportionally and keep the main tour action prominent.
 
-Native Elementor settings own visual styles and responsive dimensions. CSS contains only minimal document/accessibility enhancements and must not override editor spacing/colour controls.
+Section rhythm: four feature image cards; interior collage; landscape with inset story card; staggered barn/workshop photos; outdoor image/text composition with champagne detail card; a native photo carousel while the actual video is pending; filtered gallery with panoramic final row; facts cards; an inset navy agent panel; photographic final invitation.
 
-The user requested real dummy property images without placeholder text on the images. Use locally bundled stock photography for this local review. These images are not actual listing photos and must be replaced before publication. No invented testimonials, sales figures or agent identities. Leave agent portraits out until real headshots arrive.
+Use Cormorant Garamond for thin editorial headings and DM Sans for body, navigation and numbers. Display typography is lighter than the previous DM Serif Display. Keep bronze labels readable on white. All styles/content are native Elementor settings; JavaScript adds progressive interaction and CSS adds motion/glass enhancements.
+
+Use real stock images for local review, never describe them as actual listing photography. Replace them with client-approved media before launch. No fake agent portraits or reviews. Video availability is stated as text outside imagery, with no fake play button. Existing saved Elementor documents must never be overwritten by a routine plugin update.
+
+Verify desktop, tablet, 375px and 320px phones, landscape, keyboard gallery/scene controls, reduced motion and actual Elementor edit/save/restore. Every section gets screenshot review.

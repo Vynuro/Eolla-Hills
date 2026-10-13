@@ -11,6 +11,7 @@
   reduced.addEventListener('change',()=>{if(reduced.matches){animations.forEach(a=>a.finish());animations.clear();}});
   const header=document.querySelector('.eola-header');
   const photo=document.querySelector('.eola-hero-media');
+  const heroWord=document.querySelector('.eola-hero-word');
   const progress=document.createElement('div'); progress.className='eola-read-progress'; progress.setAttribute('aria-hidden','true'); document.body.append(progress);
   let scheduled=false;
   const update=()=>{
@@ -19,6 +20,7 @@
     progress.style.setProperty('--eola-progress',range>0?Math.min(1,scrollY/range):0);
     header?.classList.toggle('is-scrolled',scrollY>30);
     if(photo) photo.style.setProperty('--eola-photo-shift',reduced.matches?'0px':`${Math.min(14,scrollY*.035)}px`);
+    if(heroWord) heroWord.style.translate=reduced.matches?'none':`0 ${Math.min(28,scrollY*.06)}px`;
   };
   addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}},{passive:true});
   addEventListener('resize',update); update();
@@ -44,7 +46,7 @@
   }),{threshold:.6});
   document.querySelectorAll('.eola-stat-count .elementor-heading-title').forEach(el=>counters.observe(el));
   document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
-    if(link.closest('.eola-filter'))return;
+    if(link.closest('.eola-filter, .eola-scene-button'))return;
     const target=document.getElementById(link.hash.slice(1)); if(!target)return;
     event.preventDefault(); target.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});
     history.replaceState(null,'',link.hash);
@@ -69,4 +71,24 @@
     link.addEventListener('click',apply);
     link.addEventListener('keydown',event=>{if(event.code==='Space')apply(event)});
   });
+  // Native Elementor buttons switch between media already editable on this page.
+  const hero=document.querySelector('.eola-immersive-hero');
+  const sceneButtons=[...document.querySelectorAll('.eola-scene-button a')];
+  if(hero&&sceneButtons.length){
+    const original=getComputedStyle(hero).backgroundImage;
+    const homeImage=document.querySelector('.eola-scene-home img');
+    const landScene=document.querySelector('.eola-land-scene');
+    const scenes=[original,homeImage?`url("${homeImage.src}")`:original,landScene?getComputedStyle(landScene).backgroundImage:original];
+    sceneButtons.forEach((button,index)=>{
+      button.setAttribute('role','button');button.setAttribute('aria-pressed',String(index===0));
+      const choose=event=>{
+        event.preventDefault();
+        hero.style.backgroundImage=scenes[index];
+        sceneButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+        animate(hero.querySelector('.eola-hero-word'),[{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:600,easing:'ease-out'});
+      };
+      button.addEventListener('click',choose);
+      button.addEventListener('keydown',e=>{if(e.code==='Space')choose(e)});
+    });
+  }
 })();
