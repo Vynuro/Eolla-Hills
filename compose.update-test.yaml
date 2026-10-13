@@ -1,0 +1,14 @@
+# Isolated integration target: no source-plugin bind mounts.
+services:
+  wordpress:
+    ports: !override
+      - '127.0.0.1:8086:80'
+    volumes: !override
+      - wordpress:/var/www/html
+      - ./tools:/work/tools:ro
+      - ./artifacts:/work/artifacts:ro
+  cli:
+    volumes: !override
+      - wordpress:/var/www/html
+      - ./tools:/work/tools:ro
+      - ./artifacts:/work/artifacts:ro

@@ -1,0 +1,6 @@
+{
+  "name": "eola-hills-wordpress",
+  "private": true,
+  "scripts": {"test:browser": "node tools/browser-check.cjs", "test:interactions": "node tools/interaction-check.cjs", "test:editor": "node tools/editor-check.cjs"},
+  "devDependencies": {"@playwright/test": "^1.58.0"}
+}

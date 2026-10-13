@@ -8,6 +8,16 @@ Landing-page and website-management project for 9055 SE Eola Hills Rd, Amity, Or
 
 Website: https://www.9055eolahills.com/
 
-Status: content reviewed and existing updater copied for reference. Public checks on 2026-10-13 returned LiteSpeed 404 responses from both homepages and the standard WordPress login path. WordPress installation, hosting plan and access remain unverified. No Eola Hills page/plugin has been built or deployed yet.
+Local preview: http://localhost:8085/ (Docker Desktop must be running).
+
+Built with 202 native Elementor elements: editable navigation, hero, property sections, gallery, carousel, listing team and footer. Proposed midnight navy, champagne and warm ivory styling; locally hosted DM Serif Display and Manrope. Includes scroll reveals, gentle image movement, gallery filters/lightbox, counters, and reduced-motion support. Temporary stock photography is stored in the WordPress Media Library for replacement.
+
+- [Install, edit and update the website](docs/installation.md)
+- [Local development and verification](docs/development.md)
+- [Design decisions](design-system/eola-hills/pages/landing.md)
+
+Two packages: `eola-hills-updates` is the small installer/GitHub updater; `eola-hills` supplies the editable page, assets and interactions. The installer reuses Taabeer's encryption, file comparison, backup and dependency-installation routines. Its repository and release channel are preset. Upload only the installer ZIP on a new WordPress site, then use its install action to fetch the website and Elementor.
+
+The client website has not been modified. Hosting access, actual property photography/video, approved branding and analytics accounts are still pending. Analytics/reporting requirements are recorded in the brief; tracking is not connected.
 
 Code belongs in Git. Elementor content, media and settings require separate WordPress backups. Keep credentials outside tracked files.

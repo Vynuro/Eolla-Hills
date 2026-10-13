@@ -1,0 +1,38 @@
+name: Publish Eola Hills WordPress packages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wordpress/**'
+      - 'tools/build_template.py'
+      - 'tools/package_plugins.py'
+      - '.github/workflows/release.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eola-hills-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Check PHP syntax
+        run: find wordpress -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Verify template and package
+        run: |
+          python tools/build_template.py
+          git diff --exit-code -- wordpress
+          python tools/package_plugins.py
+      - name: Publish release channel
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view client-preview >/dev/null 2>&1; then
+            gh release create client-preview --prerelease --target "$GITHUB_SHA" --title "Eola Hills WordPress preview" --notes "Editable Elementor property page and GitHub updater. Professional media and live account setup are pending."
+          fi
+          gh release upload client-preview artifacts/*.zip artifacts/eola-hills-update.json --clobber

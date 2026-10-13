@@ -1,0 +1,45 @@
+name: eolahills
+services:
+  database:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: eolahills
+      MARIADB_USER: eolahills
+      MARIADB_PASSWORD: ${LOCAL_DB_PASSWORD:-eola-local-only}
+      MARIADB_ROOT_PASSWORD: ${LOCAL_DB_ROOT_PASSWORD:-eola-root-local-only}
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 5s
+      retries: 20
+  wordpress:
+    image: wordpress:7.1.3-php8.3-apache
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:8085:80'
+    environment: &wp-env
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_NAME: eolahills
+      WORDPRESS_DB_USER: eolahills
+      WORDPRESS_DB_PASSWORD: ${LOCAL_DB_PASSWORD:-eola-local-only}
+      WORDPRESS_DEBUG: '1'
+    volumes: &wp-volumes
+      - wordpress:/var/www/html
+      - ./wordpress/wp-content/plugins/eola-hills:/var/www/html/wp-content/plugins/eola-hills
+      - ./wordpress/wp-content/plugins/eola-hills-updates:/var/www/html/wp-content/plugins/eola-hills-updates
+      - ./tools:/work/tools:ro
+      - ./artifacts:/work/artifacts:ro
+  cli:
+    image: wordpress:cli-php8.3
+    user: '33:33'
+    entrypoint: wp
+    depends_on:
+      - wordpress
+    environment: *wp-env
+    volumes: *wp-volumes
+volumes:
+  database:
+  wordpress:
