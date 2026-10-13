@@ -35,7 +35,7 @@ Changing WordPress authentication salts invalidates a saved encrypted token; sav
 
 ## Applying the client package to the existing live page
 
-1. Open **Tools → Eola Hills Updates → Check GitHub**, then install release **1.3.0** or later. This changes plugin code and keeps the existing page intact.
+1. Open **Tools → Eola Hills Updates → Check GitHub**, then install release **1.3.1** or later. This changes plugin code and keeps the existing page intact.
 2. Open **Eola Hills** in the WordPress admin menu.
 3. Click **Apply client content and keep a page backup**. The action imports the actual photos/documents and replaces the existing property page's content and layout with the client package. The page URL, published status and homepage remain unchanged. Any manual Elementor content edits are replaced by this explicit action.
 4. Check the front end and clear any hosting/page cache. Continue editing normally in Elementor.

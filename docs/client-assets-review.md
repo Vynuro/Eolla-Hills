@@ -33,4 +33,4 @@ No professional video or analytics account access was found in the complete fold
 
 Property marketing copy is taken from the original landing-page document and the supplied RMLS/amenities documents. New UI labels name actual features, document actions and gallery filters. The area-discrepancy note is a factual disclosure of the two supplied sources, not an invented property claim.
 
-Version 1.3.0 includes a separate admin action to apply the client content to an existing Elementor page. It backs up the old data/settings first, retains the page URL/status, imports assets without overwriting old attachments, and supports restoring the previous page. A routine GitHub code update alone never replaces saved Elementor content.
+Version 1.3.1 includes a separate admin action to apply the client content to an existing Elementor page. It backs up the old data/settings first, retains the page URL/status, imports assets without overwriting old attachments, and supports restoring the previous page. A routine GitHub code update alone never replaces saved Elementor content.

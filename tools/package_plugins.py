@@ -32,6 +32,7 @@ for slug in ('eola-hills', 'eola-hills-updates'):
 
 version=versions['eola-hills']
 package=OUT/f'eola-hills-{version}.zip'
+assert package.stat().st_size <= 12 * 1024 * 1024, 'Package exceeds the installed updater download limit (12 MiB)'
 manifest={'slug':'eola-hills','plugin':'eola-hills/eola-hills.php','version':version,'requires_wp':'6.8','requires_php':'8.0','package_asset':package.name,'sha256':hashlib.sha256(package.read_bytes()).hexdigest(),'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()}
 (OUT/'eola-hills-update.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 

@@ -16,7 +16,7 @@ def add(key,source,title,width=2200,lossless=False,description='Client-supplied 
     im=ImageOps.exif_transpose(Image.open(source))
     im.thumbnail((width,width),Image.Resampling.LANCZOS)
     file=key+'.webp'
-    im.save(OUT/file,'WEBP',quality=89,method=6,lossless=lossless)
+    im.save(OUT/file,'WEBP',quality=85,method=6,lossless=lossless)
     manifest[key]={'file':file,'title':title,'alt':title,'description':description,'source':source.relative_to(SOURCE).as_posix(),'sha256':hashlib.sha256((OUT/file).read_bytes()).hexdigest()}
 
 # All selections are the supplied unstaged photographs. VS variants are not used.

@@ -44,7 +44,7 @@ The isolated WordPress instance uses `docker compose -p eola-updatecheck -f comp
 
 ## Deployment boundary
 
-GitHub releases distribute code; publishing a release does not deploy or publish the client's website. No hosting login has been used and no live page has been changed. Client photos and branding are included in 1.3.0; professional video and measurement configuration remain pending. The user will install the release on the live site.
+GitHub releases distribute code; publishing a release does not deploy or publish the client's website. No hosting login has been used and no live page has been changed. Client photos and branding are included in 1.3.1; professional video and measurement configuration remain pending. The user will install the release on the live site.
 
 The 1.1.0 redesign uses 275 native Elementor elements, Cormorant Garamond and DM Sans, an immersive hero with photo switching, varied image compositions and an inset agent panel. The original local Elementor document was backed up before the authorized redesign reseed. Routine GitHub updates still preserve existing saved documents; the redesigned seed is used on a fresh installation.
 
@@ -55,7 +55,7 @@ The 1.2.2 refinement uses 310 native Elementor elements and the user's blue pale
 Final content review against the client's local DOCX removed authored promotional additions, including the residence tagline, new statistics descriptions, the architectural-character headline, the outdoor pace headline and the gallery introduction. Visible marketing copy now comes from the supplied document, with case, line breaks and punctuation adapted for layout. Navigation, gallery filters, accessibility labels, email actions and the requested Fair Housing label are functional labels; names, price, dimensions and contact information retain the supplied values. Final headings use Manrope SemiBold (600), body text uses regular Manrope, and native header columns center the navigation between brand and CTA.
 
 
-## Client asset package (1.3.0)
+## Client asset package (1.3.1)
 
 The complete delivery audit is in `client-assets-review.md`. This package contains 374 native Elementor elements and 27 reviewed client assets. The importer checks SHA-256 hashes, stores assets by content hash and reuses valid Media Library entries. Original floor-plan PNGs and the amenities PDF retain exact source bytes. Old stock attachments are retained for restoring earlier page content, while the new plugin ZIP contains no stock photos.
 
@@ -63,4 +63,6 @@ The complete delivery audit is in `client-assets-review.md`. This package contai
 
 After installing the code release on an existing WordPress site, use the separate Eola Hills admin content action. Do not use the developer-only reseed script on production. Plugin upgrades still preserve the existing Elementor document until that explicit content action is chosen.
 
-Local 1.3.0 verification passed: PHP syntax, deterministic template/package validation, five responsive viewports, gallery/hero/carousel interactions, client facts and assets, original PDF/floor-plan integrity, content backup/apply/restore and an actual Elementor heading edit/publish/frontend check/restore. The larger native document took longer to render in the memory-constrained local editor, so the editor test allows four minutes for initial rendering. Frontend browser checks remain unchanged.
+Local 1.3.1 verification passed: PHP syntax, deterministic template/package validation, five responsive viewports, gallery/hero/carousel interactions, client facts and assets, original PDF/floor-plan integrity, content backup/apply/restore and an actual Elementor heading edit/publish/frontend check/restore. The larger native document took longer to render in the memory-constrained local editor, so the editor test allows four minutes for initial rendering. Frontend browser checks remain unchanged.
+
+The first client-asset package exceeded the existing updater's 12 MiB download cap. Version 1.3.1 retains the same photo dimensions with WebP quality 85, unchanged lossless logos and original floor-plan/PDF bytes. Packaging now rejects any ZIP exceeding that cap before publication, so the existing updater can install the client release without a separate installer upgrade.

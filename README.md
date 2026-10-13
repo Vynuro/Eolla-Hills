@@ -10,7 +10,7 @@ Website: https://www.9055eolahills.com/
 
 Local preview: http://localhost:8085/ (Docker Desktop must be running).
 
-Built with 374 native Elementor elements: editable navigation, hero, property sections, 15-photo gallery, carousel, amenities accordion, original floor plans, listing team and footer. Version 1.3.0 uses the client's Wine Country Properties Group branding: Montserrat, purple #4B5598, green #55A044, supplied combined eXp logos and actual property photography. The hero uses the exterior photograph preferred by the client. RMLS #644545554, the latest 3,018 sq ft living-area figure and both agent license numbers are included. Client assets are imported into the normal Media Library; saved page content remains editable.
+Built with 374 native Elementor elements: editable navigation, hero, property sections, 15-photo gallery, carousel, amenities accordion, original floor plans, listing team and footer. Version 1.3.1 uses the client's Wine Country Properties Group branding: Montserrat, purple #4B5598, green #55A044, supplied combined eXp logos and actual property photography. The hero uses the exterior photograph preferred by the client. RMLS #644545554, the latest 3,018 sq ft living-area figure and both agent license numbers are included. Client assets are imported into the normal Media Library; saved page content remains editable.
 
 - [Install, edit and update the website](docs/installation.md)
 - [Local development and verification](docs/development.md)
