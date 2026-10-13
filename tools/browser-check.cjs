@@ -17,6 +17,7 @@ const path = require('node:path');
     assert.equal(await page.locator('h1').count(),1);
     assert.match(await page.locator('h1').innerText(), /Unmistakably/);
     assert.ok(await page.locator('.elementor-widget-image').count() >= 19);
+    await page.locator('.elementor-widget-image img').evaluateAll(images=>images.forEach(img=>{img.loading='eager';}));
     await page.waitForFunction(()=>[...document.querySelectorAll('.elementor-widget-image img')].every(img=>img.complete&&img.naturalWidth>0));
     assert.ok(await page.locator('a[href^="mailto:"]').count() >= 4);
     const layout=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
