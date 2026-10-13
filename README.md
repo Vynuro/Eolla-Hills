@@ -10,7 +10,7 @@ Website: https://www.9055eolahills.com/
 
 Local preview: http://localhost:8085/ (Docker Desktop must be running).
 
-Built with 275 native Elementor elements: editable navigation, hero, property sections, gallery, carousel, listing team and footer. Proposed midnight navy, champagne and warm ivory styling; locally hosted Cormorant Garamond and DM Sans. An immersive image hero, oversized editorial type, glass fact cards, native photo-switch buttons, asymmetric image layouts and an inset listing-team panel replace the earlier horizontal bands. Includes scroll reveals, gentle title movement, card hovers, gallery filters/lightbox, counters, and reduced-motion support. Temporary stock photography is stored in the WordPress Media Library for replacement.
+Built with 310 native Elementor elements: editable navigation, hero, property sections, gallery, carousel, listing team and footer. The user's blue reference now guides the site-wide palette: deep blue, royal blue, ice blue and white. Locally hosted Manrope pairs semibold corporate headings with clear body text. A cinematic photo hero, rounded address/radar pill, connected statistics panel, elevated feature cards and asymmetric image layouts create the landing-page composition. Includes native photo-switch buttons, scroll reveals, card hovers, gallery filters/lightbox, counters and reduced-motion support. Full-resolution temporary stock photography is stored in the WordPress Media Library for replacement.
 
 - [Install, edit and update the website](docs/installation.md)
 - [Local development and verification](docs/development.md)

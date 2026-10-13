@@ -4,7 +4,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const animations = new Set();
   function animate(el,frames,options) {
-    if(reduced.matches || !el.animate) return;
+    if(!el || reduced.matches || !el.animate) return;
     const motion=el.animate(frames,options); animations.add(motion);
     motion.onfinish=()=>animations.delete(motion);
   }
@@ -85,7 +85,7 @@
         event.preventDefault();
         hero.style.backgroundImage=scenes[index];
         sceneButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
-        animate(hero.querySelector('.eola-hero-word'),[{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:600,easing:'ease-out'});
+        animate(hero.querySelector('.eola-hero-copy'),[{opacity:.35,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:600,easing:'ease-out'});
       };
       button.addEventListener('click',choose);
       button.addEventListener('keydown',e=>{if(e.code==='Space')choose(e)});

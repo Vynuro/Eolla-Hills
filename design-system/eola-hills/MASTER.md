@@ -1,9 +1,9 @@
 # Eola Hills design system
 
-Current direction follows the user's LeonHome reference (2026-10-13): immersive full-photo hero, oversized editorial typography, floating glass fact cards, pill navigation/actions, inset rounded photo panels and varied asymmetric layouts. No repeated full-width colour bands or divider-led sections.
+Current direction combines the user's LeonHome composition reference with their blue statistics-panel reference (2026-10-13). Use a cinematic property hero, clean separate header, pill actions, connected statistics panel, inset rounded photography and asymmetric layouts.
 
-Proposed palette: midnight navy #17212D, off-white #FFFEFC, champagne #E6C8A6, sand #F1ECE5, readable bronze #93683F and muted grey #656A72. Green branding was rejected; client branding is still pending.
+User-selected preview palette: deep blue #06265A, royal blue #0044A8, ice blue #DCE9FF, pale blue #F3F7FD, white #FCFDFF and muted blue-grey #627795. Apply across the whole website. Client-approved branding is still pending.
 
-Cormorant Garamond headings and DM Sans body text are hosted locally, registered in Elementor as Eola Display and Eola Sans. Native Elementor controls own content, images, colours, typography, layout and responsive spacing.
+Manrope SemiBold headings and regular Manrope body text are hosted locally, registered in Elementor as Eola Display and Eola Sans. Native Elementor controls own content, images, colours, typography, layout and responsive spacing.
 
 See [landing decisions](pages/landing.md). References guide composition only; no reference artwork, brand claims, testimonials or team identities are copied.

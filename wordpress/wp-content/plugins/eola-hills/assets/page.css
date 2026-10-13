@@ -1,25 +1,43 @@
 /* Layout, colours and spacing are stored as native Elementor settings. */
-@font-face { font-family: 'Eola Display'; src: url('fonts/editorial.ttf') format('truetype'); font-weight:300 700; font-style:normal; font-display:swap; }
-@font-face { font-family: 'Eola Sans'; src: url('fonts/body.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
+@font-face { font-family: 'Eola Display'; src: url('fonts/corporate.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
+@font-face { font-family: 'Eola Sans'; src: url('fonts/corporate.ttf') format('truetype'); font-weight:200 800; font-style:normal; font-display:swap; }
 .eola-hills-page { margin: 0; }
 .eola-hills-page .eola-glass-card { backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
 .eola-hills-page .eola-immersive-hero { isolation:isolate; transition:background-image .65s ease; }
 .eola-hills-page .eola-hero-word { pointer-events:none; }
+.eola-hills-page .eola-address-pill .elementor-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; }
+.eola-hills-page .eola-address-pill .elementor-button-content-wrapper { align-items:center; justify-content:center; }
+.eola-hills-page .eola-address-pill .elementor-button-text { flex-grow:0; line-height:17px; position:relative; top:1px; text-align:center; }
+.eola-hills-page .eola-address-pill .elementor-button-icon { position:relative; display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; flex-shrink:0; margin:0; line-height:1; }
+.eola-hills-page .eola-address-pill .elementor-button-icon svg { display:block; width:17px; height:17px; }
+.eola-hills-page .eola-address-pill .elementor-button-icon::after { content:''; position:absolute; inset:-3px; border:1px solid currentColor; border-radius:50%; opacity:0; animation:eola-radar 2.8s ease-out 2; }
+@keyframes eola-radar { 0% { transform:scale(.55); opacity:.8; } 100% { transform:scale(1.45); opacity:0; } }
+.eola-hills-page .eola-acreage-feature { position:relative; isolation:isolate; overflow:hidden; }
+.eola-hills-page .eola-acreage-feature::before { content:''; position:absolute; width:260px; height:260px; right:-90px; bottom:-110px; border-radius:50%; border:1px solid #FFFFFF14; box-shadow:0 0 0 32px #FFFFFF07,0 0 0 64px #FFFFFF05; pointer-events:none; z-index:-1; }
 .eola-hills-page .eola-lift-card { transition:translate .45s cubic-bezier(.2,.7,.2,1); }
 .eola-hills-page .eola-lift-card:hover { translate:0 -8px; }
-.eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#17212D; border-color:#FFFFFF; }
+.eola-hills-page .eola-feature-card { transition:translate .4s,box-shadow .4s,background .4s; }
+.eola-hills-page .eola-feature-card:hover { translate:0 -10px; }
+.eola-hills-page .eola-feature-card .elementor-widget-image { overflow:hidden; }
+.eola-hills-page .eola-feature-card img { transition:scale .7s cubic-bezier(.2,.7,.2,1); }
+.eola-hills-page .eola-feature-card:hover img { scale:1.08; }
+.eola-hills-page .eola-feature-card .elementor-button-icon { transition:transform .35s; }
+.eola-hills-page .eola-feature-card:hover .elementor-button-icon { transform:translateX(4px) rotate(-35deg); }
+.eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#06265A; border-color:#FFFFFF; }
 .eola-hills-page .eola-property-carousel .swiper { border-radius:22px; }
-.eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#17212D60; backdrop-filter:blur(8px); transition:background .2s; }
-.eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#17212DDD; }
+.eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#06265A60; backdrop-filter:blur(8px); transition:background .2s; }
+.eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#06265ADD; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-prev { left:24px; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-next { right:24px; }
-.eola-hills-page :where(a, button, input):focus-visible { outline: 3px solid #a16b35; outline-offset: 5px; }
+.eola-hills-page :where(a, button, input):focus-visible { outline: 3px solid #3479DE; outline-offset: 5px; }
 .eola-hills-page :where([id]) { scroll-margin-top: 130px; }
 .eola-hills-page .elementor-widget-text-editor p:last-child { margin-bottom: 0; }
+.eola-hills-page .elementor-widget-text-editor p { margin-top:0; }
+.eola-hills-page .elementor-heading-title { margin:0; }
 .eola-hills-page .elementor-widget-heading :where(h1,h2,h3) { text-wrap: balance; }
 .eola-hills-page .elementor-button { transition: background-color .25s, color .25s, box-shadow .25s, translate .25s; }
 .eola-hills-page .elementor-button:hover { translate: 0 -2px; }
-.eola-hills-page .eola-filter a[aria-pressed="true"] { background: #192333; color: #F8F5EF; }
+.eola-hills-page .eola-filter a[aria-pressed="true"] { background: #0044A8; color: #FFFFFF; }
 .eola-hills-page .eola-gallery-tile[hidden] { display:none !important; }
 .eola-hills-page .eola-gallery-tile figure { overflow:hidden; }
 .eola-hills-page .elementor-widget-image a { display:block; }
@@ -27,11 +45,14 @@
 .eola-hills-page .eola-gallery-tile a:hover img { scale:1.035; }
 .eola-hills-page .eola-nav-link a[aria-current="location"] { text-decoration:underline; text-underline-offset:7px; }
 .eola-hills-page .eola-hero-media img { translate:0 var(--eola-photo-shift,0px); }
-.eola-hills-page .eola-read-progress { position:fixed; inset:0 auto auto 0; height:3px; width:100%; z-index:9999; background:#997044; transform-origin:left; transform:scaleX(var(--eola-progress,0)); pointer-events:none; }
+.eola-hills-page .eola-read-progress { position:fixed; inset:0 auto auto 0; height:3px; width:100%; z-index:9999; background:#0044A8; transform-origin:left; transform:scaleX(var(--eola-progress,0)); pointer-events:none; }
 .eola-hills-page .eola-skip { position: absolute; top: -150px; left: 20px; z-index: 1000; }
 .eola-hills-page .eola-skip:focus-within { top: 12px; }
 @media (prefers-reduced-motion: reduce) {
   .eola-hills-page *, .eola-hills-page *::before, .eola-hills-page *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   .eola-hills-page .eola-hero-media img { translate:none; }
   .eola-hills-page .eola-lift-card:hover { translate:none; }
+  .eola-hills-page .eola-feature-card:hover { translate:none; }
+  .eola-hills-page .eola-feature-card:hover img { scale:none; }
+  .eola-hills-page .eola-feature-card:hover .elementor-button-icon { transform:none; }
 }

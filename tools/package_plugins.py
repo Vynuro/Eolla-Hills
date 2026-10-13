@@ -43,7 +43,7 @@ def verify(elements):
         ids.add(el['id'])
         assert el['elType'] in {'container','widget'}
         if el['elType']=='widget':
-            assert el['widgetType'] in {'heading','text-editor','button','image','image-carousel'}, el['widgetType']
+            assert el['widgetType'] in {'heading','text-editor','button','image','image-carousel','icon'}, el['widgetType']
         verify(el['elements'])
 verify(template['content'])
 print(f'Checked {len(ids)} native Elementor elements; manifest SHA-256 generated.')
