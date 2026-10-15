@@ -7,6 +7,7 @@ methods=[]
 for name in ['encrypt_token','decrypt_token','record_theme_baseline','theme_file_manifest','find_local_theme_conflicts','zip_directory']:
     source=re.search(r'\t(?:private|public) function '+name+r'\b[\s\S]*?\n\t}',original).group(0)
     source=source.replace('taabeer-deployment','eola-hills-updates').replace('taabeer_','eola_hills_').replace('TAABEER','Eola Hills')
+    source=source.replace("self::THEME_SLUG . '/' . substr( $path, strlen( $source ) + 1 )", "basename( $source ) . '/' . substr( $path, strlen( $source ) + 1 )")
     # Retain original conflict reconciliation; reject symlinks before reading packages.
     source=source.replace("\t\t\tif ( ! $file->isFile() ) {", "\t\t\tif ( $file->isLink() ) { return new WP_Error( 'symlink', 'Theme directory contains a symlink.' ); }\n\t\t\tif ( ! $file->isFile() ) {")
     methods.append(source)

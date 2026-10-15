@@ -141,7 +141,7 @@ trait Eola_Hills_Taabeer_Deployment {
 		$iterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $source, FilesystemIterator::SKIP_DOTS ) );
 		foreach ( $iterator as $file ) {
 			$path = $file->getRealPath();
-			$zip->addFile( $path, self::THEME_SLUG . '/' . substr( $path, strlen( $source ) + 1 ) );
+			$zip->addFile( $path, basename( $source ) . '/' . substr( $path, strlen( $source ) + 1 ) );
 		}
 		$zip->close();
 		return $destination;

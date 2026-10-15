@@ -11,7 +11,7 @@ python tools/build_template.py
 python tools/package_plugins.py
 ```
 
-The build validates 374 native Elementor elements and all 27 client-media hashes. Outputs are `eola-hills-theme-<version>.zip`, `eola-hills-updates-<version>.zip` and `eola-hills-theme-update.json`. The 2.x updater accepts only the theme manifest/package. Legacy 1.x assets can remain on GitHub for recovery; they are not used by 2.x.
+The build validates 374 native Elementor elements and all 27 client-media hashes. Outputs are `eola-hills-theme-<version>.zip`, `eola-hills-updates-<version>.zip` and `eola-hills-theme-update.json`. The manifest lists the theme and the updater (`updater`: version, package, SHA-256). Updater 2.2+ self-updates from it before installing the theme; older 2.x updaters ignore the key. Bump the updater header version whenever its code changes. Legacy 1.x assets can remain on GitHub for recovery; they are not used by 2.x.
 
 Increment the theme version in `style.css` and `functions.php` when shipping theme changes. The delivery fingerprint is computed from the template and media manifest. It changes automatically when packaged page content/assets change. Such releases back up and replace the managed Elementor document; code-only releases preserve later native edits. The updater finishes delivery automatically on the redirect after WordPress loads the new theme.
 
@@ -33,6 +33,8 @@ Browser tests: `node tools/browser-check.cjs`, `node tools/interaction-check.cjs
 Isolated migration: install the new updater ZIP into the port-8086 instance, then run `verify-theme-migration.php` and, on the next CLI request, `verify-theme-delivery.php`. They exercise changed legacy files, backup failure, permissions, checksums/path traversal, theme installation, automatic content replacement, exact backups, native edit preservation, restoration and retirement of the second custom plugin.
 
 Future update: `make_update_fixture.py` generates a private next-version theme fixture with changed content. Run `verify-theme-upgrade.php` and then `verify-theme-upgrade-delivery.php` on the isolated instance. These verify that direct theme-file changes are backed up and replaced and new Git content is applied automatically.
+
+Updater self-update: run `python tools/package_plugins.py` and `python tools/make_selfupdate_fixture.py`, copy `artifacts/selftest/`, `tools/selfupdate-github-mock.php` and `tools/verify-self-update.php` into the 8086 instance's `/work/artifacts/selftest/`, install the current updater/theme ZIPs, copy the mock into `mu-plugins`, then run `verify-self-update.php` with `same`, `tampered`, `self`, `resume`, `after-resume`, `content` (one CLI request each). Remove the mock afterwards. The test covers the checksum rejection, previous-updater backup, the new code finishing the sync, chunked theme backup and the content delivery.
 
 `verify-github.php` fetches and installs the real published theme release on the isolated instance; `verify-fresh-delivery.php` verifies a new site after the next request. No fixture or test credential is published.
 

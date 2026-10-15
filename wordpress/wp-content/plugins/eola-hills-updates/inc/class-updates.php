@@ -8,12 +8,14 @@ final class Eola_Hills_Updates {
     const OPTION_BASELINE = 'eola_hills_theme_baseline';
     const REPO = 'malikazhar545/5eolahills';
     const CACHE = 'eola_hills_theme_release';
+    const PLUGIN_FILE = 'eola-hills-updates/eola-hills-updates.php';
     private static $instance;
     public static function instance() { return self::$instance ?: ( self::$instance = new self() ); }
     private function __construct() {
         add_action( 'admin_menu', function () { add_management_page( 'Eola Hills Updates', 'Eola Hills Updates', 'manage_options', 'eola-hills-updates', array( $this, 'screen' ) ); } );
         add_action( 'admin_post_eola_hills_updates', array( $this, 'handle' ) );
         add_action( 'eola_hills_release_check', function () { $this->release( true ); } );
+        add_action( 'admin_init', array( $this, 'resume_sync' ), 60 );
         add_action( 'admin_init', array( $this, 'complete_sync' ), 70 );
     }
     public static function activate() { if ( ! wp_next_scheduled( 'eola_hills_release_check' ) ) { wp_schedule_event( time() + 300, 'hourly', 'eola_hills_release_check' ); } }
@@ -60,6 +62,10 @@ final class Eola_Hills_Updates {
         }
         if ( self::THEME_SLUG !== $manifest['theme'] || ! preg_match( '/^\d+\.\d+\.\d+$/', $manifest['version'] ) || ! preg_match( '/^[a-f0-9]{64}$/', $manifest['sha256'] ) || 'eola-hills-theme-' . $manifest['version'] . '.zip' !== $manifest['package_asset'] ) { return new WP_Error( 'manifest', 'Unexpected theme, version or package.' ); }
         if ( version_compare( get_bloginfo( 'version' ), $manifest['requires_wp'], '<' ) || version_compare( PHP_VERSION, $manifest['requires_php'], '<' ) ) { return new WP_Error( 'requirements', 'Update WordPress/PHP before installing this release.' ); }
+        if ( isset( $manifest['updater'] ) ) {
+            $updater = $manifest['updater'];
+            if ( ! is_array( $updater ) || ! is_string( $updater['version'] ?? null ) || ! is_string( $updater['sha256'] ?? null ) || ! is_string( $updater['package_asset'] ?? null ) || ! preg_match( '/^\d+\.\d+\.\d+$/', $updater['version'] ) || ! preg_match( '/^[a-f0-9]{64}$/', $updater['sha256'] ) || 'eola-hills-updates-' . $updater['version'] . '.zip' !== $updater['package_asset'] ) { return new WP_Error( 'manifest', 'Unexpected updater package.' ); }
+        }
         return $manifest;
     }
     public function release( $force = false ) {
@@ -75,6 +81,10 @@ final class Eola_Hills_Updates {
         if ( is_wp_error( $manifest ) ) { return $manifest; }
         $manifest['asset_url'] = $this->asset( $release, $manifest['package_asset'] );
         if ( ! $manifest['asset_url'] ) { return new WP_Error( 'package_missing', 'The theme package is missing.' ); }
+        if ( isset( $manifest['updater'] ) ) {
+            $manifest['updater']['asset_url'] = $this->asset( $release, $manifest['updater']['package_asset'] );
+            if ( ! $manifest['updater']['asset_url'] ) { return new WP_Error( 'package_missing', 'The updater package is missing.' ); }
+        }
         set_transient( self::CACHE, $manifest, 15 * MINUTE_IN_SECONDS );
         return $manifest;
     }
@@ -96,6 +106,30 @@ final class Eola_Hills_Updates {
             foreach ( array( 'functions.php', 'index.php', 'templates/property.json', 'assets/media/manifest.json' ) as $file ) { if ( false === $zip->getFromName( 'eola-hills/' . $file ) ) { return new WP_Error( 'zip_theme', 'The theme package is incomplete.' ); } }
         } finally { $zip->close(); }
         return true;
+    }
+    public function validate_updater_zip( $path, $updater ) {
+        if ( ! class_exists( 'ZipArchive' ) ) { return new WP_Error( 'zip', 'The PHP Zip extension is required.' ); }
+        if ( ! hash_equals( $updater['sha256'], hash_file( 'sha256', $path ) ) ) { return new WP_Error( 'checksum', 'Updater package checksum verification failed.' ); }
+        $zip = new ZipArchive();
+        if ( true !== $zip->open( $path ) ) { return new WP_Error( 'zip', 'Cannot open the updater package.' ); }
+        $seen = array(); $total = 0; $folder = dirname( self::PLUGIN_FILE ) . '/';
+        try {
+            for ( $i = 0; $i < $zip->numFiles; $i++ ) {
+                $entry = $zip->statIndex( $i ); $name = $entry['name']; $total += $entry['size'];
+                $zip->getExternalAttributesIndex( $i, $opsys, $attributes );
+                if ( 0 !== strpos( $name, $folder ) || preg_match( '~(?:^|/)\.\.(?:/|$)|[\\\\:\x00]~', $name ) || isset( $seen[$name] ) || 0120000 === ( ( $attributes >> 16 ) & 0170000 ) || $total > 8 * MB_IN_BYTES || $zip->numFiles > 200 ) { return new WP_Error( 'zip_path', 'Unsafe or oversized updater package.' ); }
+                $seen[$name] = true;
+            }
+            $header = $zip->getFromName( self::PLUGIN_FILE );
+            if ( ! $header || ! preg_match( '/^\s*\*?\s*Version:\s*' . preg_quote( $updater['version'], '/' ) . '\s*$/m', $header ) ) { return new WP_Error( 'zip_plugin', 'Updater version does not match the release.' ); }
+            foreach ( array( 'inc/class-updates.php', 'inc/trait-taabeer-deployment.php', 'inc/taabeer-foundation.php' ) as $file ) { if ( false === $zip->getFromName( $folder . $file ) ) { return new WP_Error( 'zip_plugin', 'The updater package is incomplete.' ); } }
+        } finally { $zip->close(); }
+        return true;
+    }
+    public function plugin_version() {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        $file = WP_PLUGIN_DIR . '/' . self::PLUGIN_FILE;
+        return is_file( $file ) ? get_plugin_data( $file, false, false )['Version'] : '0.0.0';
     }
     public function version() { return wp_get_theme( self::THEME_SLUG )->exists() ? wp_get_theme( self::THEME_SLUG )->get( 'Version' ) : '0.0.0'; }
     public function backup( $legacy = false ) {
@@ -146,6 +180,46 @@ final class Eola_Hills_Updates {
         }
         $bytes = base64_decode( $encoded, true );
         return $bytes && hash_equals( $backup['sha256'], hash( 'sha256', $bytes ) ) ? $bytes : false;
+    }
+    /**
+     * Replace this updater from the same verified release before the theme sync.
+     * This request keeps running the old code; resume_sync() finishes on the redirect.
+     */
+    public function self_update( $manifest ) {
+        $updater = $manifest['updater'] ?? null; $current = $this->plugin_version();
+        if ( ! $updater || version_compare( $updater['version'], $current, '<=' ) ) { return false; }
+        if ( ! current_user_can( 'install_plugins' ) || ! current_user_can( 'update_plugins' ) || ! current_user_can( 'activate_plugins' ) ) { return new WP_Error( 'permission', 'Plugin update access is required.' ); }
+        $lock = (int) get_option( 'eola_hills_install_lock' );
+        if ( $lock && time() - $lock > 900 ) { delete_option( 'eola_hills_install_lock' ); }
+        if ( ! add_option( 'eola_hills_install_lock', time(), '', false ) ) { return new WP_Error( 'locked', 'A website sync is already running.' ); }
+        $temp = '';
+        try {
+            $bytes = $this->request( $updater['asset_url'] ?? '', true ); if ( is_wp_error( $bytes ) ) { return $bytes; }
+            $temp = wp_tempnam( 'eola-updater-release' );
+            if ( ! $temp || false === file_put_contents( $temp, $bytes ) ) { return new WP_Error( 'temp', 'Could not save the updater package.' ); }
+            $valid = $this->validate_updater_zip( $temp, $updater ); if ( is_wp_error( $valid ) ) { return $valid; }
+            $backup = $this->backup_directory( WP_PLUGIN_DIR . '/' . dirname( self::PLUGIN_FILE ), 'eola_hills_updater_backup', $current ); if ( is_wp_error( $backup ) ) { return $backup; }
+            require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+            $result = ( new Plugin_Upgrader( new Automatic_Upgrader_Skin() ) )->install( $temp, array( 'overwrite_package' => true ) );
+            if ( is_wp_error( $result ) || ! $result ) { return is_wp_error( $result ) ? $result : new WP_Error( 'install', 'Updater installation failed. Its previous code backup is retained.' ); }
+            wp_clean_plugins_cache( true );
+            if ( $updater['version'] !== $this->plugin_version() ) { return new WP_Error( 'version', 'Installed updater version does not match the release.' ); }
+            if ( ! is_plugin_active( self::PLUGIN_FILE ) ) { $active = activate_plugin( self::PLUGIN_FILE, '', false, true ); if ( is_wp_error( $active ) ) { return $active; } }
+            update_option( 'eola_hills_resume_sync', time(), false );
+            return true;
+        } finally { if ( $temp && is_file( $temp ) ) { @unlink( $temp ); } delete_option( 'eola_hills_install_lock' ); }
+    }
+    /** Runs with the freshly installed updater code after a self-update. */
+    public function resume_sync() {
+        $started = (int) get_option( 'eola_hills_resume_sync' );
+        if ( ! $started || wp_doing_ajax() || ! current_user_can( 'manage_options' ) || ! current_user_can( 'update_themes' ) ) { return; }
+        delete_option( 'eola_hills_resume_sync' );
+        if ( time() - $started > 900 ) { return; }
+        $manifest = $this->release( true );
+        $result = is_wp_error( $manifest ) ? $manifest : $this->install( $manifest );
+        $message = 'Updater ' . $this->plugin_version() . ' installed from GitHub. Theme installed; website content sync completes automatically on this page.';
+        set_transient( 'eola_hills_notice_' . get_current_user_id(), array( 'error' => is_wp_error( $result ), 'message' => is_wp_error( $result ) ? $result->get_error_message() : $message ), 60 );
+        wp_safe_redirect( admin_url( 'tools.php?page=eola-hills-updates' ) ); exit;
     }
     /** Git is authoritative for theme files; every replacement is backed up first. */
     public function install( $manifest ) {
@@ -206,12 +280,18 @@ final class Eola_Hills_Updates {
         $action = sanitize_key( $_POST['operation'] ?? '' ); $result = true; $message = '';
         if ( 'sync' === $action || 'check' === $action ) {
             $result = $this->release( true );
-            if ( ! is_wp_error( $result ) ) { $result = 'sync' === $action ? $this->install( $result ) : true; $message = 'sync' === $action ? 'Theme installed. Website content sync completes automatically on this page.' : 'GitHub checked.'; }
+            if ( ! is_wp_error( $result ) && 'sync' === $action ) {
+                $updated = $this->self_update( $result );
+                if ( true === $updated ) { $message = 'Updater updated from GitHub. Finishing the website sync…'; $result = true; }
+                else { $result = is_wp_error( $updated ) ? $updated : $this->install( $result ); $message = 'Theme installed. Website content sync completes automatically on this page.'; }
+            } elseif ( ! is_wp_error( $result ) ) {
+                $message = 'GitHub checked.' . ( isset( $result['updater'] ) && version_compare( $result['updater']['version'], $this->plugin_version(), '>' ) ? ' Updater ' . $result['updater']['version'] . ' is available; Sync installs it.' : '' ); $result = true;
+            }
         } elseif ( 'save' === $action ) {
             if ( defined( 'EOLA_HILLS_GITHUB_TOKEN' ) ) { $result = new WP_Error( 'constant', 'The token is managed in wp-config.php.' ); }
             else { $token = trim( sanitize_text_field( wp_unslash( $_POST['token'] ?? '' ) ) ); if ( $token ) { $result = $this->store_token( $token ); } }
-        } elseif ( in_array( $action, array( 'backup', 'legacy_backup' ), true ) ) {
-            $backup = get_option( 'legacy_backup' === $action ? 'eola_hills_legacy_backup' : 'eola_hills_theme_backup' );
+        } elseif ( in_array( $action, array( 'backup', 'legacy_backup', 'updater_backup' ), true ) ) {
+            $backup = get_option( array( 'backup' => 'eola_hills_theme_backup', 'legacy_backup' => 'eola_hills_legacy_backup', 'updater_backup' => 'eola_hills_updater_backup' )[$action] );
             $bytes = $this->backup_bytes( $backup );
             if ( ! $bytes || ! hash_equals( $backup['sha256'], hash( 'sha256', $bytes ) ) ) { wp_die( 'No valid code backup is available.' ); }
             nocache_headers(); header( 'Content-Type: application/zip' ); header( 'Content-Disposition: attachment; filename="eola-hills-' . $action . '.zip"' ); echo $bytes; exit;
@@ -231,15 +311,16 @@ final class Eola_Hills_Updates {
         $notice = get_transient( 'eola_hills_notice_' . get_current_user_id() );
         if ( $notice ) { echo '<div class="notice ' . ( $notice['error'] ? 'notice-error' : 'notice-success' ) . '"><p>' . esc_html( $notice['message'] ) . '</p></div>'; delete_transient( 'eola_hills_notice_' . get_current_user_id() ); }
         if ( $error = get_option( 'eola_hills_sync_error' ) ) { echo '<div class="notice notice-error"><p>Content sync needs attention: ' . esc_html( $error ) . ' Click Sync from GitHub to retry.</p></div>'; }
-        echo '<p>Repository: <code>' . esc_html( self::REPO ) . '</code><br>Installed theme: <strong>' . esc_html( $this->version() ) . '</strong></p>';
+        echo '<p>Repository: <code>' . esc_html( self::REPO ) . '</code><br>Installed theme: <strong>' . esc_html( $this->version() ) . '</strong><br>Updater: <strong>' . esc_html( $this->plugin_version() ) . '</strong></p>';
         $last = get_option( 'eola_hills_last_install' );
         if ( $last && ! get_option( 'eola_hills_pending_theme_sync' ) ) { echo '<p>Website synced: ' . esc_html( $last['version'] . ' · ' . $last['date'] ) . '</p>'; }
-        echo '<p>Sync installs the latest GitHub theme and automatically applies changed client layouts and media. Theme files and replaced page content are backed up first. Header, footer, sections and media remain editable in Elementor. Code-only releases preserve saved page edits.</p>';
+        echo '<p>Sync first updates this updater when GitHub has a newer verified version, then installs the latest GitHub theme and automatically applies changed client layouts and media. Theme files and replaced page content are backed up first. Header, footer, sections and media remain editable in Elementor. Code-only releases preserve saved page edits.</p>';
         $this->form( 'sync', 'Sync from GitHub', true ); $this->form( 'check', 'Check GitHub' );
         $id = (int) get_option( 'eola_hills_page_id' );
         if ( $id ) { echo '<p><a class="button" href="' . esc_url( admin_url( 'post.php?post=' . $id . '&action=elementor' ) ) . '">Edit website in Elementor</a> <a class="button" href="' . esc_url( get_permalink( $id ) ) . '">View website</a></p>'; }
         if ( get_option( 'eola_hills_theme_backup' ) ) { $this->form( 'backup', 'Download previous theme backup' ); }
         if ( get_option( 'eola_hills_legacy_backup' ) ) { $this->form( 'legacy_backup', 'Download retired property plugin backup' ); }
+        if ( get_option( 'eola_hills_updater_backup' ) ) { $this->form( 'updater_backup', 'Download previous updater backup' ); }
         echo '<p>Restore page content from the Eola Hills menu. Keep separate complete WordPress database/media backups.</p><h2>Private repository access</h2><p>This public repository needs no token. Existing saved authentication is retained during migration.</p>';
         echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">'; wp_nonce_field( 'eola_hills_updates' );
         echo '<input type="hidden" name="action" value="eola_hills_updates"><input type="hidden" name="operation" value="save"><label>GitHub token <input type="password" name="token" autocomplete="new-password" value="" class="regular-text"></label>';

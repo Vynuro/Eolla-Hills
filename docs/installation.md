@@ -4,7 +4,7 @@ Requires WordPress 6.8+, PHP 8.0+, PHP Zip, writable theme/plugin/uploads folder
 
 ## Existing website using the old two-plugin setup
 
-1. Download `eola-hills-updates-2.0.1.zip` from the GitHub `client-preview` release.
+1. Download `eola-hills-updates-2.2.0.zip` (or newer) from the GitHub `client-preview` release.
 2. In **Plugins → Add New → Upload Plugin**, upload it and choose **Replace current with uploaded** for Eola Hills Updates. Keep it active. This replaces the existing updater; it does not add a second custom updater.
 3. Open **Tools → Eola Hills Updates → Sync from GitHub**.
 
@@ -14,13 +14,17 @@ The old plugin-file conflict message does not apply to this migration. A retaine
 
 ## Fresh WordPress
 
-Upload/activate only `eola-hills-updates-2.0.1.zip`, then click **Sync from GitHub**. It installs/activates Elementor if needed, installs/activates the theme and creates the native Elementor property page. If no static homepage is configured, the page is published and set as homepage. An existing configured homepage is retained and the new page stays a draft.
+Upload/activate only `eola-hills-updates-2.2.0.zip` (or newer), then click **Sync from GitHub**. It installs/activates Elementor if needed, installs/activates the theme and creates the native Elementor property page. If no static homepage is configured, the page is published and set as homepage. An existing configured homepage is retained and the new page stays a draft.
 
 The public repository is preset; no token is required. Existing private-repository token storage is preserved. Never put hosting credentials in Git.
 
-## Existing 2.0.0 website
+## Updater self-update (2.2.0+)
 
-Before the first sync after 2.0.0, upload `eola-hills-updates-2.0.1.zip` (Plugins → Add New → Upload Plugin → **Replace current with uploaded**), then click **Sync from GitHub**. Updater 2.0.1 stores the previous-theme backup in verified 512 KB database chunks. The 2.0.0 updater stored it in one row, which can exceed a shared host's database packet limit now that the theme carries ~17 MB of client media; it would then stop safely with "The code backup could not be saved. No files were replaced."
+Like the theme, the updater now updates itself from GitHub. Each release manifest lists the updater version, package and SHA-256. **Sync from GitHub** first installs a newer verified updater, keeping a downloadable backup of the previous one. The redirect then runs the new updater code, which installs the theme, and the next page load applies the Elementor content. One click covers all three steps.
+
+Sites on 2.0.x/2.1.x need **one last manual upload** of `eola-hills-updates-2.2.0.zip` (Plugins → Add New → Upload Plugin → **Replace current with uploaded**), because those versions cannot update themselves. After that, no updater ZIP is uploaded by hand.
+
+Since 2.0.1, previous-code backups are stored in verified 512 KB database chunks. Single-row backups of the ~17 MB theme can exceed a shared host's database packet limit.
 
 ## Future changes
 

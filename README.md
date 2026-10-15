@@ -2,7 +2,7 @@
 
 Website for 9055 SE Eola Hills Rd, Amity, Oregon. Local preview: http://localhost:8085/.
 
-Version 2.0.0 uses the requested Taabeer architecture: **one Eola Hills theme and one custom GitHub updater plugin**, plus Elementor Free for editing. Install the updater once, then click **Tools → Eola Hills Updates → Sync from GitHub**. It installs the theme and automatically syncs changed client layouts/media with backups. No separate content-apply action.
+Version 2.0.0 uses the requested Taabeer architecture: **one Eola Hills theme and one custom GitHub updater plugin**, plus Elementor Free for editing. Install the updater once, then click **Tools → Eola Hills Updates → Sync from GitHub**. Since 2.2.0 the updater also updates itself from the same verified release, then installs the theme and automatically syncs changed client layouts/media with backups. No separate content-apply action.
 
 The theme contains 374 native Elementor elements, client photos and brokerage logos, Montserrat and supplied branding, 3,018 sq ft listing details, RMLS #644545554, both agent license numbers, client-corrected floor plans (see docs/floor-plan-revisions.md) and the amenities PDF. Header, footer, sections, text, photos, colors and responsive settings remain editable.
 
