@@ -188,12 +188,13 @@ amenities=section('Confirmed property amenities',[
  widget('accordion','Client-supplied amenities',tabs=[{'_id':ident(),'tab_title':title,'tab_content':'<ul>'+''.join('<li>'+item+'</li>' for item in items)+'</ul>'} for title,items in amenity_groups],title_html_tag='h3',border_width=size(1),border_color='#DDDDE8',title_background=WHITE,title_color=INK,tab_active_color=BLUE,content_background_color=WHITE,content_color=MUTED,title_typography_typography='custom',title_typography_font_family='Eola Sans',title_typography_font_weight='600',title_typography_font_size=size(18),title_typography_line_height=size(1.35,'em'),content_typography_typography='custom',content_typography_font_family='Eola Sans',content_typography_font_size=size(14),content_typography_line_height=size(1.65,'em'),title_padding=edges(24),content_padding=edges(10,28,24,28),_css_classes='eola-amenities')
 ],'amenities',background_background='classic',background_color=SAND)
 
-plans=section('Original supplied floor plans',[
+plan_sheets=[(1,'1ST FLOOR · HOME, GARAGE & WORKSHOP','1st floor - home, garage & workshop'),(2,'2ND FLOOR','2nd floor'),(3,'BARN','Barn')]
+plans=section('Floor plans',[
  row('Floor plan overview',[
- col('Floor plan description',[label('PROPERTY DETAILS'),heading('Floor plans',n=48),text('Approximate living area: 3,018 sq ft per the listing. The original supplied floor plans show different totals and are reproduced unchanged.',n=13),button('View original overview',media('floorplan-4')['url'],outline=True)],39,flex_justify_content='center'),
- col('All plans',[photo('floorplan-4','All floor plans - original supplied overview',440,height_mobile=size(300),link_to='file',open_lightbox='yes',**{'object-fit':'contain'})],57)
+ col('Floor plan description',[label('PROPERTY DETAILS'),heading('Floor plans',n=48),text('Approximate living area: 3,018 sq ft per the listing. Plans show the home, covered deck, detached 3-car garage, RV bay, woodworking shop and barn. Measurements are approximate.',n=13),button('View all floors',media('floorplan-4')['url'],outline=True)],39,flex_justify_content='center'),
+ col('All plans',[photo('floorplan-4','All floors - floor plan overview',440,height_mobile=size(300),link_to='file',open_lightbox='yes',**{'object-fit':'contain'})],57)
  ]),
- row('Individual supplied plans',[col('Plan '+str(i),[photo('floorplan-'+str(i),'Original supplied floor plan '+str(i),250,height_mobile=size(240),link_to='file',open_lightbox='yes',**{'object-fit':'contain'}),label('PLAN 0'+str(i),BLUE)],31.5) for i in range(1,4)])
+ row('Individual floor plans',[col('Plan '+str(i),[photo('floorplan-'+str(i),'Floor plan - '+title,250,height_mobile=size(240),link_to='file',open_lightbox='yes',**{'object-fit':'contain'}),label(name,BLUE)],31.5) for i,name,title in plan_sheets])
 ],'floor-plans')
 team=section('09 - Listing team',[
  container('Listing team - inset brand panel',[

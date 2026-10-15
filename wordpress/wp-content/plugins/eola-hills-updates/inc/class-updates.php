@@ -100,6 +100,9 @@ final class Eola_Hills_Updates {
     public function version() { return wp_get_theme( self::THEME_SLUG )->exists() ? wp_get_theme( self::THEME_SLUG )->get( 'Version' ) : '0.0.0'; }
     public function backup( $legacy = false ) {
         $source = $legacy ? WP_PLUGIN_DIR . '/eola-hills' : get_theme_root( self::THEME_SLUG ) . '/eola-hills';
+        return $this->backup_directory( $source, $legacy ? 'eola_hills_legacy_backup' : 'eola_hills_theme_backup', $legacy ? 'legacy-plugin' : $this->version() );
+    }
+    private function backup_directory( $source, $option, $version ) {
         if ( ! is_dir( $source ) ) { return true; }
         $files = $this->theme_file_manifest( $source );
         if ( is_wp_error( $files ) ) { return $files; }
@@ -110,12 +113,39 @@ final class Eola_Hills_Updates {
             if ( is_wp_error( $result ) ) { return $result; }
             $bytes = file_get_contents( $temp );
             if ( ! $bytes ) { return new WP_Error( 'backup', 'The code backup is empty.' ); }
-            $backup = array( 'created' => current_time( 'mysql', true ), 'version' => $legacy ? 'legacy-plugin' : $this->version(), 'sha256' => hash( 'sha256', $bytes ), 'data' => base64_encode( $bytes ) );
-            $option = $legacy ? 'eola_hills_legacy_backup' : 'eola_hills_theme_backup';
+            // Each SQL write stays below shared-hosting packet limits. Publish metadata last.
+            $prefix = 'eola_backup_' . str_replace( '-', '', wp_generate_uuid4() ) . '_';
+            $chunks = str_split( base64_encode( $bytes ), 512 * 1024 );
+            $backup = array( 'created' => current_time( 'mysql', true ), 'version' => $version, 'sha256' => hash( 'sha256', $bytes ), 'prefix' => $prefix, 'chunks' => count( $chunks ) );
+            $old = get_option( $option );
+            foreach ( $chunks as $index => $chunk ) {
+                if ( ! add_option( $prefix . $index, $chunk, '', false ) || get_option( $prefix . $index ) !== $chunk ) {
+                    $this->delete_backup_chunks( $backup );
+                    return new WP_Error( 'backup_store', 'The code backup could not be saved. No files were replaced.' );
+                }
+            }
             update_option( $option, $backup, false );
-            if ( get_option( $option ) !== $backup ) { return new WP_Error( 'backup_store', 'The code backup could not be saved. No files were replaced.' ); }
+            if ( get_option( $option ) !== $backup ) { $this->delete_backup_chunks( $backup ); return new WP_Error( 'backup_store', 'The code backup could not be saved. No files were replaced.' ); }
+            $this->delete_backup_chunks( $old );
             return true;
         } finally { @unlink( $temp ); }
+    }
+    private function delete_backup_chunks( $backup ) {
+        if ( ! is_array( $backup ) || ! preg_match( '/^eola_backup_[a-f0-9]{32}_$/', $backup['prefix'] ?? '' ) ) { return; }
+        for ( $i = 0; $i < min( 1024, (int) $backup['chunks'] ); $i++ ) { delete_option( $backup['prefix'] . $i ); }
+    }
+    public function backup_bytes( $backup ) {
+        if ( ! is_array( $backup ) || empty( $backup['sha256'] ) ) { return false; }
+        $encoded = $backup['data'] ?? ''; // Retain compatibility with existing 1.x/2.0 backups.
+        if ( isset( $backup['chunks'] ) ) {
+            if ( ! preg_match( '/^eola_backup_[a-f0-9]{32}_$/', $backup['prefix'] ?? '' ) || $backup['chunks'] < 1 || $backup['chunks'] > 1024 ) { return false; }
+            $encoded = '';
+            for ( $i = 0; $i < $backup['chunks']; $i++ ) {
+                $chunk = get_option( $backup['prefix'] . $i ); if ( ! is_string( $chunk ) || '' === $chunk ) { return false; } $encoded .= $chunk;
+            }
+        }
+        $bytes = base64_decode( $encoded, true );
+        return $bytes && hash_equals( $backup['sha256'], hash( 'sha256', $bytes ) ) ? $bytes : false;
     }
     /** Git is authoritative for theme files; every replacement is backed up first. */
     public function install( $manifest ) {
@@ -182,7 +212,7 @@ final class Eola_Hills_Updates {
             else { $token = trim( sanitize_text_field( wp_unslash( $_POST['token'] ?? '' ) ) ); if ( $token ) { $result = $this->store_token( $token ); } }
         } elseif ( in_array( $action, array( 'backup', 'legacy_backup' ), true ) ) {
             $backup = get_option( 'legacy_backup' === $action ? 'eola_hills_legacy_backup' : 'eola_hills_theme_backup' );
-            $bytes = $backup ? base64_decode( $backup['data'], true ) : false;
+            $bytes = $this->backup_bytes( $backup );
             if ( ! $bytes || ! hash_equals( $backup['sha256'], hash( 'sha256', $bytes ) ) ) { wp_die( 'No valid code backup is available.' ); }
             nocache_headers(); header( 'Content-Type: application/zip' ); header( 'Content-Disposition: attachment; filename="eola-hills-' . $action . '.zip"' ); echo $bytes; exit;
         } else { $result = new WP_Error( 'action', 'Unknown operation.' ); }

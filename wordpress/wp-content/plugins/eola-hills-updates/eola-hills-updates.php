@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Eola Hills Updates
  * Description: Sync the Eola Hills theme and editable Elementor website from GitHub with automatic backups.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Requires at least: 6.8
  * Requires PHP: 8.0
  * Author: Eola Hills

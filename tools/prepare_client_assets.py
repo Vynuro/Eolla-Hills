@@ -47,10 +47,13 @@ add('logo',BRAND/'wcpg-exp-logos/web/wcpg-logo-exp-horizontal-transparent-960-we
 add('logo-reverse',BRAND/'wcpg-exp-logos/web/wcpg-logo-exp-horizontal-reverse-transparent-960-web.png','Wine Country Properties Group | eXp Realty',lossless=True,description='Client-supplied reversed brokerage logo.')
 add('linda',SOURCE/'WhatsApp Image 2026-10-13 at 11.08.50 PM.jpeg','Linda Lindsay, Broker & Realtor',width=800,description='Client-supplied Linda Lindsay headshot; identity confirmed by the user.')
 add('anita-contact',SOURCE/'Anita-Borgaes-Wine-Country-Properties (2).png','Anita Borgaes, Principal Broker & Realtor',lossless=True,description='Client-supplied Anita Borgaes contact card.')
-# Keep every floor-plan PNG byte-for-byte unchanged, including its printed totals.
-for i,source in enumerate(sorted((DELIVERY/'_floorplan').glob('*.png')),1):
-    key=f'floorplan-{i}';file=key+'.png';shutil.copyfile(source,OUT/file)
-    manifest[key]={'file':file,'title':f'Supplied floor plan {i:02d}','alt':f'Original supplied floor plan {i:02d} with dimensions','description':'Original client-supplied floor plan. Listing living area is 3,018 sq ft; printed plan totals differ.','source':source.relative_to(SOURCE).as_posix(),'sha256':hashlib.sha256((OUT/file).read_bytes()).hexdigest()}
+# Floor plans: MouveMedia originals with the client's blue-ink corrections applied by
+# tools/revise_floorplans.py (run it first). Copied byte-for-byte from its output.
+# CubiCasa numbered the sheets barn=1st, main floor=2nd, upper floor=3rd.
+plans=[('01-1st-floor-home-garage-workshop.png','02-2nd_floor','1st floor - home, garage, RV bay & workshop'),('02-2nd-floor.png','03-3rd_floor','2nd floor'),('03-barn.png','01-1st_floor','Barn'),('04-all-floors.png','04-all_floors','All floors')]
+for i,(name,original,title) in enumerate(plans,1):
+    key=f'floorplan-{i}';file=key+'.png';shutil.copyfile(ROOT/'output/floorplans'/name,OUT/file)
+    manifest[key]={'file':file,'title':f'Floor plan - {title}','alt':f'Floor plan with dimensions: {title}','description':'MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,018 sq ft.','source':f'9055-SE-Eola-Hills-Rd (2)/_floorplan/{original}_9055_southeast_eola_hills_road_amity_with_dim.png (revised)','sha256':hashlib.sha256((OUT/file).read_bytes()).hexdigest()}
 source=SOURCE/'Eola Hills_Unbranded Amenities_Edit 10-8-26.pdf';file='property-amenities.pdf';shutil.copyfile(source,OUT/file)
 manifest['amenities']={'file':file,'title':'9055 SE Eola Hills Rd - Amenities','alt':'','description':'Client-supplied amenities sheet dated October 8, 2026.','source':source.name,'sha256':hashlib.sha256((OUT/file).read_bytes()).hexdigest()}
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')

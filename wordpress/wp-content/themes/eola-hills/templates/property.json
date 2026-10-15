@@ -12816,7 +12816,7 @@
       "elType": "container",
       "isInner": false,
       "settings": {
-        "_title": "Original supplied floor plans",
+        "_title": "Floor plans",
         "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
@@ -13012,7 +13012,7 @@
                   "widgetType": "text-editor",
                   "settings": {
                     "_title": "Approximate living area: 3,018 sq ft per",
-                    "editor": "<p>Approximate living area: 3,018 sq ft per the listing. The original supplied floor plans show different totals and are reproduced unchanged.</p>",
+                    "editor": "<p>Approximate living area: 3,018 sq ft per the listing. Plans show the home, covered deck, detached 3-car garage, RV bay, woodworking shop and barn. Measurements are approximate.</p>",
                     "text_color": "#64636D",
                     "typography_typography": "custom",
                     "typography_font_family": "Eola Sans",
@@ -13034,8 +13034,8 @@
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
-                    "_title": "View original overview",
-                    "text": "View original overview",
+                    "_title": "View all floors",
+                    "text": "View all floors",
                     "link": {
                       "url": "{{EOLA_ASSETS}}/media/floorplan-4.png"
                     },
@@ -13124,7 +13124,7 @@
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
-                    "_title": "All floor plans - original supplied overview",
+                    "_title": "All floors - floor plan overview",
                     "image": {
                       "url": "{{EOLA_ASSETS}}/media/floorplan-4.png",
                       "id": 0
@@ -13169,7 +13169,7 @@
           "elType": "container",
           "isInner": false,
           "settings": {
-            "_title": "Individual supplied plans",
+            "_title": "Individual floor plans",
             "content_width": "full",
             "flex_direction": "row",
             "flex_gap": {
@@ -13233,7 +13233,7 @@
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
-                    "_title": "Original supplied floor plan 1",
+                    "_title": "Floor plan - 1st floor - home, garage & workshop",
                     "image": {
                       "url": "{{EOLA_ASSETS}}/media/floorplan-1.png",
                       "id": 0
@@ -13274,8 +13274,8 @@
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
-                    "_title": "PLAN 01",
-                    "title": "PLAN 01",
+                    "_title": "1ST FLOOR · HOME, GARAGE & WORKSHOP",
+                    "title": "1ST FLOOR · HOME, GARAGE & WORKSHOP",
                     "header_size": "p",
                     "title_color": "#4B5598",
                     "typography_typography": "custom",
@@ -13352,7 +13352,7 @@
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
-                    "_title": "Original supplied floor plan 2",
+                    "_title": "Floor plan - 2nd floor",
                     "image": {
                       "url": "{{EOLA_ASSETS}}/media/floorplan-2.png",
                       "id": 0
@@ -13393,8 +13393,8 @@
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
-                    "_title": "PLAN 02",
-                    "title": "PLAN 02",
+                    "_title": "2ND FLOOR",
+                    "title": "2ND FLOOR",
                     "header_size": "p",
                     "title_color": "#4B5598",
                     "typography_typography": "custom",
@@ -13471,7 +13471,7 @@
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
-                    "_title": "Original supplied floor plan 3",
+                    "_title": "Floor plan - Barn",
                     "image": {
                       "url": "{{EOLA_ASSETS}}/media/floorplan-3.png",
                       "id": 0
@@ -13512,8 +13512,8 @@
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
-                    "_title": "PLAN 03",
-                    "title": "PLAN 03",
+                    "_title": "BARN",
+                    "title": "BARN",
                     "header_size": "p",
                     "title_color": "#4B5598",
                     "typography_typography": "custom",

@@ -21,7 +21,7 @@ $media = get_option( 'eola_hills_client_media' );
 eola_content_check( count( $media ) === 27, 'All 27 supplied assets are imported.' );
 $manifest = json_decode( file_get_contents( EOLA_HILLS_DIR . 'assets/media/manifest.json' ), true );
 foreach ( array( 'floorplan-1', 'floorplan-2', 'floorplan-3', 'floorplan-4', 'amenities' ) as $key ) {
-    eola_content_check( hash_equals( $manifest[$key]['sha256'], hash_file( 'sha256', get_attached_file( $media[$key]['id'] ) ) ), $key . ' remains byte-for-byte identical to the original supplied file.' );
+    eola_content_check( hash_equals( $manifest[$key]['sha256'], hash_file( 'sha256', get_attached_file( $media[$key]['id'] ) ) ), $key . ' matches its packaged client file byte-for-byte.' );
 }
 eola_content_check( true === eola_hills_update_content( true ), 'Previous content restores successfully.' );
 eola_content_check( $before === get_post_meta( $id, '_elementor_data', true ) && $settings === get_post_meta( $id, '_elementor_page_settings', true ), 'Restore recovers exact old data and native settings.' );

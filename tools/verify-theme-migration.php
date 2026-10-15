@@ -21,6 +21,6 @@ eola_migrate_check(is_plugin_active('eola-hills/eola-hills.php')&&file_get_conte
 $result=$u->install($m);eola_migrate_check($result===true,'Theme migration installs: '.(is_wp_error($result)?$result->get_error_message():'success'));
 eola_migrate_check(get_stylesheet()==='eola-hills'&&!is_plugin_active('eola-hills/eola-hills.php'),'Theme is active and legacy plugin is deactivated.');
 eola_migrate_check(get_post_meta($id,'_elementor_data',true)===$state['data'],'Code install waits for automatic content sync on next request.');
-$b=get_option('eola_hills_legacy_backup');$tmp=wp_tempnam('eola-backup-check');file_put_contents($tmp,base64_decode($b['data']));$z=new ZipArchive();$z->open($tmp);eola_migrate_check($z->getFromName('eola-hills/assets/page.css')===$state['css'],'Legacy backup captures actual changed plugin files exactly.');$z->close();unlink($tmp);
+$b=get_option('eola_hills_legacy_backup');$tmp=wp_tempnam('eola-backup-check');file_put_contents($tmp,$u->backup_bytes($b));$z=new ZipArchive();$z->open($tmp);eola_migrate_check($z->getFromName('eola-hills/assets/page.css')===$state['css'],'Legacy backup captures actual changed plugin files exactly.');$z->close();unlink($tmp);
 eola_migrate_check(!get_option('eola_hills_install_lock'),'Install lock released.');
 WP_CLI::success('Migration phase one passed; next request loads the theme and auto-syncs content.');

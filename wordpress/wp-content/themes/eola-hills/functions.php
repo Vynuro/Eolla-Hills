@@ -2,7 +2,7 @@
 /** Eola Hills theme: native Elementor design and versioned client delivery. */
 defined( 'ABSPATH' ) || exit;
 if ( function_exists( 'eola_hills_create_page' ) ) { return; } // Legacy migration completes on the next request.
-define( 'EOLA_HILLS_VERSION', '2.0.0' );
+define( 'EOLA_HILLS_VERSION', '2.0.1' );
 define( 'EOLA_HILLS_CONTENT_VERSION', hash( 'sha256', file_get_contents( __DIR__ . '/templates/property.json' ) . file_get_contents( __DIR__ . '/assets/media/manifest.json' ) ) );
 define( 'EOLA_HILLS_DIR', trailingslashit( get_template_directory() ) );
 define( 'EOLA_HILLS_URL', trailingslashit( get_template_directory_uri() ) );

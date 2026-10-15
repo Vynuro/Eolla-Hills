@@ -19,6 +19,7 @@ wordpress/wp-content/plugins/*.zip
 # Generated/local runtime files
 tmp/
 artifacts/
+output/
 node_modules/
 vendor/
 .DS_Store
