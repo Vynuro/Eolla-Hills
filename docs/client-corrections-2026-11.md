@@ -18,13 +18,18 @@ Source: `Eola Hills Landing Page.docx`, `Landing Page Corrections.pdf`, `Eola Hi
 | Client text | Used | Why |
 | --- | --- | --- |
 | "3.112 Sq Ft" | 3,112 Sq Ft | Typo; same document gives 3,112. |
-| "2,305 SF" barn | 2,304 SF | Amenities sheet says 2,304; 48' x 48' = 2,304. |
 | "Surround by Oregon Territorial Views" (handwritten) | Surrounded by | Grammar. |
 | "Work Shop/Studio" (handwritten) | Workshop \| Studio | Matches the client's own heading style. |
 | "Furnance" (hidden PDF text layer) | Furnace | The rendered sheet prints Furnace. |
 
-"Some interior photos are virtually staged." was added under the gallery heading as a disclosure; it was not in the client's text.
+Section copy and the amenities list are each used exactly as supplied: the barn paragraph says 2,305 SF and the amenities list says 2,304 SqFt. The client should confirm which is right.
+
+The gallery keeps its original 15 photo positions; interiors were switched to the staged versions and no tiles were added. No virtual-staging note was added because the client did not ask for one.
 
 ## Not in this repository
 
 The client's social-media graphics feedback (single logo, no extra grey eXp, very small Fair Housing symbol) concerns artwork that is not stored here. The booklet (`tools/build_booklet.py`) still states 3,018 sq ft and eXp Realty and was not rebuilt.
+
+## Client files in the theme
+
+`assets/client-files/` holds the client's contact card and the two logo files as supplied. They are not imported into the Media Library and do not appear on the page. The page keeps the sharper 960px logos from the client's brand folder.

@@ -50,7 +50,7 @@ header=section('Header',[nav],html_tag='header',padding=edges(24,48,24,48),paddi
 hero_copy=col('Hero introduction',[
  button('9055 SE EOLA HILLS RD','#details',True,True,text_padding=edges(12,18,12,18),typography_font_size=size(10),typography_letter_spacing=size(1.2),border_radius=edges(999),border_color='#FFFFFF80',background_color='#00000066',selected_icon={'value':'fas fa-bullseye','library':'fa-solid'},icon_align='left',icon_indent=10,_css_classes='eola-address-pill'),
  heading('Wine Country Living<br>Begins Here','h1',64,WHITE,typography_font_size_tablet=size(46),typography_font_size_mobile=size(34),typography_line_height=size(1.08,'em')),
- text('A rare combination of home, land,<br>lifestyle & possibility.',WHITE,17),
+ text('A rare combination of home, land, <br>lifestyle & possibility.',WHITE,17),
  row('Hero actions',[button('Schedule a Private Tour ↗',tour,True),button('View Property Highlights ↓','#property',True,True)],flex_justify_content='flex-start',flex_wrap='wrap',flex_gap=gap(12))
 ],62,css_classes='eola-hero-copy',flex_gap=gap(19))
 offer=card('Property offering',[
@@ -92,7 +92,7 @@ summary=section('Property essentials',[
  ],flex_gap=gap(0),css_classes='eola-facts-strip'),
  row('Property essentials footer',[
  col('Location',[label('AMITY, OREGON',INK),text('9055 SE Eola Hills Rd',GREY,12)],34),
- col('Property character',[label('CUSTOM BUILT HOME',INK),text('Surrounded by Oregon Territorial Views',GREY,12)],34),
+ col('Property character',[label('Custom Built Home',INK),text('Surrounded by Oregon Territorial Views',GREY,12)],34),
  col('Listing representation',[label('RMLS #644545554',INK),text('Wine Country Properties Group | eXp',GREY,12)],32)
  ],padding=edges(24,30,24,30),background_background='classic',background_color=WHITE,flex_gap=gap(24),border_border='solid',border_width=edges(1,0,0,0),border_color=LINE)
  ],border_border='solid',border_width=edges(3,1,1,1),border_color=GREEN,border_radius=edges(24),overflow='hidden',flex_gap=gap(0))
@@ -139,7 +139,7 @@ land=section('03 - The land',[
 work=section('04 - Barn and workshop',[
  row('Barn and workshop introduction',[col('Heading',[label('03 / BARN + WORKSHOP'),heading('Space for What<br>Matters to You')],55),card('Barn and workshop highlighted note',[heading('Barn + Workshop','h3',30),text('Room for hobbies, projects, storage or lifestyle needs.',INK,14)],width=size(36,'%'),width_mobile=size(100,'%'),background_color=MIDGREEN,padding=edges(28),flex_justify_content='center')]),
  row('Barn and workshop cards',[
- col('Barn',[photo('barn','Barn',380),row('Barn title',[heading('Monitor-Style Barn | Fenced Pastures','h3',25),label('01',_flex_size='none')],flex_direction_mobile='row',flex_gap=gap(12)),text("Thoughtfully designed for both practicality and flexibility, the impressive 2,304 SF monitor-style barn sits on a 48' x 48' concrete pad and features up to seven stalls, Dutch doors, loft, large sliding doors, covered paddock areas, equipment storage, and trailer parking. An insulated ceiling, durable metal roof, power, and water enhance its functionality, while a full bath with an exterior entrance adds convenience. The barn also features a versatile workshop area with a refrigerator, counter space, and built-in cabinets. Set on level ground and surrounded by cross-fenced pastures, this exceptional setting offers endless possibilities for livestock, hobby farming, agricultural pursuits, and a variety of recreational uses. Think party barn!")],47,css_classes='eola-lift-card'),
+ col('Barn',[photo('barn','Barn',380),row('Barn title',[heading('Monitor-Style Barn | Fenced Pastures','h3',25),label('01',_flex_size='none')],flex_direction_mobile='row',flex_gap=gap(12)),text("Thoughtfully designed for both practicality and flexibility, the impressive 2,305 SF monitor-style barn sits on a 48' x 48' concrete pad and features up to seven stalls, Dutch doors, loft, large sliding doors, covered paddock areas, equipment storage, and trailer parking. An insulated ceiling, durable metal roof, power, and water enhance its functionality, while a full bath with an exterior entrance adds convenience. The barn also features a versatile workshop area with a refrigerator, counter space, and built-in cabinets. Set on level ground and surrounded by cross-fenced pastures, this exceptional setting offers endless possibilities for livestock, hobby farming, agricultural pursuits, and a variety of recreational uses. Think party barn!")],47,css_classes='eola-lift-card'),
  col('Workshop / Studio',[photo('workshop','Workshop / studio',380),row('Workshop title',[heading('Craftsman Workshop | Studio','h3',25),label('02',_flex_size='none')],flex_direction_mobile='row',flex_gap=gap(12)),text("Originally designed as a woodworking shop, this detached 435 SF (29' x 15') structure offers exceptional versatility for creative pursuits, hobbies, yoga/art studio, or workshop activities. The space feels large and bright with 11-foot ceilings, full-light French doors, windows, and fluorescent workshop lighting with protective covers. Additional amenities include: custom-built cabinetry and counter space, tool hangers, lumber racks, commercial-grade flooring, and four mounted compressed-air quick-connect fittings. The workshop is also equipped with a dedicated electrical panel and has a 240-volt/20-amp outlet.")],47,margin=edges(65,0,0,0),margin_mobile=edges(0),css_classes='eola-lift-card')
  ],padding=edges(20,0,0,0))
 ],'workshop')
@@ -147,7 +147,7 @@ work=section('04 - Barn and workshop',[
 outdoor=section('05 - Outdoor lifestyle',[
  row('Outdoor lifestyle composition',[
  col('Outdoor photograph',[photo('terrace','Covered back deck',580,height_mobile=size(370),_css_classes='eola-scene-outdoors')],43),
- col('Outdoor story',[label('04 / OUTDOOR LIFESTYLE'),heading('Step Outside<br>and Stay Awhile',n=54),text('Professionally landscaped and irrigated grounds, a custom water feature with natural boulders and architectural stone centerpiece, expansive covered back deck, and a fire pit create inviting year-round spaces to enjoy the quiet Oregon Wine Country setting.'),card('Outdoor amenities',[label('OUTDOOR LIFESTYLE',INK),heading('Covered Deck','h3',29),text('Covered Deck · Mature Trees & Landscaping<br>Private Setting · Oregon Territorial Views',INK,13)],background_color=MIDGREEN),button('Explore the Full Photo Gallery ↗','#gallery',outline=True)],50,flex_justify_content='center')
+ col('Outdoor story',[label('04 / OUTDOOR LIFESTYLE'),heading('Step Outside<br>and Stay Awhile',n=54),text('Professionally landscaped and irrigated grounds, a custom water feature with natural boulders and architectural stone centerpiece, expansive covered back deck, and a fire pit create inviting year-round spaces to enjoy the quiet Oregon Wine Country setting.'),card('Outdoor amenities',[label('OUTDOOR LIFESTYLE',INK),text('Covered Deck · Mature Trees & Landscaping · Private Setting · Oregon Territorial Views',INK,15)],background_color=MIDGREEN),button('Explore the Full Photo Gallery ↗','#gallery',outline=True)],50,flex_justify_content='center')
  ])
 ],'outdoors')
 video=section('06 - Property experience',[
@@ -156,17 +156,18 @@ video=section('06 - Property experience',[
  label('PROPERTY VIDEO COMING SOON',GREY,align='center')
 ],'film')
 
-labels=['Exterior','Kitchen','Living Room','Window Wall','Dining Room','Primary Suite','Primary Bath','Main-Floor Bedroom','Upper-Floor Bedroom','Family Room | Den','Office','Covered Deck','Grounds','Barn','Workshop | Studio','Garage & RV Bay','Barn Interior','Acreage','Aerial']
-keys=['hero','kitchen','living','living-window','dining','bedroom','primary-bath','bedroom-main','bedroom-upper','family-room','office','terrace','grounds','barn','workshop','garage','barn-interior','acreage','aerial']
-categories=['home']*11+['grounds','grounds','spaces','spaces','spaces','spaces','grounds','grounds']
+labels=['Exterior', 'Kitchen', 'Living Room', 'Primary Suite', 'Primary Bath', 'Family Room | Den', 'Office', 'Covered Deck', 'Grounds', 'Barn', 'Workshop | Studio', 'Garage & RV Bay', 'Barn Interior', 'Acreage', 'Aerial']
+keys=['hero', 'kitchen', 'living', 'bedroom', 'primary-bath', 'family-room', 'office', 'terrace', 'grounds', 'barn', 'workshop', 'garage', 'barn-interior', 'acreage', 'aerial']
+categories=['home']*7+['grounds','grounds','spaces','spaces','spaces','spaces','grounds','grounds']
 tiles=[]
 for name,key,cat in zip(labels,keys,categories):
  tiles.append(col(name,[photo(key,name,250,link_to='file',open_lightbox='yes'),row(name+' caption',[heading(name,'h3',19,serif=False),label('↗',INK,_flex_size='none')],flex_wrap='nowrap',flex_gap=gap(8))],31.8,width_tablet=size(48,'%'),css_classes='eola-gallery-tile eola-category-'+cat,flex_gap=gap(12)))
+for tile in tiles[-3:-1]:tile['settings']['width']=size(48.5,'%')
 tiles[-1]['settings'].update(width=size(100,'%'),width_tablet=size(100,'%'))
 tiles[-1]['elements'][0]['settings']['height']=size(360)
 filters=row('Gallery filters',[button(title,'#gallery',outline=True,text_padding=edges(12,22,12,22),border_color=LINE,_css_classes='eola-filter eola-filter-'+key) for title,key in [('All Views','all'),('The Home','home'),('Outdoors','grounds'),('Barn & Studio','spaces')]],flex_wrap='wrap',flex_direction_mobile='row',flex_gap=gap(10),flex_justify_content='center')
 gallery=section('07 - Photo gallery',[
- *center([label('PHOTO GALLERY'),heading('Explore the Property'),text('Some interior photos are virtually staged.',GREY,12)]),filters,
+ *center([label('PHOTO GALLERY'),heading('Explore the Property')]),filters,
  row('Interactive photo gallery',tiles,flex_direction_mobile='row',flex_wrap='wrap',flex_gap=gap(26),flex_justify_content='flex-start',css_classes='eola-gallery-grid',padding=edges(22,0,0,0))
 ],'gallery')
 
@@ -256,11 +257,12 @@ for team_column in team['elements'][0]['elements'][0]['elements']:
  team_column['settings']['width_tablet']=size(100,'%')
 for interior_column in home['elements'][0]['elements'][1]['elements'][4]['elements']:
  interior_column['settings']['width_mobile']=size(47,'%')
+for tile in tiles:
+ tile['elements'][1]['settings'].update(flex_direction_mobile='row',flex_align_items='center')
+ tile['elements'][1]['elements'][0]['settings']['typography_font_size_mobile']=size(15)
 for tile in tiles[:-1]:
  tile['settings']['width_mobile']=size(47,'%')
  tile['elements'][0]['settings']['height_mobile']=size(160)
- tile['elements'][1]['settings'].update(flex_direction_mobile='row',flex_align_items='center')
- tile['elements'][1]['elements'][0]['settings']['typography_font_size_mobile']=size(15)
 tiles[-1]['elements'][0]['settings']['height_mobile']=size(220)
 gallery['elements'][-1]['settings']['flex_gap_mobile']=gap(16)
 hero_frame=container('Hero frame',[hero],padding=edges(18,18,0,18),padding_mobile=edges(10,10,0,10))

@@ -10,7 +10,7 @@
   },
   "content": [
     {
-      "id": "377b8e56",
+      "id": "4b636624",
       "elType": "widget",
       "widgetType": "button",
       "settings": {
@@ -524,7 +524,7 @@
       ]
     },
     {
-      "id": "3fcaf5b8",
+      "id": "02048473",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -941,8 +941,8 @@
                       "elType": "widget",
                       "widgetType": "text-editor",
                       "settings": {
-                        "_title": "A rare combination of home, land,<br>lif",
-                        "editor": "<p>A rare combination of home, land,<br>lifestyle & possibility.</p>",
+                        "_title": "A rare combination of home, land, <br>li",
+                        "editor": "<p>A rare combination of home, land, <br>lifestyle & possibility.</p>",
                         "text_color": "#FFFFFF",
                         "typography_typography": "custom",
                         "typography_font_family": "Eola Sans",
@@ -3319,8 +3319,8 @@
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
-                        "_title": "CUSTOM BUILT HOME",
-                        "title": "CUSTOM BUILT HOME",
+                        "_title": "Custom Built Home",
+                        "title": "Custom Built Home",
                         "header_size": "p",
                         "title_color": "#000000",
                         "typography_typography": "custom",
@@ -6946,7 +6946,7 @@
                   "widgetType": "text-editor",
                   "settings": {
                     "_title": "Thoughtfully designed for both practical",
-                    "editor": "<p>Thoughtfully designed for both practicality and flexibility, the impressive 2,304 SF monitor-style barn sits on a 48' x 48' concrete pad and features up to seven stalls, Dutch doors, loft, large sliding doors, covered paddock areas, equipment storage, and trailer parking. An insulated ceiling, durable metal roof, power, and water enhance its functionality, while a full bath with an exterior entrance adds convenience. The barn also features a versatile workshop area with a refrigerator, counter space, and built-in cabinets. Set on level ground and surrounded by cross-fenced pastures, this exceptional setting offers endless possibilities for livestock, hobby farming, agricultural pursuits, and a variety of recreational uses. Think party barn!</p>",
+                    "editor": "<p>Thoughtfully designed for both practicality and flexibility, the impressive 2,305 SF monitor-style barn sits on a 48' x 48' concrete pad and features up to seven stalls, Dutch doors, loft, large sliding doors, covered paddock areas, equipment storage, and trailer parking. An insulated ceiling, durable metal roof, power, and water enhance its functionality, while a full bath with an exterior entrance adds convenience. The barn also features a versatile workshop area with a refrigerator, counter space, and built-in cabinets. Set on level ground and surrounded by cross-fenced pastures, this exceptional setting offers endless possibilities for livestock, hobby farming, agricultural pursuits, and a variety of recreational uses. Think party barn!</p>",
                     "text_color": "#000000",
                     "typography_typography": "custom",
                     "typography_font_family": "Eola Sans",
@@ -7198,7 +7198,7 @@
       ]
     },
     {
-      "id": "2d4b8e3c",
+      "id": "ff1da456",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -7248,7 +7248,7 @@
       },
       "elements": [
         {
-          "id": "87aace9d",
+          "id": "b27c44d5",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -7276,7 +7276,7 @@
           },
           "elements": [
             {
-              "id": "bb708de8",
+              "id": "eb14223d",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -7313,7 +7313,7 @@
               },
               "elements": [
                 {
-                  "id": "168d221d",
+                  "id": "d549fc51",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -7353,7 +7353,7 @@
                   "elements": []
                 },
                 {
-                  "id": "c948d9ad",
+                  "id": "6f76be08",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -7393,7 +7393,7 @@
                   "elements": []
                 },
                 {
-                  "id": "cc44de77",
+                  "id": "d672eb4f",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
@@ -7416,7 +7416,7 @@
                   "elements": []
                 },
                 {
-                  "id": "ef4e0823",
+                  "id": "053448b3",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -7470,7 +7470,7 @@
               ]
             },
             {
-              "id": "bf5bb1f3",
+              "id": "9ce4bcdf",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -7506,7 +7506,7 @@
               },
               "elements": [
                 {
-                  "id": "db8cc038",
+                  "id": "4c1f4e2d",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -7551,7 +7551,7 @@
       ]
     },
     {
-      "id": "aa7b0f4b",
+      "id": "9e8b4fdc",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -7601,7 +7601,7 @@
       },
       "elements": [
         {
-          "id": "9e8b4fdc",
+          "id": "47e6a090",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -7707,7 +7707,7 @@
               ]
             },
             {
-              "id": "47e6a090",
+              "id": "185179e7",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -7847,7 +7847,7 @@
                   "elements": []
                 },
                 {
-                  "id": "b894a48a",
+                  "id": "242d5fb5",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -7926,56 +7926,16 @@
                     {
                       "id": "3db62040",
                       "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Covered Deck",
-                        "title": "Covered Deck",
-                        "header_size": "h3",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Display",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 29,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 29,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 29,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "600",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.12,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 0,
-                          "sizes": []
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "242d5fb5",
-                      "elType": "widget",
                       "widgetType": "text-editor",
                       "settings": {
                         "_title": "Covered Deck · Mature Trees & Landscapin",
-                        "editor": "<p>Covered Deck · Mature Trees & Landscaping<br>Private Setting · Oregon Territorial Views</p>",
+                        "editor": "<p>Covered Deck · Mature Trees & Landscaping · Private Setting · Oregon Territorial Views</p>",
                         "text_color": "#000000",
                         "typography_typography": "custom",
                         "typography_font_family": "Eola Sans",
                         "typography_font_size": {
                           "unit": "px",
-                          "size": 13,
+                          "size": 15,
                           "sizes": []
                         },
                         "typography_line_height": {
@@ -7989,7 +7949,7 @@
                   ]
                 },
                 {
-                  "id": "185179e7",
+                  "id": "b894a48a",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -8047,7 +8007,7 @@
       ]
     },
     {
-      "id": "b641c0e5",
+      "id": "b4fa28dc",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -8097,7 +8057,7 @@
       },
       "elements": [
         {
-          "id": "5673161f",
+          "id": "19c2db55",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -8125,7 +8085,7 @@
           },
           "elements": [
             {
-              "id": "21beb152",
+              "id": "21057587",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -8161,7 +8121,7 @@
               },
               "elements": [
                 {
-                  "id": "3c2cab52",
+                  "id": "aa7b0f4b",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -8201,7 +8161,7 @@
                   "elements": []
                 },
                 {
-                  "id": "21057587",
+                  "id": "3c2cab52",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -8243,7 +8203,7 @@
               ]
             },
             {
-              "id": "19c2db55",
+              "id": "5ca58e96",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -8280,7 +8240,7 @@
               },
               "elements": [
                 {
-                  "id": "7d7be4e2",
+                  "id": "21beb152",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
@@ -8303,7 +8263,7 @@
                   "elements": []
                 },
                 {
-                  "id": "5ca58e96",
+                  "id": "7d7be4e2",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -8359,7 +8319,7 @@
           ]
         },
         {
-          "id": "b9c3fc8d",
+          "id": "5673161f",
           "elType": "widget",
           "widgetType": "image-carousel",
           "settings": {
@@ -8435,7 +8395,7 @@
           "elements": []
         },
         {
-          "id": "b4fa28dc",
+          "id": "b9c3fc8d",
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
@@ -8478,7 +8438,7 @@
       ]
     },
     {
-      "id": "db6c0a08",
+      "id": "288f1b42",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -8528,7 +8488,7 @@
       },
       "elements": [
         {
-          "id": "4e873e6e",
+          "id": "bb645c6a",
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
@@ -8569,7 +8529,7 @@
           "elements": []
         },
         {
-          "id": "6f404780",
+          "id": "4f98e773",
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
@@ -8610,31 +8570,7 @@
           "elements": []
         },
         {
-          "id": "ff03a50c",
-          "elType": "widget",
-          "widgetType": "text-editor",
-          "settings": {
-            "_title": "Some interior photos are virtually stage",
-            "editor": "<p>Some interior photos are virtually staged.</p>",
-            "text_color": "#777879",
-            "typography_typography": "custom",
-            "typography_font_family": "Eola Sans",
-            "typography_font_size": {
-              "unit": "px",
-              "size": 12,
-              "sizes": []
-            },
-            "typography_line_height": {
-              "unit": "em",
-              "size": 1.5,
-              "sizes": []
-            },
-            "align": "center"
-          },
-          "elements": []
-        },
-        {
-          "id": "d35b4401",
+          "id": "3ac1c5a0",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -8663,7 +8599,7 @@
           },
           "elements": [
             {
-              "id": "53336bc8",
+              "id": "28003408",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
@@ -8716,7 +8652,7 @@
               "elements": []
             },
             {
-              "id": "aa28053e",
+              "id": "93713b31",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
@@ -8769,7 +8705,7 @@
               "elements": []
             },
             {
-              "id": "6413974c",
+              "id": "3af462c3",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
@@ -8822,7 +8758,7 @@
               "elements": []
             },
             {
-              "id": "20008d48",
+              "id": "0f385551",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
@@ -8877,7 +8813,7 @@
           ]
         },
         {
-          "id": "53d43a54",
+          "id": "5fd6b2e3",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -8914,7 +8850,7 @@
           },
           "elements": [
             {
-              "id": "95950668",
+              "id": "e8561564",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -8956,7 +8892,7 @@
               },
               "elements": [
                 {
-                  "id": "11e650ee",
+                  "id": "b641c0e5",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -8997,7 +8933,7 @@
                   "elements": []
                 },
                 {
-                  "id": "e8561564",
+                  "id": "a3c1129f",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -9026,7 +8962,7 @@
                   },
                   "elements": [
                     {
-                      "id": "cc9cbce3",
+                      "id": "11e650ee",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -9066,7 +9002,7 @@
                       "elements": []
                     },
                     {
-                      "id": "a3c1129f",
+                      "id": "cc9cbce3",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -9111,7 +9047,7 @@
               ]
             },
             {
-              "id": "f7d363da",
+              "id": "a871cf0c",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -9153,7 +9089,7 @@
               },
               "elements": [
                 {
-                  "id": "3d0ed600",
+                  "id": "95950668",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -9194,7 +9130,7 @@
                   "elements": []
                 },
                 {
-                  "id": "a871cf0c",
+                  "id": "036aad0b",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -9223,7 +9159,7 @@
                   },
                   "elements": [
                     {
-                      "id": "d6c5407f",
+                      "id": "3d0ed600",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -9263,7 +9199,7 @@
                       "elements": []
                     },
                     {
-                      "id": "036aad0b",
+                      "id": "d6c5407f",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -9308,7 +9244,7 @@
               ]
             },
             {
-              "id": "fb2bc53b",
+              "id": "45cf0f12",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -9350,7 +9286,7 @@
               },
               "elements": [
                 {
-                  "id": "0d900cab",
+                  "id": "f7d363da",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -9391,7 +9327,7 @@
                   "elements": []
                 },
                 {
-                  "id": "45cf0f12",
+                  "id": "25a9ee1b",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -9420,7 +9356,7 @@
                   },
                   "elements": [
                     {
-                      "id": "293b49f7",
+                      "id": "0d900cab",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -9460,7 +9396,7 @@
                       "elements": []
                     },
                     {
-                      "id": "25a9ee1b",
+                      "id": "293b49f7",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -9505,401 +9441,7 @@
               ]
             },
             {
-              "id": "27a4e077",
-              "elType": "container",
-              "isInner": false,
-              "settings": {
-                "_title": "Window Wall",
-                "content_width": "full",
-                "flex_direction": "column",
-                "flex_gap": {
-                  "unit": "px",
-                  "size": 12,
-                  "column": "12",
-                  "row": "12",
-                  "isLinked": true
-                },
-                "padding": {
-                  "unit": "px",
-                  "top": "0",
-                  "right": "0",
-                  "bottom": "0",
-                  "left": "0",
-                  "isLinked": false
-                },
-                "flex_align_items": "stretch",
-                "width": {
-                  "unit": "%",
-                  "size": 31.8,
-                  "sizes": []
-                },
-                "width_mobile": {
-                  "unit": "%",
-                  "size": 47,
-                  "sizes": []
-                },
-                "width_tablet": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "css_classes": "eola-gallery-tile eola-category-home"
-              },
-              "elements": [
-                {
-                  "id": "93dae309",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Window Wall",
-                    "image": {
-                      "url": "{{EOLA_ASSETS}}/media/living-window.webp",
-                      "id": 0
-                    },
-                    "image_size": "full",
-                    "width": {
-                      "unit": "%",
-                      "size": 100,
-                      "sizes": []
-                    },
-                    "height": {
-                      "unit": "px",
-                      "size": 250,
-                      "sizes": []
-                    },
-                    "height_mobile": {
-                      "unit": "px",
-                      "size": 160,
-                      "sizes": []
-                    },
-                    "object-fit": "cover",
-                    "caption_source": "none",
-                    "image_border_radius": {
-                      "unit": "px",
-                      "top": "22",
-                      "right": "22",
-                      "bottom": "22",
-                      "left": "22",
-                      "isLinked": false
-                    },
-                    "link_to": "file",
-                    "open_lightbox": "yes"
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "0a785faa",
-                  "elType": "container",
-                  "isInner": false,
-                  "settings": {
-                    "_title": "Window Wall caption",
-                    "content_width": "full",
-                    "flex_direction": "row",
-                    "flex_gap": {
-                      "unit": "px",
-                      "size": 8,
-                      "column": "8",
-                      "row": "8",
-                      "isLinked": true
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "0",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "flex_align_items": "center",
-                    "flex_direction_mobile": "row",
-                    "flex_justify_content": "space-between",
-                    "flex_wrap": "nowrap"
-                  },
-                  "elements": [
-                    {
-                      "id": "c1d64cfa",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Window Wall",
-                        "title": "Window Wall",
-                        "header_size": "h3",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 15,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "600",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.12,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 0,
-                          "sizes": []
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "d9eb0f9b",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "↗",
-                        "title": "↗",
-                        "header_size": "p",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "500",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.5,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 1.8,
-                          "sizes": []
-                        },
-                        "_flex_size": "none"
-                      },
-                      "elements": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "6109751e",
-              "elType": "container",
-              "isInner": false,
-              "settings": {
-                "_title": "Dining Room",
-                "content_width": "full",
-                "flex_direction": "column",
-                "flex_gap": {
-                  "unit": "px",
-                  "size": 12,
-                  "column": "12",
-                  "row": "12",
-                  "isLinked": true
-                },
-                "padding": {
-                  "unit": "px",
-                  "top": "0",
-                  "right": "0",
-                  "bottom": "0",
-                  "left": "0",
-                  "isLinked": false
-                },
-                "flex_align_items": "stretch",
-                "width": {
-                  "unit": "%",
-                  "size": 31.8,
-                  "sizes": []
-                },
-                "width_mobile": {
-                  "unit": "%",
-                  "size": 47,
-                  "sizes": []
-                },
-                "width_tablet": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "css_classes": "eola-gallery-tile eola-category-home"
-              },
-              "elements": [
-                {
-                  "id": "b62c5b65",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Dining Room",
-                    "image": {
-                      "url": "{{EOLA_ASSETS}}/media/dining.webp",
-                      "id": 0
-                    },
-                    "image_size": "full",
-                    "width": {
-                      "unit": "%",
-                      "size": 100,
-                      "sizes": []
-                    },
-                    "height": {
-                      "unit": "px",
-                      "size": 250,
-                      "sizes": []
-                    },
-                    "height_mobile": {
-                      "unit": "px",
-                      "size": 160,
-                      "sizes": []
-                    },
-                    "object-fit": "cover",
-                    "caption_source": "none",
-                    "image_border_radius": {
-                      "unit": "px",
-                      "top": "22",
-                      "right": "22",
-                      "bottom": "22",
-                      "left": "22",
-                      "isLinked": false
-                    },
-                    "link_to": "file",
-                    "open_lightbox": "yes"
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "5d18c852",
-                  "elType": "container",
-                  "isInner": false,
-                  "settings": {
-                    "_title": "Dining Room caption",
-                    "content_width": "full",
-                    "flex_direction": "row",
-                    "flex_gap": {
-                      "unit": "px",
-                      "size": 8,
-                      "column": "8",
-                      "row": "8",
-                      "isLinked": true
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "0",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "flex_align_items": "center",
-                    "flex_direction_mobile": "row",
-                    "flex_justify_content": "space-between",
-                    "flex_wrap": "nowrap"
-                  },
-                  "elements": [
-                    {
-                      "id": "da4497ea",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Dining Room",
-                        "title": "Dining Room",
-                        "header_size": "h3",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 15,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "600",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.12,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 0,
-                          "sizes": []
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "f685fb39",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "↗",
-                        "title": "↗",
-                        "header_size": "p",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "500",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.5,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 1.8,
-                          "sizes": []
-                        },
-                        "_flex_size": "none"
-                      },
-                      "elements": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "f487fe55",
+              "id": "0a785faa",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -9941,7 +9483,7 @@
               },
               "elements": [
                 {
-                  "id": "619b3d33",
+                  "id": "fb2bc53b",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -9982,7 +9524,7 @@
                   "elements": []
                 },
                 {
-                  "id": "89154df7",
+                  "id": "d9eb0f9b",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -10011,7 +9553,7 @@
                   },
                   "elements": [
                     {
-                      "id": "d45e0faf",
+                      "id": "93dae309",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -10051,7 +9593,7 @@
                       "elements": []
                     },
                     {
-                      "id": "3057cab4",
+                      "id": "c1d64cfa",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -10096,7 +9638,7 @@
               ]
             },
             {
-              "id": "9deb9b71",
+              "id": "5d18c852",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -10138,7 +9680,7 @@
               },
               "elements": [
                 {
-                  "id": "bf07d955",
+                  "id": "27a4e077",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -10179,7 +9721,7 @@
                   "elements": []
                 },
                 {
-                  "id": "bde04bf6",
+                  "id": "f685fb39",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -10208,7 +9750,7 @@
                   },
                   "elements": [
                     {
-                      "id": "e0b5184a",
+                      "id": "b62c5b65",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -10248,7 +9790,7 @@
                       "elements": []
                     },
                     {
-                      "id": "72a10b47",
+                      "id": "da4497ea",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -10293,401 +9835,7 @@
               ]
             },
             {
-              "id": "805605d0",
-              "elType": "container",
-              "isInner": false,
-              "settings": {
-                "_title": "Main-Floor Bedroom",
-                "content_width": "full",
-                "flex_direction": "column",
-                "flex_gap": {
-                  "unit": "px",
-                  "size": 12,
-                  "column": "12",
-                  "row": "12",
-                  "isLinked": true
-                },
-                "padding": {
-                  "unit": "px",
-                  "top": "0",
-                  "right": "0",
-                  "bottom": "0",
-                  "left": "0",
-                  "isLinked": false
-                },
-                "flex_align_items": "stretch",
-                "width": {
-                  "unit": "%",
-                  "size": 31.8,
-                  "sizes": []
-                },
-                "width_mobile": {
-                  "unit": "%",
-                  "size": 47,
-                  "sizes": []
-                },
-                "width_tablet": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "css_classes": "eola-gallery-tile eola-category-home"
-              },
-              "elements": [
-                {
-                  "id": "726a1d04",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Main-Floor Bedroom",
-                    "image": {
-                      "url": "{{EOLA_ASSETS}}/media/bedroom-main.webp",
-                      "id": 0
-                    },
-                    "image_size": "full",
-                    "width": {
-                      "unit": "%",
-                      "size": 100,
-                      "sizes": []
-                    },
-                    "height": {
-                      "unit": "px",
-                      "size": 250,
-                      "sizes": []
-                    },
-                    "height_mobile": {
-                      "unit": "px",
-                      "size": 160,
-                      "sizes": []
-                    },
-                    "object-fit": "cover",
-                    "caption_source": "none",
-                    "image_border_radius": {
-                      "unit": "px",
-                      "top": "22",
-                      "right": "22",
-                      "bottom": "22",
-                      "left": "22",
-                      "isLinked": false
-                    },
-                    "link_to": "file",
-                    "open_lightbox": "yes"
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "5326cd6d",
-                  "elType": "container",
-                  "isInner": false,
-                  "settings": {
-                    "_title": "Main-Floor Bedroom caption",
-                    "content_width": "full",
-                    "flex_direction": "row",
-                    "flex_gap": {
-                      "unit": "px",
-                      "size": 8,
-                      "column": "8",
-                      "row": "8",
-                      "isLinked": true
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "0",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "flex_align_items": "center",
-                    "flex_direction_mobile": "row",
-                    "flex_justify_content": "space-between",
-                    "flex_wrap": "nowrap"
-                  },
-                  "elements": [
-                    {
-                      "id": "50068d4e",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Main-Floor Bedroom",
-                        "title": "Main-Floor Bedroom",
-                        "header_size": "h3",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 15,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "600",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.12,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 0,
-                          "sizes": []
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "98026d3f",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "↗",
-                        "title": "↗",
-                        "header_size": "p",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "500",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.5,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 1.8,
-                          "sizes": []
-                        },
-                        "_flex_size": "none"
-                      },
-                      "elements": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "8c376e0f",
-              "elType": "container",
-              "isInner": false,
-              "settings": {
-                "_title": "Upper-Floor Bedroom",
-                "content_width": "full",
-                "flex_direction": "column",
-                "flex_gap": {
-                  "unit": "px",
-                  "size": 12,
-                  "column": "12",
-                  "row": "12",
-                  "isLinked": true
-                },
-                "padding": {
-                  "unit": "px",
-                  "top": "0",
-                  "right": "0",
-                  "bottom": "0",
-                  "left": "0",
-                  "isLinked": false
-                },
-                "flex_align_items": "stretch",
-                "width": {
-                  "unit": "%",
-                  "size": 31.8,
-                  "sizes": []
-                },
-                "width_mobile": {
-                  "unit": "%",
-                  "size": 47,
-                  "sizes": []
-                },
-                "width_tablet": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "css_classes": "eola-gallery-tile eola-category-home"
-              },
-              "elements": [
-                {
-                  "id": "6de32ed0",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Upper-Floor Bedroom",
-                    "image": {
-                      "url": "{{EOLA_ASSETS}}/media/bedroom-upper.webp",
-                      "id": 0
-                    },
-                    "image_size": "full",
-                    "width": {
-                      "unit": "%",
-                      "size": 100,
-                      "sizes": []
-                    },
-                    "height": {
-                      "unit": "px",
-                      "size": 250,
-                      "sizes": []
-                    },
-                    "height_mobile": {
-                      "unit": "px",
-                      "size": 160,
-                      "sizes": []
-                    },
-                    "object-fit": "cover",
-                    "caption_source": "none",
-                    "image_border_radius": {
-                      "unit": "px",
-                      "top": "22",
-                      "right": "22",
-                      "bottom": "22",
-                      "left": "22",
-                      "isLinked": false
-                    },
-                    "link_to": "file",
-                    "open_lightbox": "yes"
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "a72e8f51",
-                  "elType": "container",
-                  "isInner": false,
-                  "settings": {
-                    "_title": "Upper-Floor Bedroom caption",
-                    "content_width": "full",
-                    "flex_direction": "row",
-                    "flex_gap": {
-                      "unit": "px",
-                      "size": 8,
-                      "column": "8",
-                      "row": "8",
-                      "isLinked": true
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "0",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "flex_align_items": "center",
-                    "flex_direction_mobile": "row",
-                    "flex_justify_content": "space-between",
-                    "flex_wrap": "nowrap"
-                  },
-                  "elements": [
-                    {
-                      "id": "accc666b",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Upper-Floor Bedroom",
-                        "title": "Upper-Floor Bedroom",
-                        "header_size": "h3",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 19,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 15,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "600",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.12,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 0,
-                          "sizes": []
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "8d87c421",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "↗",
-                        "title": "↗",
-                        "header_size": "p",
-                        "title_color": "#000000",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Eola Sans",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_tablet": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 11,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "500",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.5,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": 1.8,
-                          "sizes": []
-                        },
-                        "_flex_size": "none"
-                      },
-                      "elements": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "32cdfc1a",
+              "id": "89154df7",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -10729,7 +9877,7 @@
               },
               "elements": [
                 {
-                  "id": "7c9140a1",
+                  "id": "6109751e",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -10770,7 +9918,7 @@
                   "elements": []
                 },
                 {
-                  "id": "9ce06741",
+                  "id": "3057cab4",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -10799,7 +9947,7 @@
                   },
                   "elements": [
                     {
-                      "id": "4238a9a6",
+                      "id": "619b3d33",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -10839,7 +9987,7 @@
                       "elements": []
                     },
                     {
-                      "id": "89aa5be4",
+                      "id": "d45e0faf",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -10884,7 +10032,7 @@
               ]
             },
             {
-              "id": "d73a09d4",
+              "id": "bde04bf6",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -10926,7 +10074,7 @@
               },
               "elements": [
                 {
-                  "id": "1df91674",
+                  "id": "f487fe55",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -10967,7 +10115,7 @@
                   "elements": []
                 },
                 {
-                  "id": "345b6097",
+                  "id": "72a10b47",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -10996,7 +10144,7 @@
                   },
                   "elements": [
                     {
-                      "id": "8c15d9bb",
+                      "id": "bf07d955",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11036,7 +10184,7 @@
                       "elements": []
                     },
                     {
-                      "id": "0362387e",
+                      "id": "e0b5184a",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11081,7 +10229,7 @@
               ]
             },
             {
-              "id": "9d47709c",
+              "id": "5326cd6d",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -11123,7 +10271,7 @@
               },
               "elements": [
                 {
-                  "id": "fdedcfe7",
+                  "id": "9deb9b71",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -11164,7 +10312,7 @@
                   "elements": []
                 },
                 {
-                  "id": "43bcab68",
+                  "id": "98026d3f",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -11193,7 +10341,7 @@
                   },
                   "elements": [
                     {
-                      "id": "11e5a61a",
+                      "id": "726a1d04",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11233,7 +10381,7 @@
                       "elements": []
                     },
                     {
-                      "id": "a3d970d5",
+                      "id": "50068d4e",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11278,7 +10426,7 @@
               ]
             },
             {
-              "id": "0d20b85b",
+              "id": "a72e8f51",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -11320,7 +10468,7 @@
               },
               "elements": [
                 {
-                  "id": "940c3ba3",
+                  "id": "805605d0",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -11361,7 +10509,7 @@
                   "elements": []
                 },
                 {
-                  "id": "424aca78",
+                  "id": "8d87c421",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -11390,7 +10538,7 @@
                   },
                   "elements": [
                     {
-                      "id": "b0a076a4",
+                      "id": "6de32ed0",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11430,7 +10578,7 @@
                       "elements": []
                     },
                     {
-                      "id": "0b729750",
+                      "id": "accc666b",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11475,7 +10623,7 @@
               ]
             },
             {
-              "id": "cb2f107f",
+              "id": "9ce06741",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -11517,7 +10665,7 @@
               },
               "elements": [
                 {
-                  "id": "2a954a6d",
+                  "id": "8c376e0f",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -11558,7 +10706,7 @@
                   "elements": []
                 },
                 {
-                  "id": "3625e6d4",
+                  "id": "89aa5be4",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -11587,7 +10735,7 @@
                   },
                   "elements": [
                     {
-                      "id": "1a4f3cad",
+                      "id": "7c9140a1",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11627,7 +10775,7 @@
                       "elements": []
                     },
                     {
-                      "id": "50bddc57",
+                      "id": "4238a9a6",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11672,7 +10820,7 @@
               ]
             },
             {
-              "id": "28003408",
+              "id": "345b6097",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -11714,7 +10862,7 @@
               },
               "elements": [
                 {
-                  "id": "5cadca4f",
+                  "id": "32cdfc1a",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -11755,7 +10903,7 @@
                   "elements": []
                 },
                 {
-                  "id": "a12d18d0",
+                  "id": "0362387e",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -11784,7 +10932,7 @@
                   },
                   "elements": [
                     {
-                      "id": "f3a4b84f",
+                      "id": "1df91674",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11824,7 +10972,7 @@
                       "elements": []
                     },
                     {
-                      "id": "341a5125",
+                      "id": "8c15d9bb",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -11869,7 +11017,7 @@
               ]
             },
             {
-              "id": "bb645c6a",
+              "id": "43bcab68",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -11911,7 +11059,7 @@
               },
               "elements": [
                 {
-                  "id": "93713b31",
+                  "id": "d73a09d4",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -11952,7 +11100,7 @@
                   "elements": []
                 },
                 {
-                  "id": "3ac1c5a0",
+                  "id": "a3d970d5",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -11981,7 +11129,7 @@
                   },
                   "elements": [
                     {
-                      "id": "3af462c3",
+                      "id": "fdedcfe7",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12021,7 +11169,7 @@
                       "elements": []
                     },
                     {
-                      "id": "0f385551",
+                      "id": "11e5a61a",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12066,7 +11214,7 @@
               ]
             },
             {
-              "id": "3f3619de",
+              "id": "424aca78",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -12091,7 +11239,7 @@
                 "flex_align_items": "stretch",
                 "width": {
                   "unit": "%",
-                  "size": 31.8,
+                  "size": 48.5,
                   "sizes": []
                 },
                 "width_mobile": {
@@ -12108,7 +11256,7 @@
               },
               "elements": [
                 {
-                  "id": "4f98e773",
+                  "id": "9d47709c",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -12149,7 +11297,7 @@
                   "elements": []
                 },
                 {
-                  "id": "f4cbc0a5",
+                  "id": "0b729750",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -12178,7 +11326,7 @@
                   },
                   "elements": [
                     {
-                      "id": "5fd6b2e3",
+                      "id": "940c3ba3",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12218,7 +11366,7 @@
                       "elements": []
                     },
                     {
-                      "id": "288f1b42",
+                      "id": "b0a076a4",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12263,7 +11411,7 @@
               ]
             },
             {
-              "id": "7e9760c4",
+              "id": "3625e6d4",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -12288,7 +11436,7 @@
                 "flex_align_items": "stretch",
                 "width": {
                   "unit": "%",
-                  "size": 31.8,
+                  "size": 48.5,
                   "sizes": []
                 },
                 "width_mobile": {
@@ -12305,7 +11453,7 @@
               },
               "elements": [
                 {
-                  "id": "e2535b82",
+                  "id": "0d20b85b",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -12346,7 +11494,7 @@
                   "elements": []
                 },
                 {
-                  "id": "4c2aea5e",
+                  "id": "50bddc57",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -12375,7 +11523,7 @@
                   },
                   "elements": [
                     {
-                      "id": "00a3d412",
+                      "id": "2a954a6d",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12415,7 +11563,7 @@
                       "elements": []
                     },
                     {
-                      "id": "2419d1c9",
+                      "id": "1a4f3cad",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12460,7 +11608,7 @@
               ]
             },
             {
-              "id": "3006a8fc",
+              "id": "a12d18d0",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -12502,7 +11650,7 @@
               },
               "elements": [
                 {
-                  "id": "8543db23",
+                  "id": "cb2f107f",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -12543,7 +11691,7 @@
                   "elements": []
                 },
                 {
-                  "id": "1b0f33a2",
+                  "id": "341a5125",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -12565,14 +11713,14 @@
                       "left": "0",
                       "isLinked": false
                     },
-                    "flex_align_items": "stretch",
-                    "flex_direction_mobile": "column",
+                    "flex_align_items": "center",
+                    "flex_direction_mobile": "row",
                     "flex_justify_content": "space-between",
                     "flex_wrap": "nowrap"
                   },
                   "elements": [
                     {
-                      "id": "7f9249fe",
+                      "id": "5cadca4f",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12594,7 +11742,7 @@
                         },
                         "typography_font_size_mobile": {
                           "unit": "px",
-                          "size": 19,
+                          "size": 15,
                           "sizes": []
                         },
                         "typography_font_weight": "600",
@@ -12612,7 +11760,7 @@
                       "elements": []
                     },
                     {
-                      "id": "f3894ffd",
+                      "id": "f3a4b84f",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -12661,7 +11809,7 @@
       ]
     },
     {
-      "id": "6566b9fe",
+      "id": "4d51405f",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -12711,7 +11859,7 @@
       },
       "elements": [
         {
-          "id": "910c52ab",
+          "id": "6e88ea36",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -12739,7 +11887,7 @@
           },
           "elements": [
             {
-              "id": "b4ba92fb",
+              "id": "18279016",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -12776,7 +11924,7 @@
               },
               "elements": [
                 {
-                  "id": "29db3828",
+                  "id": "197ce336",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -12816,7 +11964,7 @@
                   "elements": []
                 },
                 {
-                  "id": "53c95cb9",
+                  "id": "b429b670",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -12856,7 +12004,7 @@
                   "elements": []
                 },
                 {
-                  "id": "7b34b64c",
+                  "id": "885b5929",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
@@ -12879,7 +12027,7 @@
                   "elements": []
                 },
                 {
-                  "id": "0c878fc5",
+                  "id": "c4776780",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -12933,7 +12081,7 @@
               ]
             },
             {
-              "id": "0876b4cf",
+              "id": "9a2e2086",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -12969,7 +12117,7 @@
               },
               "elements": [
                 {
-                  "id": "cce51cb4",
+                  "id": "5b8be710",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -12998,7 +12146,7 @@
                   },
                   "elements": [
                     {
-                      "id": "197ce336",
+                      "id": "e2535b82",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13045,7 +12193,7 @@
                       },
                       "elements": [
                         {
-                          "id": "5344c13c",
+                          "id": "f4cbc0a5",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13085,7 +12233,7 @@
                           "elements": []
                         },
                         {
-                          "id": "ffc69fc5",
+                          "id": "3f3619de",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13127,7 +12275,7 @@
                       ]
                     },
                     {
-                      "id": "c4776780",
+                      "id": "4c2aea5e",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13174,7 +12322,7 @@
                       },
                       "elements": [
                         {
-                          "id": "b429b670",
+                          "id": "00a3d412",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13214,7 +12362,7 @@
                           "elements": []
                         },
                         {
-                          "id": "885b5929",
+                          "id": "2419d1c9",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13256,7 +12404,7 @@
                       ]
                     },
                     {
-                      "id": "9a2e2086",
+                      "id": "7f9249fe",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13303,7 +12451,7 @@
                       },
                       "elements": [
                         {
-                          "id": "18279016",
+                          "id": "7e9760c4",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13343,7 +12491,7 @@
                           "elements": []
                         },
                         {
-                          "id": "5b8be710",
+                          "id": "8543db23",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13385,7 +12533,7 @@
                       ]
                     },
                     {
-                      "id": "d549fc51",
+                      "id": "3006a8fc",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13432,7 +12580,7 @@
                       },
                       "elements": [
                         {
-                          "id": "6e88ea36",
+                          "id": "f3894ffd",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13472,7 +12620,7 @@
                           "elements": []
                         },
                         {
-                          "id": "4d51405f",
+                          "id": "1b0f33a2",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13514,7 +12662,7 @@
                       ]
                     },
                     {
-                      "id": "053448b3",
+                      "id": "6413974c",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13561,7 +12709,7 @@
                       },
                       "elements": [
                         {
-                          "id": "6f76be08",
+                          "id": "53336bc8",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13601,7 +12749,7 @@
                           "elements": []
                         },
                         {
-                          "id": "d672eb4f",
+                          "id": "aa28053e",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13643,7 +12791,7 @@
                       ]
                     },
                     {
-                      "id": "9ce4bcdf",
+                      "id": "4e873e6e",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13690,7 +12838,7 @@
                       },
                       "elements": [
                         {
-                          "id": "eb14223d",
+                          "id": "20008d48",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13730,7 +12878,7 @@
                           "elements": []
                         },
                         {
-                          "id": "4c1f4e2d",
+                          "id": "d35b4401",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13772,7 +12920,7 @@
                       ]
                     },
                     {
-                      "id": "6127b638",
+                      "id": "53d43a54",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13819,7 +12967,7 @@
                       },
                       "elements": [
                         {
-                          "id": "b27c44d5",
+                          "id": "6f404780",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13859,7 +13007,7 @@
                           "elements": []
                         },
                         {
-                          "id": "ff1da456",
+                          "id": "ff03a50c",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13901,7 +13049,7 @@
                       ]
                     },
                     {
-                      "id": "8b090160",
+                      "id": "ffc69fc5",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -13948,7 +13096,7 @@
                       },
                       "elements": [
                         {
-                          "id": "11a941bd",
+                          "id": "db6c0a08",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -13988,7 +13136,7 @@
                           "elements": []
                         },
                         {
-                          "id": "a0a951f2",
+                          "id": "5344c13c",
                           "elType": "widget",
                           "widgetType": "heading",
                           "settings": {
@@ -14038,7 +13186,7 @@
       ]
     },
     {
-      "id": "b44ac7b0",
+      "id": "9a782112",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -14090,7 +13238,7 @@
       },
       "elements": [
         {
-          "id": "1abdb2a2",
+          "id": "29db3828",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -14118,7 +13266,7 @@
           },
           "elements": [
             {
-              "id": "9a782112",
+              "id": "a0a951f2",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -14154,7 +13302,7 @@
               },
               "elements": [
                 {
-                  "id": "9513792c",
+                  "id": "6127b638",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -14194,7 +13342,7 @@
                   "elements": []
                 },
                 {
-                  "id": "93b51144",
+                  "id": "11a941bd",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -14236,7 +13384,7 @@
               ]
             },
             {
-              "id": "16d862dd",
+              "id": "8b090160",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
@@ -14296,99 +13444,99 @@
           ]
         },
         {
-          "id": "27ad590c",
+          "id": "93b51144",
           "elType": "widget",
           "widgetType": "accordion",
           "settings": {
             "_title": "Client-supplied amenities",
             "tabs": [
               {
-                "_id": "959d3725",
+                "_id": "53c95cb9",
                 "tab_title": "Property Overview",
                 "tab_content": "<ul><li>Custom built in 2000 | 3,112 SqFt | 4.89 acres</li><li>3 bedrooms | 3 full baths | office | family room/den</li><li>Detached 3-car garage w/ RV bay | 1,498 SqFt</li><li>Monitor-style barn | concrete pad | 2,304 SqFt</li><li>Detached workshop/studio | heated | 435 SqFt</li><li>Whole home standby generator</li><li>Electric furnace | heat-pump | 50-gallon water heater</li><li>Dramatic catwalk oversees living room & foyer</li><li>Minimal steps to entry & main floor living</li><li>Bedroom & adjacent full bath (main floor)</li><li>Artisan inlay oak stairs rise to a bold catwalk centerpiece</li><li>Custom battery blinds w/ remote controls</li><li>Alarm system | home vacuum system</li><li>Well | septic</li></ul>"
               },
               {
-                "_id": "cb39dd81",
+                "_id": "7b34b64c",
                 "tab_title": "Exterior",
                 "tab_content": "<ul><li>Architectural tile roof | cedar lap siding</li><li>Two-story stacked stone columns at entry</li><li>Wide paver entry walkway leads to front porch</li><li>Lantern lights at entrance (solar)</li><li>Natural slate porch leads to double front doors</li><li>Circular driveway w/ finished concrete curbing</li><li>Covered breezeway connects home to garage</li><li>Covered back deck spans across home</li><li>Professionally landscaped grounds w/ irrigation</li><li>Custom water feature w/ architectural stone</li><li>Outdoor fire & horseshoe pits</li></ul>"
               },
               {
-                "_id": "2d5bb181",
+                "_id": "0c878fc5",
                 "tab_title": "Detached Garage & RV Bay | 1,498 SqFt",
                 "tab_content": "<ul><li><strong>Front Section:</strong> 3-car oversized garage</li><li><strong>Side Section:</strong> RV bay w/ roll-up door<ul><li>Additional RV driveway</li><li>2-story RV bay | park 40' RV</li><li>Indoor electrical hook-up</li></ul></li><li>RV driveway has a full RV hook-up</li><li>Free-standing workbench & storage shelves</li><li>Built-in vacuum system</li></ul>"
               },
               {
-                "_id": "c5334895",
+                "_id": "b4ba92fb",
                 "tab_title": "Monitor-Style Barn",
                 "tab_content": "<ul><li>Concrete pad | 48' X 48' | 2,304 SqFt</li><li>Potential for up to 7 stalls | Dutch doors | loft</li><li>Front sliding doors | covered paddock area</li><li>Metal roof | insulated ceiling</li><li>Power & water throughout</li><li>Full bathroom | fridge | counterspace</li><li>Great party barn opportunity</li></ul>"
               },
               {
-                "_id": "67d5f611",
+                "_id": "cce51cb4",
                 "tab_title": "Woodworking Shop | Studio",
                 "tab_content": "<ul><li>29' x 15' | 435 SqFt | 11' ceilings</li><li>Entrance: full-light French doors</li><li>Custom wood counters<ul><li>23' long x 2.5' depth x 37\" height</li></ul></li><li>Craftsman-built cabinets w/ industrial handles</li><li>Pull-out workspace | tool hanger | lumber rack</li><li>4 wall-mounted compressed-air quick-connects</li><li>Dedicated electrical panel | 240/20-amp outlet</li><li>Power | heat | commercial-grade floors</li><li>Generous natural light</li></ul>"
               },
               {
-                "_id": "a98b8f9d",
+                "_id": "0876b4cf",
                 "tab_title": "Entrance",
                 "tab_content": "<ul><li>Grand double-door | ¾ panel etched glass<ul><li>Sidelights | transom windows</li></ul></li><li>Soaring 2-story entry w/ crown molding</li><li>Art Deco-inspired chandelier</li><li>Dramatic upper catwalk defines foyer space</li><li>Expansive foyer</li></ul>"
               },
               {
-                "_id": "72bae278",
+                "_id": "910c52ab",
                 "tab_title": "Living Room",
                 "tab_content": "<ul><li>Statement 2-story living room w/ crown molding</li><li>Floor-to-ceiling stacked-stone gas fireplace w/ custom wood mantel</li><li>Architectural window wall w/ deep sills<ul><li>Flanked by 3/4-light exterior doors</li><li>Doors open to covered deck & BBQ area</li></ul></li><li>Ceiling fan & dimmable recessed lights</li><li>Hunter Douglas blinds w/ remote control</li><li>Carpeted living area | abundant natural light</li></ul>"
               },
               {
-                "_id": "dff4e65c",
+                "_id": "6566b9fe",
                 "tab_title": "Dining Room",
                 "tab_content": "<ul><li>Open to living room & kitchen</li><li>Chandelier & recessed lights</li><li>Full window wall</li></ul>"
               },
               {
-                "_id": "4437bb15",
+                "_id": "168d221d",
                 "tab_title": "Kitchen",
                 "tab_content": "<ul><li>Cabinets to ceiling w/ crown molding</li><li>GE five-burner gas cooktop w/ Dacor retractable downdraft ventilation & safety lock</li><li>SS KitchenAid built-in convection oven</li><li>SS KitchenAid built-in dishwasher</li><li>SS KitchenAid 1,200-watt built-in microwave</li><li>SS KitchenAid French-door refrigerator (25 cu. ft.)</li><li>Under-counter built-in ice maker</li><li>Window Wall w/territorial & Mt. Hood views</li><li>Large center island w/ storage | seats four</li><li>Pull-out butcher block drain board</li><li>Walk-in pantry w/ storage shelves</li><li>Decorative pendant & recessed lights</li><li>Full-light exterior door opens to covered deck</li><li>Built-in TV cabinet</li></ul>"
               },
               {
-                "_id": "893acf93",
+                "_id": "c948d9ad",
                 "tab_title": "Primary Bedroom En Suite",
                 "tab_content": "<ul><li>Primary suite privately separated by catwalk</li><li>Arched picture window w/ view</li><li>Clerestory windows</li><li>Double-door entry | ceiling fan w/ light</li><li>Walk-in closet | shelves | cedar shoe rack</li></ul>"
               },
               {
-                "_id": "0fa5d6f1",
+                "_id": "cc44de77",
                 "tab_title": "Primary Bath En Suite",
                 "tab_content": "<ul><li>Double sinks | Jacuzzi tub | tile floors</li><li>Walk-in shower w/ tile inlay surround<ul><li>Glass enclosure & built-in steam outlet</li></ul></li><li>Custom wood cabinets & drawers</li></ul>"
               },
               {
-                "_id": "9efe4cd4",
+                "_id": "ef4e0823",
                 "tab_title": "Office",
                 "tab_content": "<ul><li>Light-filled corner office with views</li><li>Double-door entry w/ opaque glass</li><li>Built-in custom wood cabinets & drawers</li><li>Ceiling fan w/ light | recessed lights</li><li>Custom millwork trim</li></ul>"
               },
               {
-                "_id": "cd31bf9d",
+                "_id": "bb708de8",
                 "tab_title": "2nd Bedroom (Main Floor)",
                 "tab_content": "<ul><li><strong>Adjacent to 2nd full bathroom (main floor)</strong></li><li><strong>Main-level multi-generational living</strong></li><li>Picture windows w/ views</li><li>Full light door opens to covered deck</li><li>Ceiling fan w/ light | carpeted floors</li></ul>"
               },
               {
-                "_id": "fd741b9a",
+                "_id": "db8cc038",
                 "tab_title": "2nd Full Bathroom (Main Floor)",
                 "tab_content": "<ul><li><strong>Adjacent to 2nd bedroom (main floor)</strong></li><li><strong>Main-level multi-generational living</strong></li><li>Step-in shower | tile floors</li><li>Counter-to-ceiling mirror</li></ul>"
               },
               {
-                "_id": "06675b2f",
+                "_id": "bf5bb1f3",
                 "tab_title": "Den | Family Room (Main Level)",
                 "tab_content": "<ul><li>Gas fireplace w/ custom wood mantel</li><li>Custom millwork wood panels & built-ins</li><li>Ceiling fan w/ light | Built-in flat-screen TV</li><li>Double slider door opens to covered deck</li></ul>"
               },
               {
-                "_id": "7f1624dd",
+                "_id": "87aace9d",
                 "tab_title": "3rd Bedroom (Upper Floor)",
                 "tab_content": "<ul><li>Adjacent to 3rd full bathroom (upper floor)</li><li>Great view of trees & pasture</li><li>Custom millwork trim | carpeted floors</li></ul>"
               },
               {
-                "_id": "5d8d3b84",
+                "_id": "2d4b8e3c",
                 "tab_title": "3rd Full Bathroom (Upper Floor)",
                 "tab_content": "<ul><li>Adjacent to 3rd bedroom (upper floor)</li><li>Soaking tub | Pedestal sink</li><li>Wainscoting | tile floors</li></ul>"
               },
               {
-                "_id": "42b8f2f9",
+                "_id": "9513792c",
                 "tab_title": "Laundry Room (Main Floor)",
                 "tab_content": "<ul><li>Maytag washer & dryer</li><li>Whirlpool upright freezer</li><li>Utility sink | kitchen-matching cabinetry</li><li>Dedicated work-hobby area w/ desk<ul><li>Dual-window views</li></ul></li><li>Tile floors | 3/4-light exterior door</li><li>Mechanical room access<ul><li>Furnace | 50-gallon H2O heater</li><li>Generator panel</li></ul></li></ul>"
               }
@@ -14453,7 +13601,7 @@
       ]
     },
     {
-      "id": "a83fd81f",
+      "id": "5d8d3b84",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -14503,7 +13651,7 @@
       },
       "elements": [
         {
-          "id": "eced507e",
+          "id": "a98b8f9d",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -14531,7 +13679,7 @@
           },
           "elements": [
             {
-              "id": "a87eea98",
+              "id": "2d5bb181",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -14568,7 +13716,7 @@
               },
               "elements": [
                 {
-                  "id": "879d57fc",
+                  "id": "16d862dd",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -14608,7 +13756,7 @@
                   "elements": []
                 },
                 {
-                  "id": "508426c6",
+                  "id": "1abdb2a2",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -14648,7 +13796,7 @@
                   "elements": []
                 },
                 {
-                  "id": "e87c4a57",
+                  "id": "959d3725",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
@@ -14671,7 +13819,7 @@
                   "elements": []
                 },
                 {
-                  "id": "c60ee8e8",
+                  "id": "cb39dd81",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -14725,7 +13873,7 @@
               ]
             },
             {
-              "id": "ad3b94d4",
+              "id": "67d5f611",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -14761,7 +13909,7 @@
               },
               "elements": [
                 {
-                  "id": "b61b76e1",
+                  "id": "c5334895",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -14806,7 +13954,7 @@
           ]
         },
         {
-          "id": "e7195e87",
+          "id": "7f1624dd",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -14834,7 +13982,7 @@
           },
           "elements": [
             {
-              "id": "56d5745d",
+              "id": "4437bb15",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -14870,7 +14018,7 @@
               },
               "elements": [
                 {
-                  "id": "92991d52",
+                  "id": "72bae278",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -14911,7 +14059,7 @@
                   "elements": []
                 },
                 {
-                  "id": "32347c4a",
+                  "id": "dff4e65c",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -14953,7 +14101,7 @@
               ]
             },
             {
-              "id": "dd41444b",
+              "id": "9efe4cd4",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -14989,7 +14137,7 @@
               },
               "elements": [
                 {
-                  "id": "cc2609d2",
+                  "id": "893acf93",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -15030,7 +14178,7 @@
                   "elements": []
                 },
                 {
-                  "id": "f5cc06c3",
+                  "id": "0fa5d6f1",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -15072,7 +14220,7 @@
               ]
             },
             {
-              "id": "592eaaec",
+              "id": "06675b2f",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -15108,7 +14256,7 @@
               },
               "elements": [
                 {
-                  "id": "89e878eb",
+                  "id": "cd31bf9d",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -15149,7 +14297,7 @@
                   "elements": []
                 },
                 {
-                  "id": "22a1191d",
+                  "id": "fd741b9a",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
@@ -15195,7 +14343,7 @@
       ]
     },
     {
-      "id": "f0607f0e",
+      "id": "863abed2",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -15245,7 +14393,7 @@
       },
       "elements": [
         {
-          "id": "11586ec0",
+          "id": "6af5d477",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -15297,7 +14445,7 @@
           },
           "elements": [
             {
-              "id": "80990233",
+              "id": "bea5bda6",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -15326,7 +14474,7 @@
               },
               "elements": [
                 {
-                  "id": "f7094597",
+                  "id": "879d57fc",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -15368,7 +14516,7 @@
                   },
                   "elements": [
                     {
-                      "id": "bf15ae83",
+                      "id": "42b8f2f9",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -15408,7 +14556,7 @@
                       "elements": []
                     },
                     {
-                      "id": "f42ba810",
+                      "id": "27ad590c",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -15448,7 +14596,7 @@
                       "elements": []
                     },
                     {
-                      "id": "da0ca9ad",
+                      "id": "b44ac7b0",
                       "elType": "widget",
                       "widgetType": "image",
                       "settings": {
@@ -15479,7 +14627,7 @@
                   ]
                 },
                 {
-                  "id": "43f8307b",
+                  "id": "0680bed0",
                   "elType": "container",
                   "isInner": false,
                   "settings": {
@@ -15522,7 +14670,7 @@
                   },
                   "elements": [
                     {
-                      "id": "63097a4e",
+                      "id": "cc2609d2",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -15570,7 +14718,7 @@
                       },
                       "elements": [
                         {
-                          "id": "6af5d477",
+                          "id": "c60ee8e8",
                           "elType": "container",
                           "isInner": false,
                           "settings": {
@@ -15598,7 +14746,7 @@
                           },
                           "elements": [
                             {
-                              "id": "0680bed0",
+                              "id": "508426c6",
                               "elType": "widget",
                               "widgetType": "image",
                               "settings": {
@@ -15638,7 +14786,7 @@
                               "elements": []
                             },
                             {
-                              "id": "bea5bda6",
+                              "id": "e87c4a57",
                               "elType": "widget",
                               "widgetType": "heading",
                               "settings": {
@@ -15680,7 +14828,7 @@
                           ]
                         },
                         {
-                          "id": "2b5edc17",
+                          "id": "eced507e",
                           "elType": "container",
                           "isInner": false,
                           "settings": {
@@ -15706,7 +14854,7 @@
                           },
                           "elements": [
                             {
-                              "id": "863abed2",
+                              "id": "a87eea98",
                               "elType": "widget",
                               "widgetType": "heading",
                               "settings": {
@@ -15746,7 +14894,7 @@
                               "elements": []
                             },
                             {
-                              "id": "2a30c46a",
+                              "id": "b61b76e1",
                               "elType": "widget",
                               "widgetType": "text-editor",
                               "settings": {
@@ -15769,7 +14917,7 @@
                               "elements": []
                             },
                             {
-                              "id": "42273000",
+                              "id": "ad3b94d4",
                               "elType": "widget",
                               "widgetType": "text-editor",
                               "settings": {
@@ -15794,7 +14942,7 @@
                           ]
                         },
                         {
-                          "id": "7e60aa6e",
+                          "id": "56d5745d",
                           "elType": "container",
                           "isInner": false,
                           "settings": {
@@ -15820,7 +14968,7 @@
                           },
                           "elements": [
                             {
-                              "id": "0ae45f82",
+                              "id": "92991d52",
                               "elType": "widget",
                               "widgetType": "button",
                               "settings": {
@@ -15878,7 +15026,7 @@
                               "elements": []
                             },
                             {
-                              "id": "e4fe4ac2",
+                              "id": "32347c4a",
                               "elType": "widget",
                               "widgetType": "button",
                               "settings": {
@@ -15940,7 +15088,7 @@
                       ]
                     },
                     {
-                      "id": "02048473",
+                      "id": "f7094597",
                       "elType": "container",
                       "isInner": false,
                       "settings": {
@@ -15988,7 +15136,7 @@
                       },
                       "elements": [
                         {
-                          "id": "19daf936",
+                          "id": "89e878eb",
                           "elType": "container",
                           "isInner": false,
                           "settings": {
@@ -16016,7 +15164,7 @@
                           },
                           "elements": [
                             {
-                              "id": "d1a7da49",
+                              "id": "f5cc06c3",
                               "elType": "widget",
                               "widgetType": "image",
                               "settings": {
@@ -16056,7 +15204,7 @@
                               "elements": []
                             },
                             {
-                              "id": "9641ca6d",
+                              "id": "dd41444b",
                               "elType": "widget",
                               "widgetType": "heading",
                               "settings": {
@@ -16098,7 +15246,7 @@
                           ]
                         },
                         {
-                          "id": "1c82df8f",
+                          "id": "a83fd81f",
                           "elType": "container",
                           "isInner": false,
                           "settings": {
@@ -16124,7 +15272,7 @@
                           },
                           "elements": [
                             {
-                              "id": "64ea4663",
+                              "id": "22a1191d",
                               "elType": "widget",
                               "widgetType": "heading",
                               "settings": {
@@ -16164,7 +15312,7 @@
                               "elements": []
                             },
                             {
-                              "id": "a843cc99",
+                              "id": "592eaaec",
                               "elType": "widget",
                               "widgetType": "text-editor",
                               "settings": {
@@ -16187,7 +15335,7 @@
                               "elements": []
                             },
                             {
-                              "id": "42726275",
+                              "id": "e7195e87",
                               "elType": "widget",
                               "widgetType": "text-editor",
                               "settings": {
@@ -16212,7 +15360,7 @@
                           ]
                         },
                         {
-                          "id": "4b636624",
+                          "id": "da0ca9ad",
                           "elType": "container",
                           "isInner": false,
                           "settings": {
@@ -16238,7 +15386,7 @@
                           },
                           "elements": [
                             {
-                              "id": "444a06f5",
+                              "id": "bf15ae83",
                               "elType": "widget",
                               "widgetType": "button",
                               "settings": {
@@ -16296,7 +15444,7 @@
                               "elements": []
                             },
                             {
-                              "id": "a5ad2079",
+                              "id": "f42ba810",
                               "elType": "widget",
                               "widgetType": "button",
                               "settings": {
@@ -16366,7 +15514,7 @@
       ]
     },
     {
-      "id": "d7f8c5a0",
+      "id": "d1a7da49",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -16415,7 +15563,7 @@
       },
       "elements": [
         {
-          "id": "b276c206",
+          "id": "63097a4e",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -16471,7 +15619,7 @@
           },
           "elements": [
             {
-              "id": "9b6996cb",
+              "id": "2a30c46a",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
@@ -16512,7 +15660,7 @@
               "elements": []
             },
             {
-              "id": "3dc0a6ac",
+              "id": "42273000",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
@@ -16553,7 +15701,7 @@
               "elements": []
             },
             {
-              "id": "0a79048b",
+              "id": "2b5edc17",
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
@@ -16577,7 +15725,7 @@
               "elements": []
             },
             {
-              "id": "8fe0eb22",
+              "id": "7e60aa6e",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -16605,7 +15753,7 @@
               },
               "elements": [
                 {
-                  "id": "a020e9a7",
+                  "id": "0ae45f82",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -16657,7 +15805,7 @@
                   "elements": []
                 },
                 {
-                  "id": "5131b59c",
+                  "id": "e4fe4ac2",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
@@ -16715,7 +15863,7 @@
       ]
     },
     {
-      "id": "d965a00c",
+      "id": "a5ad2079",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -16774,7 +15922,7 @@
       },
       "elements": [
         {
-          "id": "f937aacd",
+          "id": "444a06f5",
           "elType": "container",
           "isInner": false,
           "settings": {
@@ -16802,7 +15950,7 @@
           },
           "elements": [
             {
-              "id": "9a8ef8df",
+              "id": "64ea4663",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -16838,7 +15986,7 @@
               },
               "elements": [
                 {
-                  "id": "b6133591",
+                  "id": "9641ca6d",
                   "elType": "widget",
                   "widgetType": "image",
                   "settings": {
@@ -16867,7 +16015,7 @@
                   "elements": []
                 },
                 {
-                  "id": "f48f15d3",
+                  "id": "19daf936",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
@@ -16892,7 +16040,7 @@
               ]
             },
             {
-              "id": "6df9a74f",
+              "id": "1c82df8f",
               "elType": "container",
               "isInner": false,
               "settings": {
@@ -16928,7 +16076,7 @@
               },
               "elements": [
                 {
-                  "id": "18555065",
+                  "id": "a843cc99",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
@@ -16951,7 +16099,7 @@
                   "elements": []
                 },
                 {
-                  "id": "4a236329",
+                  "id": "42726275",
                   "elType": "widget",
                   "widgetType": "button",
                   "settings": {
