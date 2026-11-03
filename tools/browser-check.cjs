@@ -15,7 +15,7 @@ const path = require('node:path');
     await page.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=700){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,35));}window.scrollTo(0,0);});
     await page.waitForTimeout(250);
     assert.equal(await page.locator('h1').count(),1);
-    assert.match(await page.locator('h1').innerText(), /Unmistakably/);
+    assert.match(await page.locator('h1').innerText(), /Wine Country Living/);
     assert.notEqual(await page.locator('.eola-immersive-hero').evaluate(el=>getComputedStyle(el).backgroundImage),'none','Native Elementor page styles must load.');
     assert.ok(await page.locator('.elementor-widget-image').count() >= 19);
     await page.locator('.elementor-widget-image img').evaluateAll(images=>images.forEach(img=>{img.loading='eager';}));
@@ -34,7 +34,7 @@ const path = require('node:path');
   }
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.keyboard.press('Tab');
-  assert.match(await page.locator(':focus').innerText(), /Skip to property/);
+  assert.match(await page.locator(':focus').innerText(), /Skip to Property/);
   assert.deepEqual(errors,[]);
   await browser.close();
 })().catch(error=>{console.error(error);process.exit(1)});

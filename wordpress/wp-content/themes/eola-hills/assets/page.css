@@ -26,10 +26,10 @@
 .eola-hills-page .eola-feature-card:hover img { scale:1.08; }
 .eola-hills-page .eola-feature-card .elementor-button-icon { transition:transform .35s; }
 .eola-hills-page .eola-feature-card:hover .elementor-button-icon { transform:translateX(4px) rotate(-35deg); }
-.eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#25232B; border-color:#FFFFFF; }
+.eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#000000; border-color:#FFFFFF; }
 .eola-hills-page .eola-property-carousel .swiper { border-radius:22px; }
-.eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#25232B60; backdrop-filter:blur(8px); transition:background .2s; }
-.eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#25232BDD; }
+.eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#00000060; backdrop-filter:blur(8px); transition:background .2s; }
+.eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#000000DD; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-prev { left:24px; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-next { right:24px; }
 .eola-hills-page :where(a, button, input):focus-visible { outline: 3px solid #4B5598; outline-offset: 5px; }
@@ -40,6 +40,7 @@
 .eola-hills-page .eola-amenities .elementor-accordion-item { margin-bottom:12px; border-radius:16px; overflow:hidden; }
 .eola-hills-page .eola-amenities .elementor-accordion-item + .elementor-accordion-item { border-top-style:solid; }
 .eola-hills-page .eola-amenities li + li { margin-top:7px; }
+.eola-hills-page .eola-amenities li ul { margin-top:7px; }
 .eola-hills-page .elementor-widget-heading :where(h1,h2,h3) { text-wrap: balance; }
 .eola-hills-page .elementor-button { transition: background-color .25s, color .25s, box-shadow .25s, translate .25s; }
 .eola-hills-page .elementor-button:hover { translate: 0 -2px; }
@@ -51,9 +52,10 @@
 .eola-hills-page .eola-gallery-tile a:hover img { scale:1.035; }
 .eola-hills-page .eola-nav-link a[aria-current="location"] { text-decoration:underline; text-underline-offset:7px; }
 .eola-hills-page .eola-hero-media img { translate:0 var(--eola-photo-shift,0px); }
-.eola-hills-page .eola-read-progress { position:fixed; inset:0 auto auto 0; height:3px; width:100%; z-index:9999; background:#4B5598; transform-origin:left; transform:scaleX(var(--eola-progress,0)); pointer-events:none; }
+.eola-hills-page .eola-read-progress { position:fixed; inset:0 auto auto 0; height:3px; width:100%; z-index:9999; background:#55A044; transform-origin:left; transform:scaleX(var(--eola-progress,0)); pointer-events:none; }
 .eola-hills-page .eola-skip { position: absolute; top: -150px; left: 20px; z-index: 1000; }
 .eola-hills-page .eola-skip:focus-within { top: 12px; }
+@media (max-width: 767px) { .eola-hills-page .eola-hero-copy .elementor-widget-text-editor br { display:none; } }
 @media (prefers-reduced-motion: reduce) {
   .eola-hills-page *, .eola-hills-page *::before, .eola-hills-page *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   .eola-hills-page .eola-hero-media img { translate:none; }

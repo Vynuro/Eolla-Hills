@@ -16,7 +16,7 @@ const assert=require('node:assert/strict');
  await page.locator('.eola-scene-exterior a').click();
  assert.equal(await hero.evaluate(el=>getComputedStyle(el).backgroundImage),exterior);
  await page.locator('#gallery').scrollIntoViewIfNeeded();
- for(const [key,count] of [['home',7],['grounds',4],['spaces',4],['all',15]]){
+ for(const [key,count] of [['home',11],['grounds',4],['spaces',4],['all',19]]){
    await page.locator(`.eola-filter-${key} a`).click();
    assert.equal(await page.locator('.eola-gallery-tile:visible').count(),count);
    assert.equal(await page.locator(`.eola-filter-${key} a`).getAttribute('aria-pressed'),'true');

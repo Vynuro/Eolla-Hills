@@ -27,11 +27,11 @@
   },
   "living": {
     "file": "living.webp",
-    "title": "Two-story living room with stone fireplace and upper catwalk",
-    "alt": "Two-story living room with stone fireplace and upper catwalk",
+    "title": "Two-story living room with stone fireplace and upper catwalk (virtually staged)",
+    "alt": "Two-story living room with stone fireplace and upper catwalk (virtually staged)",
     "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
-    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/12-9055 SE Eola Hills Rd 10.jpg",
-    "sha256": "eebe71765b01e3505d866cd222e897cf1f58255aef281f9f42c405e1f12f6677",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/10-9055 SE Eola Hills Rd VS 4.jpg",
+    "sha256": "d98baa5b554715fed8eb078edf95446c048cb25273abecdf40365ec02ba95037",
     "width": 2200,
     "height": 1463,
     "sizes": {
@@ -40,24 +40,24 @@
         "width": 768,
         "height": 511,
         "mime-type": "image/webp",
-        "sha256": "b1a53eeb4898c3161c98267abcf91a6466b296512a39e8f742145259369466ab"
+        "sha256": "fb9382ec2f7db44e95f3f76c8a08fb4f14850e2bb815d1057bf42d6a8fe834f4"
       },
       "eola-1536": {
         "file": "responsive/living-1536.webp",
         "width": 1536,
         "height": 1021,
         "mime-type": "image/webp",
-        "sha256": "da29ad3aa9ef70768aee0c36d8e99516f0d2fe73e486f5cf96032b15e37f5632"
+        "sha256": "3284ef1d201890bdb5f6cddd03743425c4710ef338855ecbad1d06139415a45a"
       }
     }
   },
   "kitchen": {
     "file": "kitchen.webp",
-    "title": "Kitchen island, cabinetry and window wall",
-    "alt": "Kitchen island, cabinetry and window wall",
+    "title": "Kitchen island, cabinetry and window wall (virtually staged)",
+    "alt": "Kitchen island, cabinetry and window wall (virtually staged)",
     "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
-    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/26-9055 SE Eola Hills Rd 22.jpg",
-    "sha256": "7cf8bf6fcd78973b22af8cc60b816229855372393bd115cf520c6944f05b0bd7",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/21-9055 SE Eola Hills Rd VS 6.jpg",
+    "sha256": "4aeef2690578f6a25be4f2627e216ee3326c27e52f7d3eef34ae6a0b180c7934",
     "width": 2200,
     "height": 1464,
     "sizes": {
@@ -66,24 +66,128 @@
         "width": 768,
         "height": 511,
         "mime-type": "image/webp",
-        "sha256": "105c1353b603eef840f34d9c2de6870434df9bdd433328ea66f52a82a68e0882"
+        "sha256": "9beaadbc8e2e2fd730b26ada9300ac15bdd002c03d1840d1c0f72c704422c3d3"
       },
       "eola-1536": {
         "file": "responsive/kitchen-1536.webp",
         "width": 1536,
         "height": 1022,
         "mime-type": "image/webp",
-        "sha256": "79ade5bb71449a97c712e6878d82fcd4eedb9cc3d17a60eccefd0e500879d6d4"
+        "sha256": "b4691c6a3b5642636607eb43f0fc6a0d84e13984f66d647d6f03a3cc88799875"
+      }
+    }
+  },
+  "dining": {
+    "file": "dining.webp",
+    "title": "Dining room open to living room and kitchen (virtually staged)",
+    "alt": "Dining room open to living room and kitchen (virtually staged)",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/19-9055 SE Eola Hills Rd VS 5.jpg",
+    "sha256": "e8af9ae8873b050b665f95d012ff5c9f5b181a847b354b319c6eed09efa9df98",
+    "width": 2200,
+    "height": 1464,
+    "sizes": {
+      "eola-768": {
+        "file": "responsive/dining-768.webp",
+        "width": 768,
+        "height": 511,
+        "mime-type": "image/webp",
+        "sha256": "23e672d3fe4a8de344f0f5d83e6fc6ce0206ec0ee12ec962063a5944b979c79d"
+      },
+      "eola-1536": {
+        "file": "responsive/dining-1536.webp",
+        "width": 1536,
+        "height": 1022,
+        "mime-type": "image/webp",
+        "sha256": "edf4d465b24dfb5b1c622e61b9b6441e9ef62a7d2305def35d02d5cdbf3cfc81"
+      }
+    }
+  },
+  "living-window": {
+    "file": "living-window.webp",
+    "title": "Two-story living room window wall (virtually staged)",
+    "alt": "Two-story living room window wall (virtually staged)",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/08-9055 SE Eola Hills Rd VS 3.jpg",
+    "sha256": "c426c35c955916009f2689337a01be9f018926a7c7ec85740d0a82e56839bfe4",
+    "width": 2200,
+    "height": 1462,
+    "sizes": {
+      "eola-768": {
+        "file": "responsive/living-window-768.webp",
+        "width": 768,
+        "height": 510,
+        "mime-type": "image/webp",
+        "sha256": "2eb88dbf5c73e008f41b9a8c9a9135ee4629e19e8ca68a9f5d8355575e6b7090"
+      },
+      "eola-1536": {
+        "file": "responsive/living-window-1536.webp",
+        "width": 1536,
+        "height": 1021,
+        "mime-type": "image/webp",
+        "sha256": "0bb8e842bcf59607a5118399f30578b0330b6a86d165c08fda0a1d06193ef3a9"
+      }
+    }
+  },
+  "bedroom-main": {
+    "file": "bedroom-main.webp",
+    "title": "Main-floor bedroom with views and deck access (virtually staged)",
+    "alt": "Main-floor bedroom with views and deck access (virtually staged)",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/29-9055 SE Eola Hills Rd VS 2.jpg",
+    "sha256": "f9075bf38b227ec592dd03c16828d5d8bd773aa6d8b3d161ab42f1f7b1e03068",
+    "width": 2200,
+    "height": 1464,
+    "sizes": {
+      "eola-768": {
+        "file": "responsive/bedroom-main-768.webp",
+        "width": 768,
+        "height": 511,
+        "mime-type": "image/webp",
+        "sha256": "4d9d8997a9eecdae52caa3bf25d1b08836fe38e1669362aff6a3e71326e15e33"
+      },
+      "eola-1536": {
+        "file": "responsive/bedroom-main-1536.webp",
+        "width": 1536,
+        "height": 1022,
+        "mime-type": "image/webp",
+        "sha256": "2f9d5e647930e120cb227839bca9b05d5075cc1068009449803c9eb552cf844c"
+      }
+    }
+  },
+  "bedroom-upper": {
+    "file": "bedroom-upper.webp",
+    "title": "Upper-floor bedroom (virtually staged)",
+    "alt": "Upper-floor bedroom (virtually staged)",
+    "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/39-9055 SE Eola Hills Rd VS 8.jpg",
+    "sha256": "8869a9b8eb4af9e07ff513205dbe8830df6456f85e63e804485fe88ca63ac7d7",
+    "width": 2200,
+    "height": 1464,
+    "sizes": {
+      "eola-768": {
+        "file": "responsive/bedroom-upper-768.webp",
+        "width": 768,
+        "height": 511,
+        "mime-type": "image/webp",
+        "sha256": "ccbe1eef9057ed3e9c645c7d90e4d8adac7dcb2946ac2ff96a8e6a59a5714fb8"
+      },
+      "eola-1536": {
+        "file": "responsive/bedroom-upper-1536.webp",
+        "width": 1536,
+        "height": 1022,
+        "mime-type": "image/webp",
+        "sha256": "8fc94cf6b7599c0541950f9b00e70ce577eee7560df1ca80362d403ed1b30c50"
       }
     }
   },
   "bedroom": {
     "file": "bedroom.webp",
-    "title": "Primary bedroom with views and en suite bath",
-    "alt": "Primary bedroom with views and en suite bath",
+    "title": "Primary bedroom with arched picture window (virtually staged)",
+    "alt": "Primary bedroom with arched picture window (virtually staged)",
     "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
-    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/51-9055 SE Eola Hills Rd 40.jpg",
-    "sha256": "6b81067c76b1118dbe369c9de329fbcd4b14ee3564fc245e387884ceb1cc90d4",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/47-9055 SE Eola Hills Rd VS 10.jpg",
+    "sha256": "d76f403c7f4c7fdc3c4739a9f3cdc5629ae5aa3c0fe803ba244220f4422d31e4",
     "width": 2200,
     "height": 1464,
     "sizes": {
@@ -92,14 +196,14 @@
         "width": 768,
         "height": 511,
         "mime-type": "image/webp",
-        "sha256": "64be3b51d695926cd8a93c663a5245d4d5f01e2932801006a9e43097ec835fa5"
+        "sha256": "673353d2f2f168c9f624f81e63692961c7358a4fd33b0c86e882a990da5f7373"
       },
       "eola-1536": {
         "file": "responsive/bedroom-1536.webp",
         "width": 1536,
         "height": 1022,
         "mime-type": "image/webp",
-        "sha256": "62d78efcddc805a8eb3763bd0bdab32ba5a008c7efd8f9ddfe3d9b3652331a01"
+        "sha256": "5a214d1c2e6076cbff34a8ad99f880deb0252ef4807c0a818c4aa35847647436"
       }
     }
   },
@@ -131,8 +235,8 @@
   },
   "terrace": {
     "file": "terrace.webp",
-    "title": "Covered rear deck and pergola",
-    "alt": "Covered rear deck and pergola",
+    "title": "Covered back deck",
+    "alt": "Covered back deck",
     "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
     "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/68-9055 SE Eola Hills Rd 54.jpg",
     "sha256": "4d9d0cbc9f2796a1203debc8b8aa7e4b7d301bd074b15c1254dd0d9b838ee873",
@@ -391,11 +495,11 @@
   },
   "family-room": {
     "file": "family-room.webp",
-    "title": "Family room and den with fireplace and custom millwork",
-    "alt": "Family room and den with fireplace and custom millwork",
+    "title": "Family room and den with fireplace and custom millwork (virtually staged)",
+    "alt": "Family room and den with fireplace and custom millwork (virtually staged)",
     "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
-    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/35-9055 SE Eola Hills Rd 27.jpg",
-    "sha256": "873bf957b96ae43aa3ac073ba3756c1ccda03619b2c5067cf81aef594d88446b",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/34-9055 SE Eola Hills Rd VS 7.jpg",
+    "sha256": "c8f276f1f02c26cdb7836596f5b2d8d3f3b74d39f0779144daa8e365b75dd8d1",
     "width": 2200,
     "height": 1464,
     "sizes": {
@@ -404,24 +508,24 @@
         "width": 768,
         "height": 511,
         "mime-type": "image/webp",
-        "sha256": "8d40cf522ca7bb8ccf35c2522493b415720487d2b2de7f6d0fc15cce60aefc08"
+        "sha256": "f42b0af116cd22216a6ea777af4c89b7477279c4601800e73776f266a866f21d"
       },
       "eola-1536": {
         "file": "responsive/family-room-1536.webp",
         "width": 1536,
         "height": 1022,
         "mime-type": "image/webp",
-        "sha256": "e5881fad2ac185ee354d5555d97322536f16fdc18a6158a7260596de21dbab38"
+        "sha256": "b384e08067b9a19d60586fd4e9f74ff9146b519001edc51d91635417c8154fef"
       }
     }
   },
   "office": {
     "file": "office.webp",
-    "title": "Dedicated office with built-in desk and cabinetry",
-    "alt": "Dedicated office with built-in desk and cabinetry",
+    "title": "Dedicated office with built-in cabinetry (virtually staged)",
+    "alt": "Dedicated office with built-in cabinetry (virtually staged)",
     "description": "Client-supplied photography of 9055 SE Eola Hills Rd. Photography by Mouve Media.",
-    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/43-9055 SE Eola Hills Rd 33.jpg",
-    "sha256": "41912fc7e3e62794731f7ec10ecdd8846b047d6e2644d172db731601a1c53efe",
+    "source": "9055-SE-Eola-Hills-Rd[3600]/9055-SE-Eola-Hills-Rd/42-9055 SE Eola Hills Rd VS 9.jpg",
+    "sha256": "fc468be8e02c82f810ee3995b5d930a0bcd8110c3d6cbeb0243be1d6cf6926a6",
     "width": 2200,
     "height": 1464,
     "sizes": {
@@ -430,14 +534,14 @@
         "width": 768,
         "height": 511,
         "mime-type": "image/webp",
-        "sha256": "3b7d6019ee6e0a64f1bc96481b5b5b64051a12ef6425987b636ced0e5d70f7fa"
+        "sha256": "339b52f8eec5e03c716d58370c5dae2cf077be749e4d9bc437bb9c9fe19ef191"
       },
       "eola-1536": {
         "file": "responsive/office-1536.webp",
         "width": 1536,
         "height": 1022,
         "mime-type": "image/webp",
-        "sha256": "b7196f5db542a73c320f8e94f4d2308a500a200e45002f645b96e4dd6c8302ba"
+        "sha256": "de3e3b5eff1849321d4e300ea908b532856f482a401abff761853ac8aac38179"
       }
     }
   },
@@ -469,8 +573,8 @@
   },
   "logo": {
     "file": "logo.webp",
-    "title": "Wine Country Properties Group | eXp Realty",
-    "alt": "Wine Country Properties Group | eXp Realty",
+    "title": "Wine Country Properties Group | eXp",
+    "alt": "Wine Country Properties Group | eXp",
     "description": "Client-supplied combined brokerage logo.",
     "source": "9055-SE-Eola-Hills-Rd[3600]/Wine Country Properties Group/wcpg-exp-logos/web/wcpg-logo-exp-horizontal-transparent-960-web.png",
     "sha256": "1265fbc39e09e4425e222185d3b39e7858a0298e3a88d29d743500a16dee806f",
@@ -480,8 +584,8 @@
   },
   "logo-reverse": {
     "file": "logo-reverse.webp",
-    "title": "Wine Country Properties Group | eXp Realty",
-    "alt": "Wine Country Properties Group | eXp Realty",
+    "title": "Wine Country Properties Group | eXp",
+    "alt": "Wine Country Properties Group | eXp",
     "description": "Client-supplied reversed brokerage logo.",
     "source": "9055-SE-Eola-Hills-Rd[3600]/Wine Country Properties Group/wcpg-exp-logos/web/wcpg-logo-exp-horizontal-reverse-transparent-960-web.png",
     "sha256": "6830ea2a6ff815b9cd58f379d232074a962969f28c12060f29e82d9c8f331843",
@@ -515,7 +619,7 @@
     "file": "floorplan-1.png",
     "title": "Floor plan - 1st floor - home, garage, RV bay & workshop",
     "alt": "Floor plan with dimensions: 1st floor - home, garage, RV bay & workshop",
-    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,018 sq ft.",
+    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,112 sq ft.",
     "source": "9055-SE-Eola-Hills-Rd (2)/_floorplan/02-2nd_floor_9055_southeast_eola_hills_road_amity_with_dim.png (revised)",
     "sha256": "67f7191d49c7ce262d2794767a9c67d1f9e12aa075d44e9a153ec104022deb7f",
     "width": 4000,
@@ -526,7 +630,7 @@
     "file": "floorplan-2.png",
     "title": "Floor plan - 2nd floor",
     "alt": "Floor plan with dimensions: 2nd floor",
-    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,018 sq ft.",
+    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,112 sq ft.",
     "source": "9055-SE-Eola-Hills-Rd (2)/_floorplan/03-3rd_floor_9055_southeast_eola_hills_road_amity_with_dim.png (revised)",
     "sha256": "091ef107fbfa773865d6344ea1594bcca02f98b4ac3deb3504796da1cea9146c",
     "width": 4000,
@@ -537,7 +641,7 @@
     "file": "floorplan-3.png",
     "title": "Floor plan - Barn",
     "alt": "Floor plan with dimensions: Barn",
-    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,018 sq ft.",
+    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,112 sq ft.",
     "source": "9055-SE-Eola-Hills-Rd (2)/_floorplan/01-1st_floor_9055_southeast_eola_hills_road_amity_with_dim.png (revised)",
     "sha256": "96bbacd7df0a44ba73765be47d8d59d3cef8cd71dfdb8a30356c31bf7d57b2b1",
     "width": 4000,
@@ -548,7 +652,7 @@
     "file": "floorplan-4.png",
     "title": "Floor plan - All floors",
     "alt": "Floor plan with dimensions: All floors",
-    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,018 sq ft.",
+    "description": "MouveMedia floor plan with client-requested label, covered deck and barn-door corrections (October 2026). Listing living area is 3,112 sq ft.",
     "source": "9055-SE-Eola-Hills-Rd (2)/_floorplan/04-all_floors_9055_southeast_eola_hills_road_amity_with_dim.png (revised)",
     "sha256": "7bdc25748b547ae35b3d3e056603d6aaf65afea4ae08fc3118f96151acb0df7b",
     "width": 4000,
@@ -559,8 +663,8 @@
     "file": "property-amenities.pdf",
     "title": "9055 SE Eola Hills Rd - Amenities",
     "alt": "",
-    "description": "Client-supplied amenities sheet dated October 8, 2026.",
-    "source": "Eola Hills_Unbranded Amenities_Edit 10-8-26.pdf",
-    "sha256": "10abca41344dba8e6649ec467372f0dc36d7a329065947a82bf64a03f5443833"
+    "description": "Client-supplied amenities sheet, November 2026 update.",
+    "source": "Eola Hills_Unbranded Amenities_Working Flyer-5.pdf",
+    "sha256": "92b82a12400dcf95bcf84719c53706c1ba11bf815f6cb483f979c567c90c7f36"
   }
 }

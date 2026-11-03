@@ -11,7 +11,7 @@ wp_set_current_user( get_user_by( 'login', 'eola_admin' )->ID );
 $result = eola_hills_update_content();
 eola_content_check( true === $result, 'Explicit client update applies: ' . ( is_wp_error( $result ) ? $result->get_error_message() : 'success' ) );
 $updated = get_post_meta( $id, '_elementor_data', true );
-eola_content_check( strpos( $updated, '3,018' ) !== false && strpos( $updated, '3,112' ) === false && strpos( $updated, '644545554' ) !== false, 'Current listing dimensions and RMLS replace old values.' );
+eola_content_check( strpos( $updated, '3,112' ) !== false && strpos( $updated, '3,018' ) === false && strpos( $updated, '644545554' ) !== false, 'Current listing dimensions and RMLS replace old values.' );
 eola_content_check( strpos( $updated, 'eola-demo-' ) === false && strpos( $updated, 'assets/photos/' ) === false && strpos( $updated, '{{EOLA_ASSETS}}' ) === false, 'All client media and document links resolve to the Media Library.' );
 eola_content_check( $status === get_post_status( $id ) && $url === get_permalink( $id ) && $front === get_option( 'page_on_front' ), 'Page status, URL and homepage remain unchanged.' );
 $backup = get_option( 'eola_hills_content_backup' );

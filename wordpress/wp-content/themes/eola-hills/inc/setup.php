@@ -39,6 +39,13 @@ function eola_hills_prepare_template() {
             update_post_meta( $id, '_eola_hills_client_asset', $key );
             $media[$key] = array( 'id' => $id, 'sha256' => $item['sha256'] );
             update_option( 'eola_hills_client_media', $media, false );
+        } else {
+            // An unchanged file can still carry corrected wording; a delivery is authoritative for it.
+            if ( get_post_meta( $id, '_wp_attachment_image_alt', true ) !== $item['alt'] ) { update_post_meta( $id, '_wp_attachment_image_alt', $item['alt'] ); }
+            if ( get_post_field( 'post_title', $id, 'raw' ) !== $item['title'] || get_post_field( 'post_content', $id, 'raw' ) !== $item['description'] ) {
+                $updated = wp_update_post( wp_slash( array( 'ID' => $id, 'post_title' => $item['title'], 'post_content' => $item['description'] ) ), true );
+                if ( is_wp_error( $updated ) ) { return $updated; }
+            }
         }
         $urls[ EOLA_HILLS_URL . 'assets/media/' . $file ] = array( 'id' => $id, 'url' => wp_get_attachment_url( $id ) );
     }
@@ -124,7 +131,7 @@ function eola_hills_admin() {
         <?php eola_hills_content_update_panel( $id ); ?>
         <h2>Editing and publishing</h2>
         <p>Open Elementor's Structure panel to find named sections. Header, footer, text, images, buttons, colours, typography and responsive spacing are native editable elements. Duplicate a page or save sections as Elementor templates for future pages.</p>
-        <p>The bundled media, logos, amenities and floor plans are supplied by the client. The listed living area is 3,018 sq ft; the original floor plans show different totals. The professional video has not yet been supplied. Every media item is editable through the Media Library and Elementor.</p>
+        <p>The bundled media, logos, amenities and floor plans are supplied by the client. The listed living area is 3,112 sq ft; the original floor plans show different totals. The professional video has not yet been supplied. Every media item is editable through the Media Library and Elementor.</p>
         <p>Tour buttons currently open Linda's email composer. Edit their links to use a booking destination if supplied. No emails are sent automatically.</p>
         <p>Existing pages retain their URL, status and homepage setting during migration. On a fresh site without a configured static homepage, the updater publishes this page and sets it as the homepage.</p>
         <h2>Code updates</h2>
