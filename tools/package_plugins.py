@@ -33,7 +33,7 @@ def verify(elements):
     for el in elements:
         assert el['id'] not in ids,'Duplicate Elementor ID';ids.add(el['id'])
         assert el['elType'] in {'container','widget'}
-        if el['elType']=='widget': assert el['widgetType'] in {'heading','text-editor','button','image','image-carousel','icon','accordion'}
+        if el['elType']=='widget': assert el['widgetType'] in {'heading','text-editor','button','image','image-carousel','icon','accordion','video'}
         verify(el['elements'])
 verify(template['content'])
 for item in json.loads((THEME/'assets/media/manifest.json').read_text(encoding='utf-8')).values():

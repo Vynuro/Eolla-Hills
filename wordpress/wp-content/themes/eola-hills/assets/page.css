@@ -28,6 +28,7 @@
 .eola-hills-page .eola-feature-card:hover .elementor-button-icon { transform:translateX(4px) rotate(-35deg); }
 .eola-hills-page .eola-scene-button a[aria-pressed="true"] { background:#FFFFFF; color:#000000; border-color:#FFFFFF; }
 .eola-hills-page .eola-property-carousel .swiper { border-radius:22px; }
+.eola-hills-page .eola-property-video .elementor-wrapper { overflow:hidden; border-radius:22px; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button { padding:18px; border:1px solid #FFFFFF70; border-radius:50%; background:#00000060; backdrop-filter:blur(8px); transition:background .2s; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button:hover { background:#000000DD; }
 .eola-hills-page .eola-property-carousel .elementor-swiper-button-prev { left:24px; }

@@ -22,7 +22,12 @@ Source: `Eola Hills Landing Page.docx`, `Landing Page Corrections.pdf`, `Eola Hi
 | "Work Shop/Studio" (handwritten) | Workshop \| Studio | Matches the client's own heading style. |
 | "Furnance" (hidden PDF text layer) | Furnace | The rendered sheet prints Furnace. |
 
-Section copy and the amenities list are each used exactly as supplied: the barn paragraph says 2,305 SF and the amenities list says 2,304 SqFt. The client should confirm which is right.
+## Client answers, November 5 (theme 2.1.2)
+
+- Barn size is **2,305 SqFt** on the page. The client's downloadable amenities PDF still prints 2,304 SqFt until she sends an updated Canva export; the PDF is hers and was not edited.
+- Stalls: the barn has no 7 stalls today, so the page says **potential for up to 7 stalls** in the opening paragraph, barn section and amenities.
+- Property video: https://youtu.be/xnMoFyTzQPQ is embedded in Experience the Property (native Elementor Video widget, YouTube privacy mode, lazy load). It replaces the placeholder photo carousel and the Coming Soon line.
+- The virtual-staging note question is still unanswered, so no note was added.
 
 The gallery keeps its original 15 photo positions; interiors were switched to the staged versions and no tiles were added. No virtual-staging note was added because the client did not ask for one.
 
