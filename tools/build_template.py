@@ -54,7 +54,8 @@ hero_copy=col('Hero introduction',[
  row('Hero actions',[button('Schedule a Private Tour ↗',tour,True),button('View Property Highlights ↓','#property',True,True)],flex_justify_content='flex-start',flex_wrap='wrap',flex_gap=gap(12))
 ],62,css_classes='eola-hero-copy',flex_gap=gap(19))
 offer=card('Property offering',[
- label('RMLS #644545554',BLUE),heading('$1,499,000','p',34,serif=False,typography_font_size_tablet=size(24),typography_font_size_mobile=size(30)),
+ label('RMLS #644545554',BLUE),heading('$1,399,000','p',34,serif=False,typography_font_size_tablet=size(24),typography_font_size_mobile=size(30)),
+ text('<strong>Seller Financing Available</strong><br>Up to $50,000 Seller-Paid Incentives for Buyer’s Benefit',GREEN,13,_css_classes='eola-price-offer'),
  text('3 Beds · 3 Baths<br>Approx. 3,112 Sq Ft',INK,14),
  button('Property Details ↗','#details',outline=True,text_padding=edges(12,18,12,18))
 ],width=size(30,'%'),width_tablet=size(38,'%'),width_mobile=size(100,'%'),background_color=PAPER,padding=edges(28),padding_tablet=edges(20),padding_mobile=edges(24),border_radius=edges(24),flex_gap=gap(18),css_classes='eola-hero-offer')
@@ -171,7 +172,7 @@ gallery=section('07 - Photo gallery',[
 ],'gallery')
 
 facts_cards=[]
-for k,v in [('Price','$1,499,000'),('Bedrooms','3'),('Bathrooms','3'),('Approx. Living Area','Approx. 3,112 Sq Ft'),('Lot','4.89 Acres'),('Address','9055 SE Eola Hills Rd,<br>Amity, OR'),('Year Built','2000'),('RMLS #','644545554')]:
+for k,v in [('Price','$1,399,000'),('Seller Financing','Available'),('Seller-Paid Incentives','Up to $50,000 for Buyer’s Benefit'),('Bedrooms','3'),('Bathrooms','3'),('Approx. Living Area','Approx. 3,112 Sq Ft'),('Lot','4.89 Acres'),('Address','9055 SE Eola Hills Rd,<br>Amity, OR'),('Year Built','2000'),('RMLS #','644545554')]:
  facts_cards.append(card(k,[label(k.upper(),MUTED),heading(v,'p',24,serif=False)],width=size(48,'%'),width_mobile=size(100,'%'),padding=edges(24),flex_gap=gap(14)))
 facts=section('08 - Property details',[
  row('At a glance',[col('Property details heading',[label('PROPERTY DETAILS'),heading('Property<br>at a Glance',n=50),text('9055 SE Eola Hills Rd<br>Amity, Oregon'),button('Contact the Listing Team ↗',tour,outline=True)],34,flex_justify_content='center'),col('Facts',[row('Property details cards',facts_cards,flex_wrap='wrap',flex_gap=gap(18))],61)])
