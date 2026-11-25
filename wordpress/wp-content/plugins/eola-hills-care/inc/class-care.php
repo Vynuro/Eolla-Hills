@@ -111,7 +111,10 @@ final class Eola_Care {
         try {
             if ( 0 === $job['offset'] ) { $zip->addFile( self::path( $id . '.jsonl' ), 'database.jsonl' ); }
             for ( $n = 0; $n < 100 && $job['offset'] < count( $job['files'] ); $n++, $job['offset']++ ) {
-                $relative = $job['files'][$job['offset']]; $file = self::safe_file( $relative, true );
+                $relative = $job['files'][$job['offset']];
+                // Caches and plugin updates can remove a file mid-backup; skip it instead of failing the whole backup.
+                if ( ! file_exists( trailingslashit( realpath( ABSPATH ) ) . $relative ) && ! is_link( trailingslashit( realpath( ABSPATH ) ) . $relative ) ) { $job['vanished'] = ( $job['vanished'] ?? 0 ) + 1; continue; }
+                $file = self::safe_file( $relative, true );
                 if ( ! $zip->addFile( $file, 'files/' . $relative ) ) { throw new RuntimeException( 'Cannot archive ' . $relative ); }
                 if ( preg_match( '/\.(?:webp|jpg|jpeg|png|pdf|zip|mp4)$/i', $relative ) ) { $zip->setCompressionName( 'files/' . $relative, ZipArchive::CM_STORE ); }
             }
@@ -120,10 +123,10 @@ final class Eola_Care {
         $path = self::path( $id . '.zip' ); $check = new ZipArchive();
         if ( true !== $check->open( $path, ZipArchive::CHECKCONS ) ) { throw new RuntimeException( 'Backup archive verification failed.' ); } $check->close();
         $index = self::read( 'backups' );
-        $index[$id] = array( 'id' => $id, 'created' => gmdate( 'c' ), 'size' => filesize( $path ), 'sha256' => hash_file( 'sha256', $path ), 'site' => home_url(), 'prefix' => $wpdb->prefix, 'files' => count( $job['files'] ), 'recovery_for' => $job['after'] );
+        $index[$id] = array( 'id' => $id, 'created' => gmdate( 'c' ), 'size' => filesize( $path ), 'sha256' => hash_file( 'sha256', $path ), 'site' => home_url(), 'prefix' => $wpdb->prefix, 'files' => count( $job['files'] ) - (int) ( $job['vanished'] ?? 0 ), 'recovery_for' => $job['after'] );
         self::save( 'backups', $index ); unlink( self::path( $id . '.jsonl' ) ); @chmod( $path, 0600 ); self::audit( 'backup_complete', $id );
         if ( $job['after'] ) { $job = self::restore_job( $job['after'], $id ); }
-        else { $job = array( 'kind' => 'backup', 'status' => 'done', 'id' => $id, 'message' => 'Verified website files and database backup saved.' ); }
+        else { $job = array( 'kind' => 'backup', 'status' => 'done', 'id' => $id, 'message' => 'Verified website files and database backup saved.' . ( ! empty( $job['vanished'] ) ? ' ' . (int) $job['vanished'] . ' files removed during the backup were skipped.' : '' ) ); }
     }
     private static function verified_backup( $id ) {
         $index = self::read( 'backups' ); $entry = $index[$id] ?? null;

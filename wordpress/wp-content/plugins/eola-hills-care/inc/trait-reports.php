@@ -23,24 +23,16 @@ trait Eola_Care_Reports {
         remove_action( 'wp_mail_failed', $capture );
         return array( (bool) $sent, $sent ? '' : ( $error ?: 'The server did not accept the email.' ), count( $to ) );
     }
-    /** One short email per day once the scheduled backup and scan finish, or as soon as one fails. */
-    public static function daily_email( $date, $failed = false ) {
-        $sent = get_option( 'eola_care_daily_email', array() );
-        if ( ! empty( $sent[$date] ) && ! $failed ) { return; }
-        $runs = array_filter( get_option( 'eola_care_runs', array() ), fn( $r ) => $r['date'] === $date );
-        $rows = ''; $problem = $failed; $cell = 'padding:8px;border-bottom:1px solid #e3e4ec';
-        foreach ( array( 'backup' => 'Backup', 'scan' => 'Security scan' ) as $kind => $label ) {
-            $match = array_values( array_filter( $runs, fn( $r ) => $r['kind'] === $kind ) ); $r = end( $match ) ?: array();
-            $status = $r ? ( 'done' === $r['status'] ? 'Completed' : ucfirst( $r['status'] ) ) : 'Not run';
-            if ( $r && 'error' === $r['status'] ) { $problem = true; }
-            if ( ! empty( $r['flagged'] ) ) { $problem = true; }
-            $detail = 'backup' === $kind ? ( isset( $r['bytes'] ) ? size_format( $r['bytes'] ) . ', ' . (int) $r['files'] . ' files' : ( $r['message'] ?? '' ) ) : ( isset( $r['flagged'] ) ? (int) $r['files'] . ' files checked, ' . (int) $r['flagged'] . ' flagged for review' : ( $r['message'] ?? '' ) );
-            $rows .= '<tr><td style="' . $cell . '"><strong>' . esc_html( $label ) . '</strong></td><td style="' . $cell . '">' . esc_html( $status ) . '</td><td style="' . $cell . '">' . esc_html( $detail ) . '</td></tr>';
+    /** True once today's enabled backup and scan have finished (completed or failed). */
+    private static function tasks_settled( $today ) {
+        if ( 'running' === ( self::read( 'job' )['status'] ?? '' ) ) { return false; }
+        $settings = self::automation_settings(); $runs = get_option( 'eola_care_runs', array() );
+        foreach ( array( 'backup', 'scan' ) as $kind ) {
+            if ( empty( $settings[$kind] ) ) { continue; }
+            $finished = array_filter( $runs, fn( $run ) => $run['date'] === $today && $run['kind'] === $kind && in_array( $run['status'], array( 'done', 'error' ), true ) );
+            if ( ! $finished ) { return false; }
         }
-        $html = '<div style="max-width:620px;font:15px/1.5 Arial,sans-serif;color:#25232B"><p style="color:#55A044;font-size:12px;letter-spacing:1px;margin:0">DAILY BACKUP AND SECURITY</p><h2 style="margin:6px 0">' . esc_html( wp_parse_url( home_url(), PHP_URL_HOST ) . ' | ' . $date ) . '</h2><table cellspacing="0" width="100%">' . $rows . '</table><p style="font-size:12px;color:#666">Backups are stored privately on the server. Review flagged files in WordPress: Eola Care.</p></div>';
-        [ $ok, $error ] = self::mail( ( $problem ? 'Action needed: ' : '' ) . 'Daily backup and security ' . $date, $html );
-        $sent[$date] = $ok ? 'sent' : 'failed: ' . $error;
-        update_option( 'eola_care_daily_email', array_slice( $sent, -60, null, true ), false );
+        return true;
     }
     /** Runs on the five-minute Care tick. */
     public static function report_tick() {
@@ -49,11 +41,13 @@ trait Eola_Care_Reports {
         if ( empty( $s['enabled'] ) || $now->format( 'H:i' ) < $s['time'] ) { return; }
         $last = get_option( 'eola_care_report_last' );
         if ( $last && $today < DateTimeImmutable::createFromFormat( '!Y-m-d', $last, wp_timezone() )->modify( '+' . (int) $s['every'] . ' days' )->format( 'Y-m-d' ) ) { return; }
+        // Complete reports only: wait for today's backup and scan; by 23:00 send whatever finished.
+        if ( ! self::tasks_settled( $today ) && $now->format( 'H:i' ) < '23:00' ) { return; }
         // Claim the day first so overlapping ticks cannot send twice.
         if ( get_transient( 'eola_care_report_sending' ) ) { return; }
         set_transient( 'eola_care_report_sending', 1, 10 * MINUTE_IN_SECONDS );
         update_option( 'eola_care_report_last', $today, false );
-        try { self::send_report( $now->setTime( 0, 0 ), (int) $s['every'] ); }
+        try { self::send_report( current_datetime(), (int) $s['every'] ); }
         catch ( Throwable $e ) { self::report_record( $today, array( 'error' => $e->getMessage() ) ); }
         finally { delete_transient( 'eola_care_report_sending' ); }
     }
@@ -62,14 +56,14 @@ trait Eola_Care_Reports {
         $log[$date] = array_merge( $log[$date] ?? array(), $data, array( 'date' => $date ) );
         update_option( 'eola_care_report_log', array_slice( $log, -200, null, true ), false );
     }
-    /** Builds, archives and emails the report for the $days whole days before $end (local midnight). */
+    /** Builds, archives and emails the report for the last $days days up to $end (normally now, so today is included). */
     public static function send_report( DateTimeImmutable $end, $days ) {
-        $start = $end->modify( '-' . $days . ' days' );
+        $start = $end->setTime( 0, 0 )->modify( '-' . ( $days - 1 ) . ' days' );
         $html = self::report_html( $start, $end );
         $date = $end->format( 'Y-m-d' );
         file_put_contents( self::path( 'report-' . $date . '.html' ), $html, LOCK_EX ); @chmod( self::path( 'report-' . $date . '.html' ), 0600 );
-        [ $sent, $error, $count ] = self::mail( 'Website report ' . $start->format( 'M j' ) . ' - ' . $end->modify( '-1 day' )->format( 'M j, Y' ), $html );
-        self::report_record( $date, array( 'period' => $start->format( 'Y-m-d' ) . ' to ' . $end->modify( '-1 day' )->format( 'Y-m-d' ), 'sent' => $sent, 'recipients' => $count, 'error' => $error, 'created' => gmdate( 'c' ) ) );
+        [ $sent, $error, $count ] = self::mail( 'Website report ' . $start->format( 'M j' ) . ' - ' . $end->format( 'M j, Y' ), $html );
+        self::report_record( $date, array( 'period' => $start->format( 'Y-m-d' ) . ' to ' . $end->format( 'Y-m-d' ), 'sent' => $sent, 'recipients' => $count, 'error' => $error, 'created' => gmdate( 'c' ) ) );
         return (bool) $sent;
     }
     private static function report_data( DateTimeImmutable $start, DateTimeImmutable $end ) {
@@ -82,7 +76,7 @@ trait Eola_Care_Reports {
                 'devices' => array_map( fn( $v ) => array( ucfirst( $v['device'] ), (int) $v['sessions'] ), $r['tables']['devices'] ) );
         }
         $blocks = self::blocks_between( $from, $to );
-        $ev = self::events_between( $start->format( 'Y-m-d' ), $end->format( 'Y-m-d' ) );
+        $ev = self::events_between( $start->format( 'Y-m-d' ), $end->modify( '+1 day' )->format( 'Y-m-d' ) );
         $rate = array_filter( $blocks, fn( $b ) => 'rate' === ( $b['reason'] ?? 'rate' ) );
         $d['attacks'] = array( 'probe' => (int) ( $ev['probe'] ?? 0 ), 'user_scan' => (int) ( $ev['user_scan'] ?? 0 ), 'xmlrpc' => (int) ( $ev['xmlrpc'] ?? 0 ), 'spam' => (int) ( $ev['comment_spam'] ?? 0 ), 'bots' => count( $rate ) );
         $d['blocks'] = array( 'count' => count( $blocks ), 'ips' => count( array_unique( array_column( $blocks, 'ip' ) ) ), 'refused' => array_sum( array_column( $blocks, 'hits' ) ), 'rows' => array_slice( array_reverse( $blocks ), 0, 10 ) );
@@ -92,14 +86,14 @@ trait Eola_Care_Reports {
         }
         require_once ABSPATH . 'wp-admin/includes/plugin.php';
         $d['login'] = array( 'active' => is_plugin_active( 'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' ), 'lockouts' => $lockouts );
-        $runs = array_filter( get_option( 'eola_care_runs', array() ), fn( $r ) => $r['date'] >= $start->format( 'Y-m-d' ) && $r['date'] < $end->format( 'Y-m-d' ) );
+        $runs = array_filter( get_option( 'eola_care_runs', array() ), fn( $r ) => $r['date'] >= $start->format( 'Y-m-d' ) && $r['date'] <= $end->format( 'Y-m-d' ) );
         $d['runs'] = array();
         for ( $day = $start; $day < $end; $day = $day->modify( '+1 day' ) ) {
             foreach ( array( 'backup', 'scan' ) as $kind ) {
                 $match = array_values( array_filter( $runs, fn( $r ) => $r['date'] === $day->format( 'Y-m-d' ) && $r['kind'] === $kind ) );
                 $r = end( $match ) ?: array();
                 $detail = 'backup' === $kind ? ( isset( $r['bytes'] ) ? size_format( $r['bytes'] ) . ', ' . (int) $r['files'] . ' files' : '' ) : ( isset( $r['flagged'] ) ? (int) $r['files'] . ' files checked, ' . (int) $r['flagged'] . ' flagged for review' : '' );
-                $d['runs'][] = array( $day->format( 'D M j' ), 'backup' === $kind ? 'Backup' : 'Security scan', $r ? ( 'done' === $r['status'] ? 'Completed' : ucfirst( $r['status'] ) ) : 'Not recorded', $detail ?: ( $r['message'] ?? '' ) );
+                $d['runs'][] = array( $day->format( 'D M j' ), 'backup' === $kind ? 'Backup' : 'Security scan', $r ? ( 'done' === $r['status'] ? 'Completed' : ( 'running' === $r['status'] ? 'Not finished when the report was made' : ucfirst( $r['status'] ) ) ) : 'Not recorded', $detail ?: ( $r['message'] ?? '' ) );
             }
         }
         wp_update_plugins(); $plugins = get_site_transient( 'update_plugins' ); $core = get_site_transient( 'update_core' );
@@ -117,7 +111,7 @@ trait Eola_Care_Reports {
         };
         $metric = fn( $label, $value ) => '<td width="25%" style="background:#F1F2F8;padding:14px;border-radius:8px"><div style="font-size:12px;color:#555">' . $e( $label ) . '</div><div style="font-size:24px;font-weight:bold;color:#25232B">' . $e( (string) $value ) . '</div></td>';
         $h2 = fn( $t ) => '<h2 style="color:#4B5598;font-size:18px;margin:28px 0 10px">' . $e( $t ) . '</h2>';
-        $period = $start->format( 'M j' ) . ' - ' . $end->modify( '-1 day' )->format( 'M j, Y' );
+        $period = $start->format( 'M j' ) . ' - ' . $end->format( 'M j, Y' );
         $o = '<!doctype html><html><body style="margin:0;background:#f5f5f8"><div style="max-width:680px;margin:0 auto;padding:24px;font:15px/1.5 Arial,sans-serif;color:#25232B;background:#fff">';
         $o .= '<p style="margin:0;color:#55A044;font-size:12px;letter-spacing:1px">WEBSITE MANAGEMENT REPORT</p><h1 style="margin:6px 0;font-size:24px">' . $e( wp_parse_url( home_url(), PHP_URL_HOST ) ) . '</h1><p style="margin:0;color:#555">' . $e( $period . ' (' . wp_timezone_string() . ')' ) . '</p>';
         $o .= $h2( 'Visitors' );
@@ -159,7 +153,7 @@ trait Eola_Care_Reports {
         update_option( 'eola_care_reports', array_merge( self::report_settings(), array( 'enabled' => isset( $_POST['enabled'] ) ? 1 : 0, 'time' => $time, 'recipients' => implode( ', ', array_slice( $emails, 0, 10 ) ) ) ), false );
         $notice = '';
         if ( ! empty( $_POST['send_now'] ) ) {
-            try { $notice = self::send_report( current_datetime()->setTime( 0, 0 ), (int) self::report_settings()['every'] ) ? 'sent' : 'failed'; }
+            try { $notice = self::send_report( current_datetime(), (int) self::report_settings()['every'] ) ? 'sent' : 'failed'; }
             catch ( Throwable $e ) { $notice = 'failed'; }
         }
         wp_safe_redirect( admin_url( 'admin.php?page=eola-care' . ( $notice ? '&report=' . $notice : '' ) ) ); exit;
@@ -176,8 +170,8 @@ trait Eola_Care_Reports {
         $s = self::report_settings(); $last = get_option( 'eola_care_report_last' );
         echo '<section class="ec-card"><h2>Website report every ' . (int) $s['every'] . ' days</h2>';
         if ( isset( $_GET['report'] ) ) { echo 'sent' === $_GET['report'] ? '<p class="ec-ok">Report sent.</p>' : '<p class="ec-alert">The report was saved but the email could not be sent. See the error below.</p>'; }
-        echo '<p>Always emailed to the site administrator and the developer: <strong>' . esc_html( implode( ', ', self::fixed_recipients() ) ) . '</strong>. They also get a short email every day after the backup and security scan, and straight away if one fails. Change the administrator address in Settings &gt; General.</p>';
-        echo '<p>Covers visitors, hacking attempts and bots blocked, spam comments, login lockouts, daily backups and scans and update status for the previous ' . (int) $s['every'] . ' days. Last automatic report: ' . esc_html( $last ?: 'not sent yet' ) . '.</p>';
+        echo '<p>Always emailed to the site administrator and the developer: <strong>' . esc_html( implode( ', ', self::fixed_recipients() ) ) . '</strong>. Both receive the same complete report every 3 days, sent only after the backup and security scan of that day have finished. Change the administrator address in Settings &gt; General.</p>';
+        echo '<p>Covers visitors, hacking attempts and bots blocked, spam comments, login lockouts, every daily backup and scan and update status for the last ' . (int) $s['every'] . ' days, including the day it is sent. Last automatic report: ' . esc_html( $last ?: 'not sent yet' ) . '.</p>';
         echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '"><input type="hidden" name="action" value="eola_care_reports">'; wp_nonce_field( 'eola_care_reports' );
         echo '<p><label><input type="checkbox" name="enabled" value="1" ' . checked( $s['enabled'], 1, false ) . '> Send automatically</label> <label>at <input type="time" name="time" value="' . esc_attr( $s['time'] ) . '" required></label></p>';
         echo '<p><label for="ec-recipients">Also email (optional, comma separated)</label><br><input id="ec-recipients" class="regular-text" type="text" name="recipients" value="' . esc_attr( $s['recipients'] ) . '"></p>';

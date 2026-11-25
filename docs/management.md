@@ -6,26 +6,33 @@ Everything is installed and updated by **Tools → Eola Hills Updates → Sync f
 
 | Plugin | Source | What it does |
 |---|---|---|
-| Eola Care 1.2 | This repository | Daily private backup (02:00) and security scan (04:00), 7 automatic backups kept. Visitor rate protection and hacking-attempt blocking. Report every 3 days. Daily backup/scan email. |
+| Eola Care 1.2 | This repository | Daily private backup (02:00) and security scan (04:00), 7 automatic backups kept. Visitor rate protection and hacking-attempt blocking. Automatic complete report every 3 days. |
 | Eola Analytics 1.2 | This repository | General analytics, no consent popup. Visitors, visits, page views, returning visits, sources, pages, devices. |
 | Limit Login Attempts Reloaded | WordPress.org | Locks out repeated wrong passwords (its defaults: 4 tries, 20-minute lockout). |
 | Eola Hills Updates 2.3 | This repository | Installs/updates the theme, itself, both Eola plugins and the WordPress.org plugin. |
 
 New Eola plugins start active on first install. Afterwards, Sync keeps whatever on/off state the owner chooses. Limit Login Attempts Reloaded is installed and activated once and is never forced back on if the owner turns it off. If WordPress.org is unreachable it is skipped without blocking the Sync, and retried on the next one.
 
-## Emails and reports
+## Report (automatic, every 3 days)
 
-Every email goes to the **WordPress administration email** (Settings → General) and the **developer, ma9440863@gmail.com**, always. Extra addresses can be added in Eola Care → Website report. To change the developer address, define `EOLA_CARE_DEVELOPER_EMAIL` in wp-config.php.
+The **WordPress administration email** (Settings → General) and the **developer, ma9440863@gmail.com**, always receive the same report. Extra addresses can be added in Eola Care → Website report. To change the developer address, define `EOLA_CARE_DEVELOPER_EMAIL` in wp-config.php. There are no daily emails.
 
-- **Daily**: after the 04:00 scan, a short "Daily backup and security" email. The subject starts with "Action needed" if a task failed or the scan flagged files. If a task fails, the email goes out straight away.
-- **Every 3 days at 08:00**: the website report for the previous three days:
-  - visitors;
-  - hacking attempts blocked, bots blocked, spam comments, login lockouts and the latest blocked IPs;
-  - each day's backup and scan;
-  - WordPress/PHP/update/HTTPS status.
+**When it sends:**
+- Every 3 days, from 08:00 site time, with nobody pressing anything.
+- It waits until that day's backup and security scan have both finished, so the report is complete.
+- If they are still unfinished at 23:00, it is sent anyway and marks them "Not finished when the report was made".
 
-  Reports are also archived privately and listed for download in Eola Care. **Save and send a report now** sends one immediately.
-- PDF: download the report (.html) and open it in a browser → Print → Save as PDF, or run `node tools/report-to-pdf.cjs report.html`.
+**What it covers** (the last 3 days, including the day it is sent):
+- visitors;
+- hacking attempts blocked, bots blocked, spam comments and login lockouts, with the latest blocked IPs;
+- every daily backup and scan;
+- WordPress, PHP, update and HTTPS status.
+
+Reports are archived privately and listed for download in Eola Care. **Save and send a report now** sends one immediately.
+
+PDF: open the downloaded report (.html) in a browser and use Print → Save as PDF, or run `node tools/report-to-pdf.cjs report.html`.
+
+**Reliable timing:** WordPress cron only runs on page visits. `.github/workflows/site-cron.yml` calls `https://9055eolahills.com/wp-cron.php` every 5 minutes from GitHub Actions. `wp-cron.php` is not a page render, so the rate protection does not count these calls. GitHub may delay schedules, and pauses them after 60 days without repository activity; re-enable in the Actions tab if that happens. A hosting cron job is an equally good alternative.
 
 Mail uses the hosting server's PHP mail. If emails never arrive or land in spam, install an SMTP plugin with a real mailbox.
 
@@ -70,9 +77,11 @@ Collection is unchanged and complete, so unlocking later shows full history (90-
 ## Tests
 
 - `node tools/management-browser-check.cjs`: general analytics with locked panels, the Eola Care screens, and the locked export endpoint.
-- `wp eval-file tools/verify-management.php foundation|report|daily` on 8085:
+- `wp eval-file tools/verify-management.php foundation|report|wait` on 8085:
   - Limit Login Attempts is installed and not forced back on;
   - report recipients and sections are correct;
-  - one daily email per day.
+  - the report waits for that day's backup and scan, then sends once.
 - `tools/verify-companions.php` on the fresh 8087 site. It checks that the Eola plugins and Limit Login Attempts start active, and that updates keep the owner's on/off choice.
 - The 8087 compose has no source bind mounts. Never install or delete plugins on a site that bind-mounts this repository.
+- Browser tests open the home page many times a minute. The main local site therefore allowlists the Docker gateway `172.20.0.1` in Eola Care, so its own rate protection does not block the tests. Live has no allowlist.
+- Backups skip files that disappear while the backup is running (cache files, plugin updates) instead of failing, and note how many were skipped.

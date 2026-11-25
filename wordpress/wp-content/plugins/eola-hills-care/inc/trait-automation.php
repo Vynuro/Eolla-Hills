@@ -49,8 +49,6 @@ trait Eola_Care_Automation {
                     $data += array( 'files' => $scan['scanned'], 'flagged' => count( $scan['findings'] ), 'skipped' => $scan['skipped'], 'core_checksums' => $scan['core_verified'] ? 'available' : 'unavailable' );
                 }
                 self::run_record( $auto['id'], $data );
-                // One daily email once the last enabled task of the day is done.
-                if ( 'scan' === $job['kind'] || empty( self::automation_settings()['scan'] ) ) { self::daily_email( $auto['date'] ); }
                 if ( 'backup' === $job['kind'] ) {
                     try { self::prune_automatic_backups(); }
                     catch ( Throwable $e ) { self::run_record( $auto['id'], array( 'retention_note' => $e->getMessage() ) ); }
@@ -104,7 +102,6 @@ trait Eola_Care_Automation {
             update_option( 'eola_care_schedule_error', gmdate( 'c' ) . ' ' . $e->getMessage(), false );
             if ( $run_id ) {
                 self::run_record( $run_id, array( 'status' => 'error', 'finished' => gmdate( 'c' ), 'message' => $e->getMessage() ) );
-                try { self::daily_email( $job['automation']['date'] ?? wp_date( 'Y-m-d' ), true ); } catch ( Throwable $ignored ) {}
                 if ( ! empty( $job['automation'] ) ) { $job['status'] = 'error'; $job['message'] = $e->getMessage(); try { self::save( 'job', $job ); } catch ( Throwable $ignored ) {} }
             }
         } finally { if ( is_resource( $lock ) ) { flock( $lock, LOCK_UN ); fclose( $lock ); } }

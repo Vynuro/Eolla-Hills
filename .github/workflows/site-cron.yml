@@ -1,0 +1,22 @@
+name: Keep the live website schedule running
+# WordPress cron only runs when someone opens the site. This quiet property site still
+# needs its daily backup/scan and 3-day report on time, so GitHub triggers WP-Cron.
+# GitHub may delay scheduled runs and pauses them after 60 days without repository activity.
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: site-cron
+  cancel-in-progress: false
+jobs:
+  wp-cron:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Run WordPress scheduled tasks
+        run: |
+          code=$(curl -sS -m 120 -o /dev/null -w '%{http_code}' -A 'Eola-Hills-Scheduler (GitHub Actions)' 'https://9055eolahills.com/wp-cron.php?doing_wp_cron')
+          echo "wp-cron.php answered HTTP $code"
+          test "$code" -lt 500

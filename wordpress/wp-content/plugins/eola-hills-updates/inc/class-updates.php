@@ -385,7 +385,7 @@ final class Eola_Hills_Updates {
         if ( get_option( 'eola_hills_updater_backup' ) ) { $this->form( 'updater_backup', 'Download previous updater backup' ); }
         if ( get_option( 'eola_hills_analytics_backup' ) ) { $this->form( 'analytics_backup', 'Download previous analytics code' ); }
         if ( get_option( 'eola_hills_care_backup' ) ) { $this->form( 'care_backup', 'Download previous care code' ); }
-        echo '<p>Companion analytics and care plugins update through the same sync. Inactive plugins stay inactive; newly installed companions require activation in Plugins.</p>';
+        echo '<p>Eola Analytics, Eola Care and Limit Login Attempts Reloaded install through the same sync. New installs start active; a plugin you turn off stays off.</p>';
         echo '<p>Restore page content from the Eola Hills menu. Keep separate complete WordPress database/media backups.</p><h2>Private repository access</h2><p>This public repository needs no token. Existing saved authentication is retained during migration.</p>';
         echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">'; wp_nonce_field( 'eola_hills_updates' );
         echo '<input type="hidden" name="action" value="eola_hills_updates"><input type="hidden" name="operation" value="save"><label>GitHub token <input type="password" name="token" autocomplete="new-password" value="" class="regular-text"></label>';
