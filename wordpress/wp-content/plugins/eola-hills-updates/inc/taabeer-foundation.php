@@ -1,21 +1,31 @@
 <?php
 /** Copied from Taabeer site-foundation.php, GPL-2.0-or-later.
- * The dependency list is narrowed to Elementor for this property page. */
+ * The dependency list is narrowed to Elementor for this property page; recommended
+ * WordPress.org plugins are installed and activated once, then left to the site owner. */
 defined( 'ABSPATH' ) || exit;
 function eola_hills_required_plugins() { return array( 'elementor' => 'elementor/elementor.php' ); }
+function eola_hills_recommended_plugins() { return array( 'limit-login-attempts-reloaded' => 'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' ); }
 function eola_hills_install_foundation_plugins() {
 	require_once ABSPATH.'wp-admin/includes/plugin.php';
 	require_once ABSPATH.'wp-admin/includes/plugin-install.php';
 	require_once ABSPATH.'wp-admin/includes/class-wp-upgrader.php';
-	foreach(eola_hills_required_plugins() as $slug=>$file) {
-		if(!file_exists(WP_PLUGIN_DIR.'/'.$file)) {
+	$recommended=eola_hills_recommended_plugins();
+	foreach(eola_hills_required_plugins()+$recommended as $slug=>$file) {
+		$fresh=!file_exists(WP_PLUGIN_DIR.'/'.$file);
+		// A recommended plugin the owner removed or deactivated is not forced back.
+		if(isset($recommended[$slug]) && !$fresh) { continue; }
+		if(isset($recommended[$slug]) && get_option('eola_hills_recommended_'.$slug)) { continue; }
+		if($fresh) {
 			$api=plugins_api('plugin_information',array('slug'=>$slug,'fields'=>array('sections'=>false)));
-			if(is_wp_error($api)) { return $api; }
+			// A recommended plugin must never block the website sync; it is retried next Sync.
+			if(is_wp_error($api)) { if(isset($recommended[$slug])) { continue; } return $api; }
 			$upgrader=new Plugin_Upgrader(new Automatic_Upgrader_Skin());
 			$result=$upgrader->install($api->download_link);
+			if((is_wp_error($result) || !$result) && isset($recommended[$slug])) { continue; }
 			if(is_wp_error($result) || !$result) { return is_wp_error($result)?$result:new WP_Error('install_failed','Could not install '.$slug.'. Check filesystem permissions.'); }
 		}
-		if(!is_plugin_active($file)) { $result=activate_plugin($file,'',false,true); if(is_wp_error($result)) { return $result; } }
+		if(!is_plugin_active($file)) { $result=activate_plugin($file,'',false,isset($recommended[$slug])?false:true); if(is_wp_error($result)) { if(isset($recommended[$slug])) { continue; } return $result; } }
+		if(isset($recommended[$slug])) { update_option('eola_hills_recommended_'.$slug,time(),false); }
 	}
 	return true;
 }

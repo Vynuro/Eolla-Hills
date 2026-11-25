@@ -1,5 +1,21 @@
 # Fresh-install verification only; separate named volumes via project eola-fresh.
+# No source bind mounts: plugin installs/deletes here must never touch the repository.
 services:
   wordpress:
     ports: !override
       - '127.0.0.1:8087:80'
+    volumes: !override
+      - wordpress:/var/www/html
+      - care_private:/var/eola-care
+      - ./tools:/work/tools:ro
+      - ./artifacts:/work/artifacts:ro
+  cli:
+    volumes: !override
+      - wordpress:/var/www/html
+      - care_private:/var/eola-care
+      - ./tools:/work/tools:ro
+      - ./artifacts:/work/artifacts:ro
+  scheduler:
+    volumes: !override
+      - wordpress:/var/www/html
+      - care_private:/var/eola-care

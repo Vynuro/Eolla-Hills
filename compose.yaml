@@ -26,10 +26,14 @@ services:
       WORDPRESS_DB_USER: eolahills
       WORDPRESS_DB_PASSWORD: ${LOCAL_DB_PASSWORD:-eola-local-only}
       WORDPRESS_DEBUG: '1'
+      WORDPRESS_CONFIG_EXTRA: "define('EOLA_CARE_BACKUP_DIR', '/var/eola-care');"
     volumes: &wp-volumes
       - wordpress:/var/www/html
       - ./wordpress/wp-content/themes/eola-hills:/var/www/html/wp-content/themes/eola-hills
       - ./wordpress/wp-content/plugins/eola-hills-updates:/var/www/html/wp-content/plugins/eola-hills-updates
+      - ./wordpress/wp-content/plugins/eola-hills-analytics:/var/www/html/wp-content/plugins/eola-hills-analytics
+      - ./wordpress/wp-content/plugins/eola-hills-care:/var/www/html/wp-content/plugins/eola-hills-care
+      - care_private:/var/eola-care
       - ./tools:/work/tools:ro
       - ./artifacts:/work/artifacts:ro
   cli:
@@ -40,6 +44,17 @@ services:
       - wordpress
     environment: *wp-env
     volumes: *wp-volumes
+  scheduler:
+    image: wordpress:cli-php8.3
+    user: '33:33'
+    entrypoint: /bin/sh
+    command: ["-c", "while true; do php /var/www/html/wp-cron.php; sleep 60; done"]
+    depends_on:
+      - wordpress
+    environment: *wp-env
+    volumes: *wp-volumes
+    restart: unless-stopped
 volumes:
   database:
   wordpress:
+  care_private:

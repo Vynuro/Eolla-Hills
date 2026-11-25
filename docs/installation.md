@@ -1,5 +1,11 @@
 # Install and sync
 
+## Unpublished local extension
+
+Management (Eola Care, Eola Analytics, Limit Login Attempts Reloaded) installs through Sync; see `management.md`. Sites whose updater is older than 2.2 upload `eola-hills-updates-2.3.0.zip` once; newer updaters update themselves.
+
+`Eola Analytics` and `Eola Care` are independent plugins with their own left-panel entries. The 2.1 updater installs/updates their manifest packages, starts newly installed companions active, keeps an owner-deactivated plugin inactive and preserves saved data. Newly installed companion plugins remain inactive until the owner activates them. There is still only one custom Git updater. See `analytics.md` and `care.md` for configuration, privacy, storage and recovery limits.
+
 Requires WordPress 6.8+, PHP 8.0+, PHP Zip, writable theme/plugin/uploads folders and outbound HTTPS to GitHub/WordPress.org. Elementor Free is the editing dependency; no Elementor Pro is needed.
 
 ## Existing website using the old two-plugin setup

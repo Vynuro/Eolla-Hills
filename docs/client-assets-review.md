@@ -1,5 +1,13 @@
 # Client delivery review — October 13, 2026
 
+## Recheck — October 14, 2026
+
+Rechecked the complete folder, all three ZIP manifests, PDF page counts/content and the four floor-plan images in the additional MouveMedia delivery. `9055-SE-Eola-Hills-Rd (2).zip` contains 87 JPEGs, four floor-plan PNGs and two text files (93 files, 450,230,779 bytes). It is a higher-resolution delivery of the same named photo/plan set as `9055-SE-Eola-Hills-Rd[3600].zip` (124,606,646 bytes). For example, the preferred exterior photo 03 is 6047 × 4021 instead of 3600 × 2394; the four plans are 4000 × 3000 instead of 3600 × 2700. Use the larger originals for subsequent print production; their presence does not establish that requested plan corrections have been made.
+
+The four larger plans were visually inspected: they are clean drawings without the client's blue-ink annotations and still print 3,764 sq ft. No three-page blue-ink scan, separately identified MLS revision file, property booklet PDF or video was found in the folder or archives. The property amenities PDF has two pages; the remaining PDFs are branding/logo artwork and historical market reports. The RMLS description DOCX is listing copy, not an annotated floor-plan file.
+
+A prior 12-page booklet PDF is **not required to create a new booklet** from the supplied property copy, photos and branding. Request it only if the task is to revise an existing booklet or preserve its layout/additional content. Accurate patio, door and label revisions still need the annotated scan or equally specific confirmed instructions. Final print export also needs printer size/bleed requirements.
+
 The complete `From client` delivery was inventoried, including both ZIP archives. The property ZIP's 93 files and the branding ZIP's 71 non-system files match their extracted copies byte-for-byte. Original deliveries remain local and ignored by Git. Only selected website assets are included in the plugin.
 
 ## Reviewed material

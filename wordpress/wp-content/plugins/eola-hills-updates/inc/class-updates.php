@@ -66,6 +66,17 @@ final class Eola_Hills_Updates {
             $updater = $manifest['updater'];
             if ( ! is_array( $updater ) || ! is_string( $updater['version'] ?? null ) || ! is_string( $updater['sha256'] ?? null ) || ! is_string( $updater['package_asset'] ?? null ) || ! preg_match( '/^\d+\.\d+\.\d+$/', $updater['version'] ) || ! preg_match( '/^[a-f0-9]{64}$/', $updater['sha256'] ) || 'eola-hills-updates-' . $updater['version'] . '.zip' !== $updater['package_asset'] ) { return new WP_Error( 'manifest', 'Unexpected updater package.' ); }
         }
+        if ( isset( $manifest['plugins'] ) ) {
+            if ( ! is_array( $manifest['plugins'] ) || count( $manifest['plugins'] ) > 2 ) { return new WP_Error( 'manifest', 'Invalid companion plugin list.' ); }
+            $seen = array();
+            foreach ( $manifest['plugins'] as $plugin ) {
+                if ( ! is_array( $plugin ) ) { return new WP_Error( 'manifest', 'Invalid companion plugin metadata.' ); }
+                foreach ( array( 'slug', 'version', 'sha256', 'package_asset' ) as $field ) { if ( ! isset( $plugin[$field] ) || ! is_string( $plugin[$field] ) ) { return new WP_Error( 'manifest', 'Invalid companion plugin metadata.' ); } }
+                $slug = $plugin['slug'] ?? '';
+                if ( ! in_array( $slug, array( 'eola-hills-analytics', 'eola-hills-care' ), true ) || isset( $seen[$slug] ) || ! preg_match( '/^\d+\.\d+\.\d+$/', $plugin['version'] ?? '' ) || ! preg_match( '/^[a-f0-9]{64}$/', $plugin['sha256'] ?? '' ) || $slug . '-' . $plugin['version'] . '.zip' !== ( $plugin['package_asset'] ?? '' ) ) { return new WP_Error( 'manifest', 'Unexpected companion plugin package.' ); }
+                $seen[$slug] = true;
+            }
+        }
         return $manifest;
     }
     public function release( $force = false ) {
@@ -84,6 +95,10 @@ final class Eola_Hills_Updates {
         if ( isset( $manifest['updater'] ) ) {
             $manifest['updater']['asset_url'] = $this->asset( $release, $manifest['updater']['package_asset'] );
             if ( ! $manifest['updater']['asset_url'] ) { return new WP_Error( 'package_missing', 'The updater package is missing.' ); }
+        }
+        foreach ( $manifest['plugins'] ?? array() as $index => $plugin ) {
+            $manifest['plugins'][$index]['asset_url'] = $this->asset( $release, $plugin['package_asset'] );
+            if ( ! $manifest['plugins'][$index]['asset_url'] ) { return new WP_Error( 'package_missing', 'A companion plugin package is missing.' ); }
         }
         set_transient( self::CACHE, $manifest, 15 * MINUTE_IN_SECONDS );
         return $manifest;
@@ -221,6 +236,52 @@ final class Eola_Hills_Updates {
         set_transient( 'eola_hills_notice_' . get_current_user_id(), array( 'error' => is_wp_error( $result ), 'message' => is_wp_error( $result ) ? $result->get_error_message() : $message ), 60 );
         wp_safe_redirect( admin_url( 'tools.php?page=eola-hills-updates' ) ); exit;
     }
+    public function validate_plugin_zip( $path, $plugin ) {
+        if ( ! class_exists( 'ZipArchive' ) ) { return new WP_Error( 'zip', 'The PHP Zip extension is required.' ); }
+        $slug = $plugin['slug'];
+        if ( ! hash_equals( $plugin['sha256'], hash_file( 'sha256', $path ) ) ) { return new WP_Error( 'checksum', 'Companion plugin checksum failed.' ); }
+        $zip = new ZipArchive(); if ( true !== $zip->open( $path ) ) { return new WP_Error( 'zip', 'Cannot open companion plugin.' ); }
+        $seen = array(); $total = 0;
+        try {
+            for ( $i = 0; $i < $zip->numFiles; $i++ ) {
+                $entry = $zip->statIndex( $i ); $name = $entry['name']; $total += $entry['size']; $zip->getExternalAttributesIndex( $i, $opsys, $attributes );
+                if ( 0 !== strpos( $name, $slug . '/' ) || preg_match( '~(?:^|/)\.\.(?:/|$)|[\\\\:\x00]~', $name ) || isset( $seen[$name] ) || 0120000 === ( ( $attributes >> 16 ) & 0170000 ) || $total > 32 * MB_IN_BYTES || $zip->numFiles > 500 ) { return new WP_Error( 'zip_path', 'Unsafe companion plugin archive.' ); }
+                $seen[$name] = true;
+            }
+            $header = $zip->getFromName( $slug . '/' . $slug . '.php' );
+            if ( ! $header || ! preg_match( '/^\s*\*?\s*Version:\s*' . preg_quote( $plugin['version'], '/' ) . '\s*$/m', $header ) ) { return new WP_Error( 'zip_plugin', 'Companion plugin version mismatch.' ); }
+        } finally { $zip->close(); }
+        return true;
+    }
+    private function install_companions( $manifest ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+        foreach ( $manifest['plugins'] ?? array() as $plugin ) {
+            $slug = $plugin['slug']; $file = $slug . '/' . $slug . '.php'; $path = WP_PLUGIN_DIR . '/' . $file;
+            $current = is_file( $path ) ? get_plugin_data( $path, false, false )['Version'] : '0.0.0';
+            if ( version_compare( $plugin['version'], $current, '<=' ) ) { continue; }
+            if ( ! current_user_can( 'install_plugins' ) || ! current_user_can( 'update_plugins' ) ) { return new WP_Error( 'permission', 'Companion plugin update access is required.' ); }
+            $bytes = $this->request( $plugin['asset_url'] ?? '', true ); if ( is_wp_error( $bytes ) ) { return $bytes; }
+            $temp = wp_tempnam( 'eola-companion' );
+            try {
+                if ( ! $temp || false === file_put_contents( $temp, $bytes ) ) { return new WP_Error( 'temp', 'Cannot save companion plugin package.' ); }
+                $valid = $this->validate_plugin_zip( $temp, $plugin ); if ( is_wp_error( $valid ) ) { return $valid; }
+                $backup = $this->backup_directory( WP_PLUGIN_DIR . '/' . $slug, 'eola_hills_' . ( 'eola-hills-analytics' === $slug ? 'analytics' : 'care' ) . '_backup', $current );
+                if ( is_wp_error( $backup ) ) { return $backup; }
+                $fresh = '0.0.0' === $current; $active = is_plugin_active( $file ); $network = is_plugin_active_for_network( $file );
+                $upgrader = new Plugin_Upgrader( new Automatic_Upgrader_Skin() );
+                $result = $upgrader->install( $temp, array( 'overwrite_package' => true ) );
+                if ( is_wp_error( $result ) || ! $result ) { return is_wp_error( $result ) ? $result : new WP_Error( 'plugin_install', 'Companion plugin installation failed; its previous code backup is retained.' ); }
+                wp_clean_plugins_cache( true );
+                if ( get_plugin_data( $path, false, false )['Version'] !== $plugin['version'] ) { return new WP_Error( 'plugin_version', 'Installed companion version mismatch.' ); }
+                if ( $active && ! is_plugin_active( $file ) ) { $result = activate_plugin( $file, '', $network, true ); if ( is_wp_error( $result ) ) { return $result; } }
+                if ( $fresh ) { $result = activate_plugin( $file, '', false, false ); if ( is_wp_error( $result ) ) { return $result; } }
+                elseif ( ! $active && is_plugin_active( $file ) ) { deactivate_plugins( $file, true ); }
+                // First installs start active (management service); updates preserve the owner's on/off choice.
+            } finally { if ( $temp && is_file( $temp ) ) { @unlink( $temp ); } }
+        }
+        return true;
+    }
     /** Git is authoritative for theme files; every replacement is backed up first. */
     public function install( $manifest ) {
         if ( ! current_user_can( 'install_themes' ) || ! current_user_can( 'switch_themes' ) || ! current_user_can( 'activate_plugins' ) || ! current_user_can( 'manage_options' ) ) { return new WP_Error( 'permission', 'Administrator installation access is required.' ); }
@@ -251,6 +312,7 @@ final class Eola_Hills_Updates {
                 if ( $manifest['version'] !== $this->version() ) { return new WP_Error( 'version', 'Installed theme version does not match the release.' ); }
                 $this->record_theme_baseline( $manifest['version'] );
             }
+            $companions = $this->install_companions( $manifest ); if ( is_wp_error( $companions ) ) { return $companions; }
             // The old plugin's PHP remains loaded for this request; sync on the redirect.
             if ( is_plugin_active( self::LEGACY_PLUGIN ) ) { deactivate_plugins( self::LEGACY_PLUGIN ); }
             if ( self::THEME_SLUG !== get_stylesheet() ) {
@@ -290,8 +352,8 @@ final class Eola_Hills_Updates {
         } elseif ( 'save' === $action ) {
             if ( defined( 'EOLA_HILLS_GITHUB_TOKEN' ) ) { $result = new WP_Error( 'constant', 'The token is managed in wp-config.php.' ); }
             else { $token = trim( sanitize_text_field( wp_unslash( $_POST['token'] ?? '' ) ) ); if ( $token ) { $result = $this->store_token( $token ); } }
-        } elseif ( in_array( $action, array( 'backup', 'legacy_backup', 'updater_backup' ), true ) ) {
-            $backup = get_option( array( 'backup' => 'eola_hills_theme_backup', 'legacy_backup' => 'eola_hills_legacy_backup', 'updater_backup' => 'eola_hills_updater_backup' )[$action] );
+        } elseif ( in_array( $action, array( 'backup', 'legacy_backup', 'updater_backup', 'analytics_backup', 'care_backup' ), true ) ) {
+            $backup = get_option( array( 'backup' => 'eola_hills_theme_backup', 'legacy_backup' => 'eola_hills_legacy_backup', 'updater_backup' => 'eola_hills_updater_backup', 'analytics_backup' => 'eola_hills_analytics_backup', 'care_backup' => 'eola_hills_care_backup' )[$action] );
             $bytes = $this->backup_bytes( $backup );
             if ( ! $bytes || ! hash_equals( $backup['sha256'], hash( 'sha256', $bytes ) ) ) { wp_die( 'No valid code backup is available.' ); }
             nocache_headers(); header( 'Content-Type: application/zip' ); header( 'Content-Disposition: attachment; filename="eola-hills-' . $action . '.zip"' ); echo $bytes; exit;
@@ -321,6 +383,9 @@ final class Eola_Hills_Updates {
         if ( get_option( 'eola_hills_theme_backup' ) ) { $this->form( 'backup', 'Download previous theme backup' ); }
         if ( get_option( 'eola_hills_legacy_backup' ) ) { $this->form( 'legacy_backup', 'Download retired property plugin backup' ); }
         if ( get_option( 'eola_hills_updater_backup' ) ) { $this->form( 'updater_backup', 'Download previous updater backup' ); }
+        if ( get_option( 'eola_hills_analytics_backup' ) ) { $this->form( 'analytics_backup', 'Download previous analytics code' ); }
+        if ( get_option( 'eola_hills_care_backup' ) ) { $this->form( 'care_backup', 'Download previous care code' ); }
+        echo '<p>Companion analytics and care plugins update through the same sync. Inactive plugins stay inactive; newly installed companions require activation in Plugins.</p>';
         echo '<p>Restore page content from the Eola Hills menu. Keep separate complete WordPress database/media backups.</p><h2>Private repository access</h2><p>This public repository needs no token. Existing saved authentication is retained during migration.</p>';
         echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">'; wp_nonce_field( 'eola_hills_updates' );
         echo '<input type="hidden" name="action" value="eola_hills_updates"><input type="hidden" name="operation" value="save"><label>GitHub token <input type="password" name="token" autocomplete="new-password" value="" class="regular-text"></label>';

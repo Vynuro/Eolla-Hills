@@ -1,5 +1,7 @@
 # Eola Hills project brief
 
+> Historical intake below; see `stage-report.md` for current status. The website is now a theme plus one Git updater with native Elementor editing. The user subsequently requested two separate custom management plugins (Analytics and Care), published with the November 2026 management order (see management.md). The full 12-page booklet is also our scope. New blue-ink floor-plan revisions and the MLS source are pending. Do not treat the old missing-input checklist or original implementation status below as current.
+
 Prepared 2026-10-13 from the supplied Word document and client message. Requirements below are an intake record, not a confirmed hosting audit or final maintenance agreement.
 
 ## Implementation direction
